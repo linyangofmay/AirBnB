@@ -1,2 +1,5 @@
 node.module
-
+.env
+build
+.DS_Store
+*.db
