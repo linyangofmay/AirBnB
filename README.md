@@ -2,7 +2,8 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+``
+
 
 
 ## API Documentation
@@ -52,8 +53,8 @@ Returns the information about the current user that is logged in.
 
 * Require Authentication: true
 * Request
-  * Method: get
-  * URL: ? /users/
+  * Method: GET
+  * URL: '/user'
   * Body: none
 
 * Successful Response
@@ -78,8 +79,8 @@ information.
 
 * Require Authentication: false
 * Request
-  * Method: ?
-  * URL: ?
+  * Method: POST
+  * URL: '/user/'
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -144,8 +145,8 @@ user's information.
 
 * Require Authentication: false
 * Request
-  * Method: get
-  * URL: ?
+  * Method: POST
+  * URL: '/
   * Headers:
     * Content-Type: application/json
   * Body:
