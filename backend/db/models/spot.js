@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Spot.belongsToMany(models.User, {through: models.Booking});
+      Spot.belongsTo(models.User, {foreignKey:'ownerId'})
     }
   }
   Spot.init({
@@ -19,17 +21,51 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     address: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull:false
     },
     city: {
-      type: DataTypes.STRING},
-    state: DataTypes.STRING,
-    country: DataTypes.STRING,
-    lat: DataTypes.STRING,
-    lng: DataTypes.STRING,
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price: DataTypes.INTEGER
+      type: DataTypes.STRING,
+      allowNull:false
+
+    },
+    state: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    country:{
+      type: DataTypes.STRING,
+      allowNull:false
+    },
+    lat: {
+      type:DataTypes.DECIMAL,
+      allowNull:false,
+      validate: {
+        isDecimal: true
+      }
+    },
+    lng: {
+      type: DataTypes.DECIMAL,
+      allowNull:false,
+      validate: {
+        isDecimal: true
+      }
+    },
+    name: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      valiate:{
+        len:[2, 50]
+      }
+    },
+    description: {
+      type:DataTypes.STRING,
+      allowNull:false,
+    },
+    price: {
+      type:DataTypes.DECIMAL,
+      allowNull:false,
+    }
   }, {
     sequelize,
     modelName: 'Spot',
