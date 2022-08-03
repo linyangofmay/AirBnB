@@ -27,8 +27,7 @@ module.exports = {
         //allowNull: true,
 
         references:{
-          model:'Reviews',
-          key:'id',
+          model:'Reviews'
         },
       },
       userId: {
@@ -37,7 +36,6 @@ module.exports = {
 
         references:{
           model:'Users',
-          key:'id',
         },
       },
       createdAt: {

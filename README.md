@@ -4,7 +4,6 @@
 
 ![airbnb_dbdiagram](https://user-images.githubusercontent.com/59943346/182228670-4574335a-6063-4888-9125-fd24ef82b05e.png)
 
-
 ## API Documentation
 
 ## USER AUTHENTICATION/AUTHORIZATION
@@ -462,7 +461,8 @@ Create and return a new image for a spot specified by id.
 
     ```json
     {
-      "url": "image url"
+      "url": "image url",
+      "previewImage": false/true
     }
     ```
 
@@ -828,7 +828,8 @@ Create and return a new image for a review specified by id.
 
     ```json
     {
-      "url": "image url"
+      "url": "image url",
+      "previewImage": false/true
     }
     ```
 

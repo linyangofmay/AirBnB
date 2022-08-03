@@ -82,11 +82,11 @@ router.get('/current', requireAuth, async(req,res)=>{
   include: [
       {
           model: Review,
-          attributes: []
+          attribute: []
       },
       {
           model: Image,
-          attributes: []
+          attribute: []
       }
   ],
   group: ['Spot.id']
@@ -97,7 +97,7 @@ router.get('/current', requireAuth, async(req,res)=>{
 })
 
 router.post('/:spotId/images', requireAuth, async(req,res)=>{
-  
+
 
   const spot= await Spot.findByPk(
     req.params.spotId
@@ -128,7 +128,18 @@ router.post('/:spotId/images', requireAuth, async(req,res)=>{
 
 });
 
+//Get details of a spot by id
 router.get('/:spotId', async(req, res)=>{
+  const {spotId} = req.params;
+  const spot = await Spot.findByPk(spotId);
+  if (!spot){
+    // res.status(404);
+    // return res.json({message: "Couldn't find a Spot with the specified id"})
+    return res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  };
   const spotitem = await Spot.findByPk(req.params.spotId, {
     include:[{model: Image,
       attributes:[
@@ -150,11 +161,76 @@ router.get('/:spotId', async(req, res)=>{
   });
   res.json(spotitem);
 
-  if (!spotitem){
-    res.status(404);
-    return res.json({message: "Couldn't find a Spot with the specified id"})
-  };
+
+});
+
+//Edit a spot
+router.put('/:spotId',requireAuth,async(req, res)=>{
+  const {address, city, state, country, lat, lng, name, description, price} =req.body;
+  const {spotId} = req.params;
+  const spot = await Spot.findByPk(spotId);
+  if(!spot){
+    return res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+  spot.address = address;
+  spot.city = city;
+  spot.state = state;
+  spot.country = country;
+  spot.lat = lat;
+  spot.lng = lng;
+  spot.name= name;
+  spot.description = description;
+  spot.price= price;
+  await spot.save();
+  res.json(spot);
+});
+
+
+//create a review for a spot  ( how to check the exisitng review from a same user)
+router.post('/:spotId/reviews', requireAuth, async(req, res)=>{
+  const {spotId} = req.params;
+  const spot = await Spot.findByPk(spotId);
+  if (!spot){
+
+    return res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+
+
+  const {review, stars} = req.body;
+  let userid = spot.ownerId;
+  if (Review.userId !== userid){
+  const newreview = await Review.create({
+    review: review,
+    spotId: spot.id,
+    userId: spot.ownerId,
+    stars: stars,
+  });
+  res.json(newreview);
+} else {
+    return res.json({
+      "message": "User already has a review for this spot",
+      "statusCode": 403
+    })
+  }
 
 })
+
+//create an image for a review
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

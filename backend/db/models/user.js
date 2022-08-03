@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         { as:'Owner' ,foreignKey:'ownerId', onDelete:'CASCADE', hooks:true}
         );
       User.hasMany(models.Image, {foreignKey:'userId'});
-      User.hasMany(models.Review, {foreignKey:'reviewId'});
+      User.hasMany(models.Review, {foreignKey:'userId'});
     }
   }
   User.init({
