@@ -11,14 +11,35 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Image.belongsTo(models.User, {foreignKey:'userId'}),
+      Image.belongsTo(models.Review, {foreignKey:'reviewId'}),
+      Image.belongsTo(models.Spot, {foreignKey:'spotId'})
     }
   }
   Image.init({
-    url: DataTypes.STRING,
-    previewImage: DataTypes.BOOLEAN,
-    spotId: DataTypes.INTEGER,
-    reviewId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    url: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        isUrl: true
+      }
+    },
+    previewImage: {
+      type:DataTypes.BOOLEAN,
+      //allowNull:false
+    },
+    spotId: {
+      type:DataTypes.INTEGER,
+      //allowNull:true
+    },
+    reviewId: {
+      type:DataTypes.INTEGER,
+      //allowNull: true
+    },
+    userId: {
+      type:DataTypes.INTEGER,
+      //allowNull: true
+    }
   }, {
     sequelize,
     modelName: 'Image',
