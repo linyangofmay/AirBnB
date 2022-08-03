@@ -5,6 +5,7 @@ const router = express.Router();
 
 const { check , sanitizeQuery} = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const { get } = require('lodash');
 
 
 //create an image for a review
@@ -88,6 +89,23 @@ router.get('/current', requireAuth,async(req, res)=>{
 })
 
 
+//edit a review
+router.put('/:reviewId', requireAuth, async(req, res)=>{
+  const {review, stars} = req.body;
+  const{reviewId} = req.params;
+  const reviewitem = await Review.findByPk(reviewId);
+   if (!reviewitem){
+    return res.json({
+      "message": "Review couldn't be found",
+      "statusCode": 404
+    })
+   }
+   reviewitem.review = review;
+   reviewitem.starts= stars;
+   await reviewitem.save();
+   res.json(reviewitem);
+
+});
 
 
 
