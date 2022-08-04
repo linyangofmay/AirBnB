@@ -1,5 +1,5 @@
 'use strict';
-const { Spot} = require('../models');
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
