@@ -117,6 +117,24 @@ router.put('/:reviewId', requireAuth, async(req, res)=>{
 });
 
 
+router.delete('/:reviewId', requireAuth, async(req, res)=>{
+  const{reviewId} = req.params
+  const reviewitem = await Image.findByPk(reviewId);
+  if(!reviewitem){
+   res.json({
+    "message": "Review couldn't be found",
+    "statusCode": 404
+   });
+  }
+  await reviewitem.destroy();
+  res.json({
+    "message": "Successfully deleted",
+      "statusCode": 200
+  });
+
+})
+
+
 
 
 

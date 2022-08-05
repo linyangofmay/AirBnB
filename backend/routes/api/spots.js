@@ -96,7 +96,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 
 })
 
-//get spot of a current user 
+//get spot of a current user
 router.get('/current', requireAuth, async (req, res) => {
 
   const currentuserspots = await Spot.findAll({
@@ -434,7 +434,24 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
   }
 });
 
-//return spots pagination
+
+//delete a spot
+router.delete('/:spotId', requireAuth, async(req, res)=>{
+  const{spotId} = req.params;
+  const spotitem = await Spot.findByPk(spotId);
+  if(!spotitem){
+   res.json({
+    "message": "Spot couldn't be found",
+    "statusCode": 404
+   });
+  }
+  await spotitem.destroy();
+  res.json({
+    "message": "Successfully deleted",
+      "statusCode": 200
+  });
+
+})
 
 
 

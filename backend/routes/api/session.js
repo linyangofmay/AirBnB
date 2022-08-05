@@ -7,6 +7,8 @@ const router = express.Router();
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
+
+
 router.post(
   '/',
   async (req, res, next) => {
@@ -45,9 +47,9 @@ router.get(
   (req, res) => {
     const { user } = req;
     if (user) {
-      return res.json({
-        user: user.toSafeObject()
-      });
+      return res.json(
+         user.toSafeObject()
+      );
     } else return res.json({});
   }
 );
@@ -90,18 +92,20 @@ router.post(
   }
 );
 
-router.get(
-  '/',
-  restoreUser,
-  (req, res) => {
-    const { user } = req;
-    if (user) {
-      return res.json({
-        user: user.toSafeObject()
-      });
-    } else return res.json({});
-  }
-);
+// router.get(
+//   '/',
+//   restoreUser,
+//   (req, res) => {
+//     const { user } = req;
+//     if (user) {
+//       return res.json({
+//         user: user.toSafeObject()
+//       });
+//     } else return res.json({});
+//   }
+// );
+
+
 
 
 
