@@ -1,6 +1,6 @@
 const express = require('express')
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Spot, User, Image, Review, sequelize, Booking, Image } = require('../../db/models');
+const { Spot, User, Image, Review, sequelize, Booking } = require('../../db/models');
 const router = express.Router();
 
 const { check } = require('express-validator');
@@ -10,8 +10,8 @@ const spot = require('../../db/models/spot');
 
 
 router.delete('/:imageId', requireAuth, async(req, res)=>{
-  const{id} = req.params;
-  const imageitem = await Image.findByPk(id);
+  const{imageId} = req.params.imageId;
+  const imageitem = await Image.findByPk(imageId);
   if(!imageitem){
    res.json({
     "message": "Image couldn't be found",
@@ -25,3 +25,4 @@ router.delete('/:imageId', requireAuth, async(req, res)=>{
   });
 
 })
+module.exports = router;

@@ -16,7 +16,16 @@ router.post('/:reviewId/images', requireAuth, async(req,res)=>{
   const review= await Review.findByPk(
     req.params.reviewId
   );
-  if(review){
+  if (!review){
+    res.json({ "message": "Review couldn't be found",
+    "statusCode": 404})
+  }
+  const images = await Image.findAll({
+    where :{
+      reviewId: req.params.reviewId
+    }
+  })
+  if(images.length<10){
     //check for image account <10 add new image  >=10 return error
     const newimage = await Image.create({
      reviewId: req.params.reviewId,
@@ -34,8 +43,8 @@ router.post('/:reviewId/images', requireAuth, async(req,res)=>{
   } else {
     res.json(
       {
-        "message": "Review couldn't be found",
-        "statusCode": 404
+        "message": "Maximum number of images for this resource was reached",
+      "statusCode": 403
       }
     )
   };

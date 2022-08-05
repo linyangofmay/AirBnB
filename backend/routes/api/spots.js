@@ -96,6 +96,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 
 })
 
+//get spot of a current user 
 router.get('/current', requireAuth, async (req, res) => {
 
   const currentuserspots = await Spot.findAll({
@@ -231,11 +232,16 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
       "statusCode": 404
     })
   }
+  const reviewspots= await Review.findAll({
+    where :{
+      spotId: req.params.spotId,
 
+    }
+  })
 
   const { review, stars } = req.body;
   let userid = spot.ownerId;
-  if (Review.userId !== userid) {
+  if (reviewspots.length===0) {
     const newreview = await Review.create({
       review: review,
       spotId: spot.id,
