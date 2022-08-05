@@ -1,33 +1,60 @@
 const express = require('express')
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Spot, User, Image, Review, sequelize } = require('../../db/models');
+const { Spot, User, Image, Review, sequelize, Booking } = require('../../db/models');
 const router = express.Router();
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const booking = require('../../db/models/booking');
+const spot = require('../../db/models/spot');
+
+
+
 
 router.get('/', async(req, res)=>{
-  const allspots = await Spot.findAll({
-    attributes: {
-      include: [
-          [sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating'],
-          [sequelize.literal('Images.url'), 'previewImage']
-      ]
-  },
-  include: [
-      {
-          model: Review,
-          attributes: []
-      },
-      {
-          model: Image,
-          attributes: []
-      }
-  ],
-  group: ['Spot.id']
-});
-  return res.json(allspots)
-});
+   let {size , page} =req.query;
+   const pagination = {};
+   let result = [];
+   if (isNaN(page) || page <0) {page = 1};
+   if (isNaN(size) || size <=0) {size = 20};
+   page = parseInt(page);
+   size= parseInt(size);
+   pagination.limit = size;
+   pagination.offset = size * (page-1);
+
+   const allspots = await Spot.findAll({...pagination});
+   for(i = 0 ; i < allspots.length ; i++){
+    let item = allspots[i];
+
+    const averating = await Review.findAll({
+      where:{spotId: item.id},
+      attributes:[[sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']],
+      raw: true,
+
+    });
+    
+
+    const imageurl = await Image.findOne({where: {spotId: item.id}, attributes:['url']})
+
+    let object ={...item.dataValues,
+      avgRating: averating[0].avgRating,
+      previewImage: imageurl.url};
+    result.push(object);
+  }
+
+
+  res.json({Spots:result, page:page, size:size });
+
+
+
+  });
+
+
+
+
+
+
+
 
 router.post('/', requireAuth, async (req, res, next) => {
   const { address, city, state, country, lat, lng, name, description, price } = req.body;
@@ -89,7 +116,7 @@ router.get('/current', requireAuth, async(req,res)=>{
           attribute: []
       }
   ],
-  group: ['Spot.id']
+  group: ['Spot.id']//images.id
 
   });
   res.status(200);
@@ -261,8 +288,123 @@ router.get('/:spotId/reviews', async(req, res)=>{
 });
 
 
+//create a booking from a spot
+router.post('/:spotId/bookings', requireAuth, async(req,res)=>{
+  const spot = await Spot.findByPk(req.params.spotId,{
+    include:[{model : Booking}]
+  });
+
+  const{user} = req;
+  const{startDate, endDate} = req.body;
+  if (!spot){
+    res.json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+  if (spot.Bookings.length===0){
+   if (spot ){
+    const newbooking = await Booking.create({
+      spotId:req.params.spotId,
+      userId: user.id,
+      startDate,
+      endDate,
+    });
 
 
+    res.json(newbooking);
+  }
+} else {
+  res.json({
+    "message": "Sorry, this spot is already booked for the specified dates",
+     "statusCode": 403
+  })
+}
+})
+
+//Get all bookings for a spot by Id
+// router.get('/:spotId/bookings', requireAuth, async(req, res)=>{
+
+//   const {spotId} = req.params;
+//   const spotid = await Spot.findByPk(spotId, {
+//     include :[{model: User}]
+//   });
+
+//   if(!spotid){
+//     return res.json({"message": "Spot couldn't be found",
+//         "statusCode": 404})
+//   }
+//     const allbookings = await Booking.findAll({
+//       where :{
+//         spotId: req.params.spotId
+//       },
+//       include :[
+//         {
+//           model: User,
+//           attributes:[
+//             'id',
+//             'firstName',
+//             'lastName'
+//           ]
+//         }
+//       ]
+//     });
+//     const allbookingsnotowner = await Booking.findAll({
+//       where:{spotId: req.params.spotId}
+//     });
+
+//     if(spotid.user.id !== spotid.ownerId){
+//       res.status(200);
+//       res.json(allbookingsnotowner);
+//     } else {
+//     res.status(200);
+//     res.json(allbookings);}
+// })
+router.get('/:spotId/bookings', requireAuth, async (req, res) => {
+  const { spotId } = req.params;
+  const { user } = req;
+  const spotBooked = await Spot.findByPk(spotId);
+
+  if (!spotBooked) {
+      res.json({
+          "message": "Spot couldn't be found",
+          "statusCode": 404
+      });
+  }
+
+  //console.log('the owner id ---',spotBooked.ownerId);
+  //console.log('the user id ---', user.id)
+  // response if IT IS owner
+  if (spotBooked.ownerId === user.id) {
+      const ownerBookings = await Booking.findAll({
+          where: {
+              spotId: spotId
+          },
+          include: [
+              {
+                  model: User,
+                  attributes: [
+                      'id',
+                      'firstName',
+                      'lastName'
+                  ]
+              }
+          ]
+      });
+      return res.json(ownerBookings)
+  } else {
+      // response if NOT owner
+      const userBooking = await Booking.findAll({
+          where: {
+              spotId: spotId
+          },
+          attributes: ['spotId', 'startDate', 'endDate']
+      });
+      return res.json(userBooking)
+  }
+});
+
+//return spots pagination
 
 
 
