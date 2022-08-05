@@ -191,6 +191,20 @@ router.get('/:spotId', async (req, res) => {
     }]
 
   });
+  const reviews = await Review.findAll({where: {spotId: spotId } });
+  const reviewnum = reviews.length;
+
+  const reviewavgrating = await Review.findAll({
+    where: {
+        spotId: spotId
+    },
+    attributes: [
+        [sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']
+    ]
+})
+ const avgrating = reviewavgrating[0].dataValues.avgRating;
+ spotitem.dataValues.reviewCount = reviewnum;
+ spotitem.dataValues.avgRating = avgrating;
   res.json(spotitem);
 
 
@@ -207,6 +221,8 @@ router.put('/:spotId', requireAuth, async (req, res) => {
       "statusCode": 404
     })
   }
+ const {user} =req;
+ if (spot.ownerId === user.id){
   spot.address = address;
   spot.city = city;
   spot.state = state;
@@ -218,6 +234,13 @@ router.put('/:spotId', requireAuth, async (req, res) => {
   spot.price = price;
   await spot.save();
   res.json(spot);
+ } else {
+  res.json({
+    "message": " Spot must belong to the current user"
+  })
+ }
+
+
 });
 
 

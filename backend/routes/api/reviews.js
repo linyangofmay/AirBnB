@@ -12,7 +12,7 @@ const { get } = require('lodash');
 
 router.post('/:reviewId/images', requireAuth, async(req,res)=>{
 
-
+  const {user} = req;
   const review= await Review.findByPk(
     req.params.reviewId
   );
@@ -20,6 +20,7 @@ router.post('/:reviewId/images', requireAuth, async(req,res)=>{
     res.json({ "message": "Review couldn't be found",
     "statusCode": 404})
   }
+  if(review.userId === user.id){
   const images = await Image.findAll({
     where :{
       reviewId: req.params.reviewId
@@ -49,6 +50,11 @@ router.post('/:reviewId/images', requireAuth, async(req,res)=>{
     )
   };
 
+} else {
+  res.json({
+    message: "Review must belong to the current user"
+})
+}
 });
 
 
