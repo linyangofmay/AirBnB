@@ -34,8 +34,8 @@ router.get('/', async (req, res) => {
     });
     console.log('item.id-------------', item.id);
 
-    const imageurl = await Image.findAll({ where: { spotId: item.id }, attributes: ['url'] })
-   console.log('imageurl---------', imageurl)
+    const imageurl = await Image.findOne({ where: { spotId: item.id }, attributes: ['url'] })
+   console.log('imageurl.dataValues.url---------', imageurl.dataValues.url)
     let object = {
       ...item.dataValues,
       avgRating: averating[0].avgRating,
