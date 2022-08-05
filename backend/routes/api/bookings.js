@@ -10,6 +10,7 @@ const {Op} = require("sequelize");
 
 
 router.get('/current', requireAuth, async(req, res)=>{
+
   const currentuserbookings = await Booking.findAll({
     where:{
       userId: req.user.id
@@ -28,6 +29,7 @@ router.get('/current', requireAuth, async(req, res)=>{
 
 //edit a booking
 router.put('/:bookingId', requireAuth, async(req,res)=>{
+  const{user} =req;
   const {startDate, endDate} = req.body;
   const {bookingId} = req.params;
   const booking = await Booking.findByPk(bookingId);
@@ -37,13 +39,46 @@ router.put('/:bookingId', requireAuth, async(req,res)=>{
       "statusCode": 404
     })
   }
-  let today = new Date();
-  console.log('today-bookingdate', today-booking.starDate)
-  if (today >= booking.startDate){
-    throw new Error ({ "message": "Past bookings can't be modified",
+  let today = new Date().toISOString().slice(0, 10);
+console.log('today=', today, 'startDate=', startDate)
+  if (today > endDate || endDate <startDate || startDate < today ){
+    return res.json({
+    "message": "Past bookings can't be modified",
     "statusCode": 403
-  })
+   })
   }
+  let spotId = booking.spotId;
+  const bookingconflict = await Booking.findAll({
+    where: {
+      [Op.and]: [
+        { spotId: spotId },
+        // {
+        //   [Op.or]: [{
+        //     startDate: {
+        //       [Op.between]: [startDate, endDate]
+        //     }
+        //   }, {
+        //     endDate: {
+        //       [Op.between]: [startDate, endDate]
+        //     }
+        //   }]
+        // }
+        {startDate: startDate}
+      ]
+    }
+  })
+  if (bookingconflict.length > 0) {
+    res.json({
+      "message": "Sorry, this spot is already booked for the specified dates",
+      "statusCode": 403,
+      "errors": {
+        "startDate": "Start date conflicts with an existing booking",
+        "endDate": "End date conflicts with an existing booking"
+      }
+    })
+  }
+
+
   booking.startDate = startDate;
   booking.endDate= endDate;
   await booking.save();
@@ -51,6 +86,8 @@ router.put('/:bookingId', requireAuth, async(req,res)=>{
 
 })
 
+
+//delete a booking
 router.delete('/:bookingId', requireAuth, async(req,res)=>{
   const {bookingId} =req.params;
   const bookingitem = await Booking.findByPk(bookingId);
