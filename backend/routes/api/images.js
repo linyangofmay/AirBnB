@@ -23,19 +23,13 @@ router.delete('/:imageId', requireAuth, async(req, res)=>{
   }
 
 
-  if(imageitem.userId === user.id){
+
     await imageitem.destroy()
     res.json({
         "message": "Successfully deleted",
         "statusCode": 200
     })
-} else {
-    res.statusCode = 403
-    res.json({
-        "message": "Image must belong to the current user",
-        "statusCode": 403
-    })
-}
+
 
 })
 module.exports = router;
