@@ -44,7 +44,7 @@ router.put('/:bookingId', requireAuth, async(req,res)=>{
     })
   }
   let today = new Date().toISOString().slice(0, 10);
-console.log('today=', today, 'startDate=', startDate)
+//console.log('today=', today, 'startDate=', startDate)
   if (today > endDate || endDate <startDate || startDate < today ){
     return res.json({
     "message": "Past bookings can't be modified",
@@ -56,18 +56,18 @@ console.log('today=', today, 'startDate=', startDate)
     where: {
       [Op.and]: [
         { spotId: spotId },
-        {
-          [Op.or]: [{
-            startDate: {
-              [Op.between]: [startDate, endDate]
-            }
-          }, {
-            endDate: {
-              [Op.between]: [startDate, endDate]
-            }
-          }]
-        }
-        // {startDate: startDate}
+        // {
+        //   [Op.or]: [{
+        //     startDate: {
+        //       [Op.between]: [startDate, endDate]
+        //     }
+        //   }, {
+        //     endDate: {
+        //       [Op.between]: [startDate, endDate]
+        //     }
+        //   }]
+        // }
+        {startDate: startDate}
       ]
     }
   })
