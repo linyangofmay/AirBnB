@@ -27,11 +27,12 @@ const validateSignup = [
     .withMessage('Password must be 6 characters or more.'),
   handleValidationErrors
 ];
+
 // router.post(
 //   '/',
 //   validateSignup,
 //   async (req, res) => {
-//     const { firstName, lastName, email, password, username } = req.body;
+//     const { firstName, lastName, email, username, password } = req.body;
 //     const user = await User.signup({ firstName, lastName, email, username, password });
 
 //     let token = await setTokenCookie(res, user);
@@ -43,30 +44,84 @@ const validateSignup = [
 //   }
 // );
 
-
+//sign up
 router.post('/', validateSignup, async (req, res) => {
-  const { email, password, username, firstName, lastName } = req.body;
+  const { firstName, lastName, email, username, password } = req.body;
 
-  const sameEmail = await User.findOne({
-      where: { email }
+  const findbyemail = await User.findAll({
+      where: { email: email }
+  })
+  const findbyusername = await User.findAll({
+    where:{username: username}
   })
 
-  if (sameEmail) {
-      res.statusCode = 403
-      res.json({
-          message: "User already exists",
-          statusCode: 403,
-          errors: {
-              email: "User with that email already exists"
-          }
-      })
-  } else {
-      const user = await User.signup({ firstName, lastName, email, username, password });
-      const token = await setTokenCookie(res, user)
-      
-      user.dataValues.token = token
-      return res.json(user)
+  if (findbyemail.length >0){
+    return res.json({
+      "message": "User already exists",
+      "statusCode": 403,
+      "errors": {
+        "email": "User with that email already exists"
+      }
+    })
   }
+
+  if(findbyusername.length >0){
+    return res.json({
+      "message": "User already exists",
+      "statusCode": 403,
+      "errors": {
+        "username": "User with that username already exists"
+      }
+    })
+  }
+  if (!firstName){
+   res.json({
+    "message": "Validation error",
+   "statusCode": 400,
+   "errors": {
+
+    "firstName": "First Name is required",
+
+  }
+   })
+  };
+
+  if(!lastName){
+    res.json({
+      "message": "Validation error",
+      "statusCode": 400,
+      "errors": {
+
+        "lastName": "Last Name is required"
+
+     }
+    })
+  };
+  if(!username){
+    res.json({
+      "message": "Validation error",
+      "statusCode": 400,
+      "errors": {
+        "username": "Username is required",
+
+     }
+    })
+  };
+  const user = await User.signup({
+     firstName: firstName,
+     lastName: lastName,
+     email: email,
+     username: username,
+     password: password,
+  })
+
+  const token= await setTokenCookie(res,user);
+  user.dataValues.token= token;
+  console.log('user--------', user);
+  res.json(user);
+
+
+
 
 });
 

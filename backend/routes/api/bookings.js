@@ -56,18 +56,18 @@ console.log('today=', today, 'startDate=', startDate)
     where: {
       [Op.and]: [
         { spotId: spotId },
-        // {
-        //   [Op.or]: [{
-        //     startDate: {
-        //       [Op.between]: [startDate, endDate]
-        //     }
-        //   }, {
-        //     endDate: {
-        //       [Op.between]: [startDate, endDate]
-        //     }
-        //   }]
-        // }
-        {startDate: startDate}
+        {
+          [Op.or]: [{
+            startDate: {
+              [Op.between]: [startDate, endDate]
+            }
+          }, {
+            endDate: {
+              [Op.between]: [startDate, endDate]
+            }
+          }]
+        }
+        // {startDate: startDate}
       ]
     }
   })

@@ -16,17 +16,17 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING(30),
         allowNull:false,
-        unique:false 
+        unique:false
       },
       username: {
         type: Sequelize.STRING(30),
         allowNull:false,
-        unique:true
+        // unique:true
       },
       email: {
         type: Sequelize.STRING(256),
         allowNull:false,
-        unique: true
+        // unique: true
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
