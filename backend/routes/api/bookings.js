@@ -10,21 +10,25 @@ const {Op} = require("sequelize");
 
 
 router.get('/current', requireAuth, async(req, res)=>{
-
+  const {user} = req;
   const currentuserbookings = await Booking.findAll({
     where:{
-      userId: req.user.id
+      userId: user.id
     },
     include :[{model:Spot,
-      attributes:{exclude :['description', 'createdAt','updatedAt']}
-
+      attributes:{exclude :['description', 'createdAt','updatedAt']},
 
     }
     ]
   });
+
   console.log('currentuserbooking', currentuserbookings);
+  const images = await Image.findAll({
+    attributes:['url']
+  })
+  currentuserbookings[0].Spot.dataValues.previewImage = images[0].dataValues.url
   res.status(200);
-  res.json(currentuserbookings);
+  res.json({Bookings: currentuserbookings});
 })
 
 //edit a booking

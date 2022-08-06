@@ -27,22 +27,48 @@ const validateSignup = [
     .withMessage('Password must be 6 characters or more.'),
   handleValidationErrors
 ];
-router.post(
-  '/',
-  validateSignup,
-  async (req, res) => {
-    const { firstName, lastName, email, password, username } = req.body;
-    const user = await User.signup({ firstName, lastName, email, username, password });
+// router.post(
+//   '/',
+//   validateSignup,
+//   async (req, res) => {
+//     const { firstName, lastName, email, password, username } = req.body;
+//     const user = await User.signup({ firstName, lastName, email, username, password });
 
-    let token = await setTokenCookie(res, user);
-     user.dataValues.token = token;
-    return res.json(
-      user
+//     let token = await setTokenCookie(res, user);
+//      user.dataValues.token = token;
+//     return res.json(
+//       user
 
-  );
+//   );
+//   }
+// );
+
+
+router.post('/', validateSignup, async (req, res) => {
+  const { email, password, username, firstName, lastName } = req.body;
+
+  const sameEmail = await User.findOne({
+      where: { email }
+  })
+
+  if (sameEmail) {
+      res.statusCode = 403
+      res.json({
+          message: "User already exists",
+          statusCode: 403,
+          errors: {
+              email: "User with that email already exists"
+          }
+      })
+  } else {
+      const user = await User.signup({ firstName, lastName, email, username, password });
+      const token = await setTokenCookie(res, user)
+      
+      user.dataValues.token = token
+      return res.json(user)
   }
-);
 
+});
 
 
 

@@ -5,8 +5,7 @@ const router = express.Router();
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const booking = require('../../db/models/booking');
-const spot = require('../../db/models/spot');
+
 
 const { Op } = require("sequelize");
 
@@ -132,7 +131,7 @@ router.get('/current', requireAuth, async (req, res) => {
   const imageurl = await Image.findOne({ where: { spotId:item.dataValues.id }, attributes: ['url'] });
 
 
-  
+
 
   if (!imageurl){
     object = {
@@ -235,9 +234,9 @@ router.get('/:spotId', async (req, res) => {
     ]
 })
  const avgrating = reviewavgrating[0].dataValues.avgRating;
- spotitem.dataValues.reviewCount = reviewnum;
+ spotitem.dataValues.numReviews = reviewnum;
  spotitem.dataValues.avgRating = avgrating;
-  res.json(spotitem);
+  res.json({Reviews: spotitem});
 
 
 });
@@ -448,9 +447,9 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
 router.get('/:spotId/bookings', requireAuth, async (req, res) => {
   const { spotId } = req.params;
   const { user } = req;
-  const spotBooked = await Spot.findByPk(spotId);
+  const spot = await Spot.findByPk(spotId);
 
-  if (!spotBooked) {
+  if (!spot) {
     res.json({
       "message": "Spot couldn't be found",
       "statusCode": 404
@@ -460,7 +459,7 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
   //console.log('the owner id ---',spotBooked.ownerId);
   //console.log('the user id ---', user.id)
   // response if IT IS owner
-  if (spotBooked.ownerId === user.id) {
+  if (spot.ownerId === user.id) {
     const ownerBookings = await Booking.findAll({
       where: {
         spotId: spotId
@@ -476,16 +475,16 @@ router.get('/:spotId/bookings', requireAuth, async (req, res) => {
         }
       ]
     });
-    return res.json(ownerBookings)
+    return res.json({Booking: ownerBookings})
   } else {
-    // response if NOT owner
+
     const userBooking = await Booking.findAll({
       where: {
         spotId: spotId
       },
       attributes: ['spotId', 'startDate', 'endDate']
     });
-    return res.json(userBooking)
+    return res.json({Booking: userBooking})
   }
 });
 

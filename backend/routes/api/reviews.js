@@ -100,7 +100,7 @@ router.get('/current', requireAuth,async(req, res)=>{
     ]
   });
   res.status(200);
-  res.json(currentuserreviews);
+  res.json({Reviews: currentuserreviews});
 })
 
 

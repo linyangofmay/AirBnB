@@ -10,19 +10,32 @@ const spot = require('../../db/models/spot');
 
 
 router.delete('/:imageId', requireAuth, async(req, res)=>{
-  const{imageId} = req.params;
-  const imageitem = await Image.findByPk(imageId);
+
+  const {user} = req;
+
+  const imageitem = await Image.findByPk(req.params.imageId);
+
   if(!imageitem){
-   res.json({
+   return res.json({
     "message": "Image couldn't be found",
     "statusCode": 404
    });
   }
-  await imageitem.destroy();
-  res.json({
-    "message": "Successfully deleted",
-      "statusCode": 200
-  });
+
+
+  if(imageitem.userId === user.id){
+    await imageitem.destroy()
+    res.json({
+        "message": "Successfully deleted",
+        "statusCode": 200
+    })
+} else {
+    res.statusCode = 403
+    res.json({
+        "message": "Image must belong to the current user",
+        "statusCode": 403
+    })
+}
 
 })
 module.exports = router;
