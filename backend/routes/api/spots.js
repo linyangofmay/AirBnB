@@ -32,15 +32,24 @@ router.get('/', async (req, res) => {
       raw: true,
 
     });
-    console.log('item.id-------------', item.id);
+    // console.log('item.id-------------', item.id);
 
     const imageurl = await Image.findOne({ where: { spotId: item.id }, attributes: ['url'] })
-   console.log('imageurl.dataValues.url---------', imageurl.dataValues.url)
-    let object = {
+  //  console.log('imageurl.dataValues.url---------', imageurl.dataValues.url)
+  if (!imageurl){
+    objct = {
+      ...item.dataValues,
+      avgRating: averating[0].avgRating,
+      previewImage: null
+    }
+  } else{
+     object = {
       ...item.dataValues,
       avgRating: averating[0].avgRating,
       previewImage: imageurl.url
-    };
+    }
+  };
+
     result.push(object);
   }
 
@@ -98,33 +107,56 @@ router.post('/', requireAuth, async (req, res, next) => {
 
 //get spot of a current user
 router.get('/current', requireAuth, async (req, res) => {
+  const {user} = req;
+  let result = [];
 
   const currentuserspots = await Spot.findAll({
     where: {
-      ownerId: req.user.id
+      ownerId: user.id ,
     },
-    attributes: {
-      include: [
-        [sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating'],
-        [sequelize.literal('Images.url'), 'previewImage']
-      ]
-    },
-    include: [
-      {
-        model: Review,
-        attribute: []
-      },
-      {
-        model: Image,
-        attribute: []
-      }
-    ],
-    group: ['Spot.id']//images.id
-
   });
-  res.status(200);
-  res.json(currentuserspots);
-})
+
+  for (i = 0; i < currentuserspots.length; i++) {
+    let item = currentuserspots[i];
+
+    const reviewavgrating = await Review.findAll({
+      where: {
+          spotId: item.dataValues.id
+      },
+      attributes: [
+          [sequelize.fn('AVG', sequelize.col('stars')), 'avgRating']
+      ],
+      raw : true,
+  })
+
+  const imageurl = await Image.findOne({ where: { spotId:item.dataValues.id }, attributes: ['url'] });
+
+
+  
+
+  if (!imageurl){
+    object = {
+      ...item.dataValues,
+      avgRating: reviewavgrating[0].avgRating,
+      previewImage: null
+    }
+    result.push(object);
+
+  } else{
+     object = {
+      ...item.dataValues,
+      avgRating: reviewavgrating[0].avgRating,
+      previewImage: imageurl.url
+    }
+    result.push(object);
+  };
+
+  }
+  res.json({Spots: result });
+
+});
+
+
 
 router.post('/:spotId/images', requireAuth, async (req, res) => {
 
