@@ -117,11 +117,8 @@ router.post('/', validateSignup, async (req, res) => {
 
   const token= await setTokenCookie(res,user);
   user.dataValues.token= token;
-  console.log('user--------', user);
+
   res.json(user);
-
-
-
 
 });
 
