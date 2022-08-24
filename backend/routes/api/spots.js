@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
     const imageurl = await Image.findOne({ where: { spotId: item.id }, attributes: ['url'] })
   //  console.log('imageurl.dataValues.url---------', imageurl.dataValues.url)
   if (!imageurl){
-    objct = {
+    object = {//we added 'e' into this objct ;
       ...item.dataValues,
       avgRating: averating[0].avgRating,
       previewImage: null
@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
 
     result.push(object);
   }
-
+  
 
   res.json({ Spots: result, page: page, size: size });
 
@@ -236,7 +236,7 @@ router.get('/:spotId', async (req, res) => {
  const avgrating = reviewavgrating[0].dataValues.avgRating;
  spotitem.dataValues.numReviews = reviewnum;
  spotitem.dataValues.avgRating = avgrating;
-  res.json({Reviews: spotitem});
+  res.json(spotitem);
 
 
 });
