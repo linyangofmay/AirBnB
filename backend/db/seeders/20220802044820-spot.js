@@ -22,7 +22,8 @@ module.exports = {
         lng: -172.4730328,
         name: "Stripe",
         description: "Place where web developers are created",
-        price: 7800
+        price: 7800,
+        imageurl:"https://images.unsplash.com/photo-1631528858266-5ebeb8bfc6f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1260&q=80",
       },
       {
         ownerId: 2,
@@ -34,7 +35,9 @@ module.exports = {
         lng: -122.4730328,
         name: "Apple",
         description: "Place where web developers are created",
-        price: 780
+        price: 780,
+        imageurl:"https://images.unsplash.com/photo-1616038242814-a6eac7845d88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+
       },
       {
         ownerId: 3,
@@ -46,7 +49,8 @@ module.exports = {
         lng: -122.4730328987,
         name: "GOOGLE",
         description: "Place where web developers are created",
-        price: 500
+        price: 500,
+        imageurl: "https://images.unsplash.com/photo-1601585837217-3148ff17cd0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       },
       {
         ownerId: 4,
@@ -58,7 +62,8 @@ module.exports = {
         lng: -122.4730328345,
         name: "Claudia",
         description: "Place where web developers are created",
-        price: 1250
+        price: 1250,
+        imageurl:"https://images.unsplash.com/photo-1615571022219-eb45cf7faa9d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
         ownerId: 5,
@@ -70,7 +75,8 @@ module.exports = {
         lng: -155.49876,
         name: "Abify",
         description: "Place where web developers are created",
-        price: 1250
+        price: 1250,
+        imageurl:"https://images.unsplash.com/photo-1520446396645-d72d96708bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
 
     ], {});

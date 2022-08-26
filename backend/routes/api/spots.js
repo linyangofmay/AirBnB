@@ -31,27 +31,27 @@ router.get('/', async (req, res) => {
       raw: true,
 
     });
-    // console.log('item.id-------------', item.id);
+    //console.log('item.id-------------', item.id);
 
-    const imageurl = await Image.findOne({ where: { spotId: item.id }, attributes: ['url'] })
+    //const imageurl = await Image.findOne({ where: { spotId: item.id }, attributes: ['url'] })
   //  console.log('imageurl.dataValues.url---------', imageurl.dataValues.url)
-  if (!imageurl){
-    object = {//we added 'e' into this objct ;
-      ...item.dataValues,
-      avgRating: averating[0].avgRating,
-      previewImage: null
-    }
-  } else{
+  // if (!imageurl){
+  //   object = {//we added 'e' into this objct ;
+  //     ...item.dataValues,
+  //     avgRating: averating[0].avgRating,
+  //     previewImage: null
+  //   }
+  //} else{
      object = {
       ...item.dataValues,
       avgRating: averating[0].avgRating,
-      previewImage: imageurl.url
+     //previewImage: imageurl.url
     }
-  };
+  //};
 
     result.push(object);
   }
-  
+
 
   res.json({ Spots: result, page: page, size: size });
 
@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
 
 
 router.post('/', requireAuth, async (req, res, next) => {
-  const { address, city, state, country, lat, lng, name, description, price } = req.body;
+  const { address, city, state, country, lat, lng, name, description, price, imageurl } = req.body;
 
   if (req.body) {
     const newSpot = await Spot.create({
@@ -81,6 +81,7 @@ router.post('/', requireAuth, async (req, res, next) => {
       name,
       description,
       price,
+      imageurl
     });
     res.json(newSpot);
 
@@ -97,7 +98,8 @@ router.post('/', requireAuth, async (req, res, next) => {
         "lng": "Longitude is not valid",
         "name": "Name must be less than 50 characters",
         "description": "Description is required",
-        "price": "Price per day is required"
+        "price": "Price per day is required",
+        "imageurl": "previewImage is required"
       }
     })
   }
@@ -128,29 +130,29 @@ router.get('/current', requireAuth, async (req, res) => {
       raw : true,
   })
 
-  const imageurl = await Image.findOne({ where: { spotId:item.dataValues.id }, attributes: ['url'] });
+  // const imageurl = await Image.findOne({ where: { spotId:item.dataValues.id }, attributes: ['url'] });
 
 
 
 
-  if (!imageurl){
-    object = {
-      ...item.dataValues,
-      avgRating: reviewavgrating[0].avgRating,
-      previewImage: null
-    }
-    result.push(object);
+  // if (!imageurl){
+  //   object = {
+  //     ...item.dataValues,
+  //     avgRating: reviewavgrating[0].avgRating,
+  //     previewImage: null
+  //   }
+  //   result.push(object);
 
-  } else{
+  // } else{
      object = {
       ...item.dataValues,
       avgRating: reviewavgrating[0].avgRating,
-      previewImage: imageurl.url
+      //previewImage: imageurl.url
     }
     result.push(object);
   };
 
-  }
+  //}
   res.json({Spots: result });
 
 });
@@ -243,7 +245,7 @@ router.get('/:spotId', async (req, res) => {
 
 //Edit a spot
 router.put('/:spotId', requireAuth, async (req, res) => {
-  const { address, city, state, country, lat, lng, name, description, price } = req.body;
+  const { address, city, state, country, lat, lng, name, description, price, imageurl} = req.body;
   const { spotId } = req.params;
   const spot = await Spot.findByPk(spotId);
   if (!spot) {
@@ -263,6 +265,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
   spot.name = name;
   spot.description = description;
   spot.price = price;
+  spot.previewImage = imageurl;
   await spot.save();
   res.json(spot);
  } else {
@@ -278,7 +281,11 @@ router.put('/:spotId', requireAuth, async (req, res) => {
 //create a review for a spot  ( how to check the exisitng review from a same user)
 router.post('/:spotId/reviews', requireAuth, async (req, res) => {
   const { spotId } = req.params;
+  console.log('spotId-----------', spotId)
+  const {user} =req
+  console.log('user.id---------', user.id);
   const spot = await Spot.findByPk(spotId);
+  console.log('spot-----------', spot);
   if (!spot) {
 
     return res.json({
@@ -286,20 +293,22 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
       "statusCode": 404
     })
   }
-  const reviewspots= await Review.findAll({
+  const reviewspots= await Review.findOne({
     where :{
-      spotId: req.params.spotId,
+      [Op.and]:[
+        {userId:user.id}, {spotId:spotId}
+      ]
 
     }
   })
-
+  console.log('reviewspots------------------', reviewspots)
   const { review, stars } = req.body;
-  let userid = spot.ownerId;
-  if (reviewspots.length===0) {
+
+  if (!reviewspots) {
     const newreview = await Review.create({
       review: review,
       spotId: spot.id,
-      userId: spot.ownerId,
+      userId: user.id,
       stars: stars,
     });
     res.json(newreview);

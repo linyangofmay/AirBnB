@@ -68,6 +68,10 @@ module.exports = (sequelize, DataTypes) => {
     price: {
       type:DataTypes.DECIMAL,
       allowNull:false,
+    },
+    imageurl: {
+      type:DataTypes.STRING,
+     
     }
   }, {
     sequelize,

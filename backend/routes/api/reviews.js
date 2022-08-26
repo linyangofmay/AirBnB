@@ -123,25 +123,52 @@ router.put('/:reviewId', requireAuth, async(req, res)=>{
 });
 
 
-router.delete('/:reviewId', requireAuth, async(req, res)=>{
-  const{reviewId} = req.params
-  const reviewitem = await Image.findByPk(reviewId);
-  if(!reviewitem){
-   res.json({
-    "message": "Review couldn't be found",
-    "statusCode": 404
-   });
+// router.delete('/:reviewId', requireAuth, async(req, res)=>{
+//   const{reviewId} = req.params
+//   const reviewitem = await Review.findByPk(reviewId);
+//   if(!reviewitem){
+//    res.json({
+//     "message": "Review couldn't be found",
+//     "statusCode": 404
+//    });
+//   }
+//   await reviewitem.destroy();
+//   res.json({
+//     "message": "Successfully deleted",
+//       "statusCode": 200
+//   });
+
+// })
+
+
+router.delete('/:reviewId', requireAuth, async (req, res) => {
+  const { reviewId } = req.params;
+  const { user } = req;
+  const itemDelete = await Review.findByPk(reviewId);
+
+  if (!itemDelete) {
+      res.status(404)
+      res.json({
+          "message": "Review couldn't be found",
+          "statusCode": 404
+      })
   }
-  await reviewitem.destroy();
-  res.json({
-    "message": "Successfully deleted",
-      "statusCode": 200
-  });
 
+  if (itemDelete.userId !== user.id) {
+      res.json({
+          message: "Review must belong to the current user"
+      })
+  }
+
+  if (itemDelete.userId === user.id) {
+          itemDelete.destroy()
+          res.json({
+              "message": "Successfully deleted",
+              "statusCode": 200
+          })
+
+  }
 })
-
-
-
 
 
 
