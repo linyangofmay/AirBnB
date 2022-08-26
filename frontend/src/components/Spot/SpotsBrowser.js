@@ -38,7 +38,7 @@ const SpotsBrowser = () =>{
         {spotsArr.map((spot) => (
 
           <NavLink to={`/spots/${spot.id}`} key={spot.id}>
-          <div><img src={`${spot.previewImage}`}></img></div>
+          <div><img src={`${spot?.imageurl}`}></img></div>
           <div>{spot.name}</div>
           <div>{spot.city} {spot.state}</div>
           <div>{spot.price}/night</div>

@@ -24,15 +24,18 @@ const SpotCurrent =()=>{
       <ul>
         {spotsArr.map((spot) => (
         <div key={spot.id}>
-          <img src={spot.previewImage}/>
+          <img src={spot.imageurl}/>
           <div>{spot.name}</div>
           <div>{spot.city} {spot.state}</div>
           <div>{spot.description}</div>
           <div>{spot.price}</div>
           <div>{'⭐️'}{spot.avgRating}</div>
           <NavLink to={`/spots/${spot.id}/edit`}>Edit</NavLink>
+          <div></div>
           <button onClick={()=> dispatch(removespot(spot.id))}>DELETE</button>
+          <div></div>
 
+          <NavLink to={`/spots/${spot.id}/new`}>Create</NavLink>
         </div>
 
       ))}

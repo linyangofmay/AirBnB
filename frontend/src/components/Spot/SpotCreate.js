@@ -17,7 +17,7 @@ function SpotCreate(){
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [price, setPrice] = useState("");
-  const [previewImage, setPreviewImage] =useState("");
+  const [imageurl, setImageurl] =useState("");
 
   const [errors, setErrors] = useState([]);
 
@@ -39,7 +39,7 @@ function SpotCreate(){
 
   const onSubmit = async (e) =>{
     e.preventDefault()
-    const spotinfo={name, description, address, city, state, country, lat, lng, price, previewImage};
+    const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
     const dispatchhelper = await dispatch(createOneSpot(spotinfo));
     console.log('dispatchhelper-----------------', dispatchhelper)
     if(dispatchhelper ){
@@ -153,12 +153,12 @@ function SpotCreate(){
         </label>
 
         <label>
-        previewImage
+        imageurl
         <input
           type="string"
-          name="previewImage"
-          value={previewImage}
-          onChange={(e)=>setPreviewImage(e.target.value)}
+          name="imageurl"
+          value={imageurl}
+          onChange={(e)=>setImageurl(e.target.value)}
         />
         </label>
 

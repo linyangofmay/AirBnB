@@ -5,18 +5,19 @@ import { getOneSpot } from '../../store/spots';
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import ReviewSpot from '../Review/ReviewSpot';
-
+import {getSpotsReviews} from '../../store/reviews';
 
 const SpotDetail = () =>{
   const {spotId} = useParams();
   const spotdata = useSelector((state) => state.spot);
    const spoty = spotdata.oneSpot;
   console.log('spotdata------------', spotdata);
-  console.log('spoty-----------', spoty);
+   console.log('spoty-----------', spoty);
   // const spotArr = Object.values(spotObj)
-  // const user = useSelector((state) => state.session.user)
-  // const review = useSelector((state) => state.reviews)
-  // console.log('review-----------------', review)
+
+  const reviewObj = useSelector((state) => state.review)
+  const reviewArr = Object.values(reviewObj);
+   console.log('reviewArr---------', reviewArr)
 
 
 
@@ -28,6 +29,7 @@ const SpotDetail = () =>{
 
   useEffect (() =>{
     dispatch(getOneSpot(spotId));
+    dispatch(getSpotsReviews(spotId))
 
   }, [dispatch, spotId]);
 
@@ -39,22 +41,31 @@ const SpotDetail = () =>{
         </div> */}
 
        <h2>{spoty?.name}</h2>
-       <div>{'⭐️'}{spoty?.avgRating} {spoty?.numReviews}reviews     {spoty?.city},{spoty?.state},{spoty?.country} </div>
+       <div>{'⭐️'}{spoty?.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2):0} {spoty?.numReviews}reviews     {spoty?.city},{spoty?.state},{spoty?.country} </div>
 
-       <img src={spoty?.Images[0].url}/>
+       <img src={spoty?.imageurl}/>
 
 
        <div>{spoty?.address}</div>
 
        <div>{spoty?.description}</div>
        <div>{spoty?.price}  /night</div>
-       
 
+
+        <div>Reviews</div>
+        {reviewArr.map((review) => (
+
+          <div>{review.stars} {'⭐️'} {review.review}</div>
+
+
+
+      ))}
 
 
 
        <div>
       <button><NavLink to={`/spots/${spotId}/edit`}>Edit Spot</NavLink></button>
+      <button><NavLink to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>
     </div>
     </div>
 

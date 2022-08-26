@@ -1,0 +1,12 @@
+
+
+.demouserbutton {
+  font-size: 15px;
+  font-weight:400;
+  color: rgb(0, 4, 255);
+}
+
+.demouserbutton:hover {
+  cursor: pointer;
+  background-color: rgba(221, 227, 125, 0.155);
+}

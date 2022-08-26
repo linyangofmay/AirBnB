@@ -74,7 +74,7 @@ export const getspotcurrent = () => async (dispatch) => {
 export const getOneSpot = (spotId) => async dispatch => {
   const res = await csrfFetch(`/api/spots/${spotId}`);
   const data = await res.json();
-  console.log('data--------------------', data)
+  //console.log('data--------------------', data)
   if (res.ok) {
 
     dispatch(loadsportbyid(data));
@@ -84,7 +84,7 @@ export const getOneSpot = (spotId) => async dispatch => {
 
 //addOne
 export const createOneSpot = data => async dispatch => {
-  try {
+
     const res = await csrfFetch(`/api/spots`, {
       method: 'POST',
       headers: {
@@ -92,32 +92,14 @@ export const createOneSpot = data => async dispatch => {
       },
       body: JSON.stringify(data),
     });
-    if (!res.ok) {
-      let error;
-      if (res.status === 422) {
-        error = await res.json();
-        throw new error(error.errors, res.statusText);
-      }
-      else {
-        let errorJSON;
-        error = await res.text();
-        try {
-          errorJSON = JSON.parse(error);
-        }
-        catch {
-          throw new Error(error);
-        }
-        throw new Error(`${errorJSON.title}: ${errorJSON.message}`);
-      }
-    }
+    if (res.ok) {
+
     const newspot = await res.json()
     dispatch(addone(newspot));
     return newspot
+    }
 
-  }
-  catch (error) {
-    throw error;
-  }
+
 };
 
 //update

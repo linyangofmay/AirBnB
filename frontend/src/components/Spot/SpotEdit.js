@@ -35,6 +35,7 @@ function SpotEdit(){
   const [lat, setLat] = useState(editspot.lat);
   const [lng, setLng] = useState(editspot.lng);
   const [price, setPrice] = useState(editspot.price);
+  const [imageurl,setImageurl] = useState(editspot.imageurl);
 
 
   const [errors, setErrors] = useState([]);
@@ -59,7 +60,7 @@ function SpotEdit(){
 
   const onSubmit = async (e) =>{
     e.preventDefault()
-    const spotinfo={name, description, address, city, state, country, lat, lng, price};
+    const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
     const dispatchhelper = await dispatch(updatespot(spotId,spotinfo));
     console.log('dispatchhelper')
     if(dispatchhelper ){
@@ -176,7 +177,15 @@ function SpotEdit(){
         />
         </label>
 
-
+        <label>
+        imageurl
+        <input
+          type="string"
+          name="imageurl"
+          value={imageurl}
+          onChange={(e)=>setImageurl(e.target.value)}
+        />
+        </label>
 
 
         <button

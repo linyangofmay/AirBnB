@@ -11,6 +11,8 @@ import SpotDetail from './components/Spot/SpotDetail';
 import SpotCurrent from './components/Spot/SpotCurrent';
 import SpotCreate from './components/Spot/SpotCreate'
 import SpotEdit from './components/Spot/SpotEdit';
+import ReviewCurrent from './components/Review/ReviewCurrent'
+import ReviewCreate from './components/Review/ReviewCreate'
 
 function App() {
   const dispatch = useDispatch();
@@ -28,15 +30,19 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path = '/spots/:spotId/edit' component={SpotEdit} />
+          <Route exact path="/" component={SpotsBrowser}/>
+
+          <Route exact path="/spots/current/new" component={SpotCreate} />
 
           <Route exact path="/spots/current" component={SpotCurrent}/>
 
+          <Route exact path='/reviews/current' component={ReviewCurrent} />
+
           <Route exact path="/spots/:spotId" component={SpotDetail} />
 
-          <Route exact path="/spots" component={SpotCreate} />
+          <Route exact path = '/spots/:spotId/edit' component={SpotEdit} />
 
-          <Route exact path="/" component={SpotsBrowser}/>
+          <Route exact path = '/spots/:spotId/reviews' component={ReviewCreate} />
 
 
 
