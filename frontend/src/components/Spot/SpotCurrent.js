@@ -35,12 +35,13 @@ const SpotCurrent =()=>{
           <button onClick={()=> dispatch(removespot(spot.id))}>DELETE</button>
           <div></div>
 
-          <NavLink to={`/spots/${spot.id}/new`}>Create</NavLink>
+         
         </div>
 
       ))}
 
       </ul>
+      <NavLink to={`/spots/current/new`}>Create A New Spot </NavLink>
       </main>
   )
 }

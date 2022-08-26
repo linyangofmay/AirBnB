@@ -28,14 +28,36 @@ function SpotCreate(){
     if(name.length ===0){
       errors.push("Name field is required")
     }
-    if (name.length >50){
-      errors.push("Name field must be 30 characters or less")
+
+    if (description.length === 0){
+      errors.push('Description filed is required')
     }
-    if(price < 0 ){
+    if (address.length === 0){
+      errors.push('address filed is required')
+    }
+    if (city.length === 0){
+      errors.push('city filed is required')
+    }
+    if (state.length === 0){
+      errors.push('state filed is required')
+    }
+    if (country.length === 0){
+      errors.push('country filed is required')
+    }
+    if (lat <= 0){
+      errors.push('lat filed is required')
+    }
+    if (lng.length <=0){
+      errors.push('lng filed is required')
+    }
+    if(price <= 0 ){
       errors.push("price field must be more than 0")
     }
+    if(imageurl.length === 0){
+      errors.push("image filed is required")
+    }
     setErrors(errors)
-  }, [name, price])
+  }, [name, description, price, address, city, state, country, lat, lng, price, imageurl])
 
   const onSubmit = async (e) =>{
     e.preventDefault()

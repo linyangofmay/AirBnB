@@ -26,6 +26,7 @@ const deletereviews =reviewId =>({
 })
 
 
+
 //thunk
 export const getSpotsReviews = (spotId) => async(dispatch) =>{
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`)
@@ -64,16 +65,16 @@ export const createReviews = data => async(dispatch)=>{
 
 export const deleteReviews = (reviewId) =>async dispatch =>{
   const res= await csrfFetch(`/api/reviews/${reviewId}`, {
-    method:'delete',
+    method:'DELETE',
   });
-  console.log('res------------', res)
-  console.log('reviewId-----------', reviewId)
+  //console.log('res------------', res)
+  //console.log('reviewId-----------', reviewId)
   if(res.ok){
     const data = await res.json();
     console.log('data--------------', data);
-    dispatch(deleteReviews(reviewId));
+    dispatch(deletereviews(reviewId));
   }
-}
+};
 
 
 //reducer
