@@ -59,7 +59,7 @@ function ProfileButton({ user }) {
         <div id="menu">
            <p> {user.username}</p>
           <p>{user.email}</p>
-          <NavLink to="/currentUser/spots">
+          <NavLink to="/spots/current">
             <button onClick={myspotsbtn}>My spots</button>
           </NavLink>
 
@@ -72,7 +72,7 @@ function ProfileButton({ user }) {
             Log Out
           </button>
           </p>
-          
+
         </div>
       )}
     </div>
