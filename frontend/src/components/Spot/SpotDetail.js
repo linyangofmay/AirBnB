@@ -64,7 +64,7 @@ const SpotDetail = () =>{
 
 
        <div>
-      <button><NavLink to={`/spots/${spotId}/edit`}>Edit Spot</NavLink></button>
+      {/* <button><NavLink to={`/spots/${spotId}/edit`}>Edit Spot</NavLink></button> */}
       <button><NavLink to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>
     </div>
     </div>

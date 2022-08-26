@@ -25,26 +25,26 @@ function SpotCreate(){
 
   useEffect(()=>{
     const errors= [];
-    if(name.length ===0){
+    if(name.length ===0 ){
       errors.push("Name field is required")
     }
 
-    if (description.length === 0){
+    if (description.length  <=3){
       errors.push('Description filed is required')
     }
-    if (address.length === 0){
+    if (address.length <= 3){
       errors.push('address filed is required')
     }
-    if (city.length === 0){
+    if (city.length <= 2){
       errors.push('city filed is required')
     }
-    if (state.length === 0){
+    if (state.length <=2){
       errors.push('state filed is required')
     }
-    if (country.length === 0){
+    if (country.length <= 2){
       errors.push('country filed is required')
     }
-    if (lat <= 0){
+    if (lat.length <= 0){
       errors.push('lat filed is required')
     }
     if (lng.length <=0){
@@ -53,7 +53,7 @@ function SpotCreate(){
     if(price <= 0 ){
       errors.push("price field must be more than 0")
     }
-    if(imageurl.length === 0){
+    if(imageurl.length === 0 ){
       errors.push("image filed is required")
     }
     setErrors(errors)

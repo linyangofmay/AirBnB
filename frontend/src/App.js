@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
+
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import {Provider} from 'react-redux';
@@ -11,8 +11,12 @@ import SpotDetail from './components/Spot/SpotDetail';
 import SpotCurrent from './components/Spot/SpotCurrent';
 import SpotCreate from './components/Spot/SpotCreate'
 import SpotEdit from './components/Spot/SpotEdit';
-import ReviewCurrent from './components/Review/ReviewCurrent'
-import ReviewCreate from './components/Review/ReviewCreate'
+import ReviewCurrent from './components/Review/ReviewCurrent';
+import ReviewCreate from './components/Review/ReviewCreate';
+import SignupFormPage from './components/SignupFormPage';
+
+import LoginFormModal from './components/LoginFormModal';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +35,8 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={SpotsBrowser}/>
+          <Route exact path='/signup' component={SignupFormPage} />
+          <Route exact path='/login' component={LoginFormModal} />
 
           <Route exact path="/spots/current/new" component={SpotCreate} />
 

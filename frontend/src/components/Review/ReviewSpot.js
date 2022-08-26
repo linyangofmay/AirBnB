@@ -26,7 +26,7 @@ const ReviewSpot = () => {
 
             <div>{review.review}</div>
 
-            <div>{'⭐️'}{review.avgRating}</div>
+            <div>{'⭐️'}{review.avgRating ? Number.parseFloat(review.avgRating).toFixed(2):0}</div>
 
 
           </div>

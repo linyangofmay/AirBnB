@@ -15,12 +15,12 @@ const SpotCurrent =()=>{
   useEffect(()=>{
     dispatch(getspotcurrent())
   }, [dispatch]);
-  if (spotsArr.length === 0){
-    return null;
-  }
+  // if (spotsArr.length === 0){
+  //   return null;
+  // }
   return (
-    <main>
-
+    <div>
+      <h2>My Spots</h2>
       <ul>
         {spotsArr.map((spot) => (
         <div key={spot.id}>
@@ -35,14 +35,14 @@ const SpotCurrent =()=>{
           <button onClick={()=> dispatch(removespot(spot.id))}>DELETE</button>
           <div></div>
 
-         
+
         </div>
 
       ))}
 
       </ul>
       <NavLink to={`/spots/current/new`}>Create A New Spot </NavLink>
-      </main>
+      </div>
   )
 }
 

@@ -42,7 +42,7 @@ const SpotsBrowser = () =>{
           <div>{spot.name}</div>
           <div>{spot.city} {spot.state}</div>
           <div>{spot.price}/night</div>
-          <div>{'⭐️'}{spot.avgRating}</div>
+          <div>{'⭐️'}{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2):0}</div>
           </NavLink>
 
 
