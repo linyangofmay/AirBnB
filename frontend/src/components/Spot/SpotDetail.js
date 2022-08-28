@@ -15,7 +15,7 @@ const SpotDetail = () => {
   console.log('spotdata------------', spotdata);
   console.log('spoty-----------', spoty);
   // const spotArr = Object.values(spotObj)
-
+  const sessionUser = useSelector(state => state.session.user);
   const reviewObj = useSelector((state) => state.review)
   const reviewArr = Object.values(reviewObj);
   console.log('reviewArr---------', reviewArr)
@@ -66,7 +66,7 @@ const SpotDetail = () => {
       ))}
 
       <div className='sdbtndiv'>
-        <button><NavLink to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>
+       {((sessionUser && Object.values(sessionUser).length>0)) && <button><NavLink to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
       </div>
     </div>
 

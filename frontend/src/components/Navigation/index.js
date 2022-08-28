@@ -38,7 +38,7 @@ function Navigation({ isLoaded }){
   // );
 
      <div className="line">
-      {/* <div>
+      <div>
         <NavLink
           exact
           to="/"
@@ -52,7 +52,7 @@ function Navigation({ isLoaded }){
           ></span>
           <span className="logo">CloudBnB</span>
         </NavLink>
-      </div> */}
+      </div>
 
       <div>{isLoaded && sessionLinks}</div>
     </div>
