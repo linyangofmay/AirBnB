@@ -14,12 +14,12 @@ function Navigation({ isLoaded }){
 
   let sessionLinks;
   if (sessionUser && Object.values(sessionUser).length>0) {
-    console.log('i m a sessionUser---------', sessionUser)
+    //console.log('i m a sessionUser---------', sessionUser)
     sessionLinks = (
       <ProfileButton user={sessionUser} />
     );
   } else {
-    console.log('i m not a session suer--------------', sessionUser)
+    //console.log('i m not a session suer--------------', sessionUser)
     sessionLinks = (
       <>
 
