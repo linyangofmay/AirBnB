@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import cloud from './cloud.png';
+import cloud from './cloud.jpeg';
 
 
 function Navigation({ isLoaded }){
