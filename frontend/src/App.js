@@ -34,8 +34,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/" component={SpotsBrowser}/>
-          <Route exact path='/signup' component={SignupFormPage} />
+
           <Route exact path='/login' component={LoginFormModal} />
 
           <Route exact path="/spots/current/new" component={SpotCreate} />
@@ -50,6 +49,7 @@ function App() {
 
           <Route exact path = '/spots/:spotId/reviews' component={ReviewCreate} />
 
+          <Route exact path="/" component={SpotsBrowser}/>
 
 
         </Switch>

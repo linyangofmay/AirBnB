@@ -1,7 +1,33 @@
-.menubtn {
-  background-color: white(109, 109, 223);
-  border: 2px;
-  font-family:'Gill Sans';
-  font-size: 20px;
+.lfmaincontaine{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+
+
+
+}
+
+.loginbtn{
+  display:block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:20px;
+  background: light blue;
+  border-radius: 10px;
+}
+
+.demouserbtn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:20px;
+  background: light blue;
+  border-radius: 10px;
+  color: blue;
+}
+
+.cloudlable{
+  color :red;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: bold;
+
+
 
 }

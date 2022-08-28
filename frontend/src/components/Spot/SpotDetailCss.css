@@ -1,0 +1,74 @@
+/* main-class for whole page */
+
+.spotdetailmain{
+  display: flex;
+  justify-content:space-around;
+  flex-direction:column;
+  /* flex-wrap: wrap; */
+
+  /* align-content: space-around; */
+  margin-left: 10px;
+  margin-top:10px;
+  /* margin-right:700px;
+  padding: 80px; */
+  border-radius: 30px;
+  }
+
+
+  /* one card dive including an image and info */
+
+  .spotdivdd{
+  display: flex;
+  justify-content: space-around;
+
+  }
+
+
+  /* one image div */
+   .spotdetailimage{
+    width:600px;
+    height:600px;
+    margin-right:20px;
+    margin-bottom:30px;
+    margin-top:30px;
+    /* border:2px solid white; */
+    /* border-radius: 300px;  */
+
+
+  }
+
+  /* info div */
+  .spotdetailinfoclass{
+    display:flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-right: 20px;
+
+
+  }
+
+   .ivdd{
+    display:flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-right: 20px;
+   }
+
+   .sdreviewdiv{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold
+
+   }
+   .sdbtndiv{
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 30px;
+    display: flex;
+    font-size: 20px;
+    max-width: 30%;
+    background: transparent;
+    position: relative;
+    width: 300px;
+    margin-top: 20px;
+    cursor: pointer;
+   }

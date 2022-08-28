@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory, Redirect} from "react-router-dom";
 import {createOneSpot} from "../../store/spots";
-
+import './SpotCreateCss.css'
 
 function SpotCreate(){
   const history = useHistory();
@@ -35,13 +35,13 @@ function SpotCreate(){
     if (address.length <= 3){
       errors.push('address filed is required')
     }
-    if (city.length <= 2){
+    if (city.length < 2){
       errors.push('city filed is required')
     }
-    if (state.length <=2){
+    if (state.length <2){
       errors.push('state filed is required')
     }
-    if (country.length <= 2){
+    if (country.length < 2){
       errors.push('country filed is required')
     }
     if (lat.length <= 0){
@@ -53,7 +53,7 @@ function SpotCreate(){
     if(price <= 0 ){
       errors.push("price field must be more than 0")
     }
-    if(imageurl.length === 0 ){
+    if(!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')) ){
       errors.push("image filed is required")
     }
     setErrors(errors)
@@ -73,116 +73,194 @@ function SpotCreate(){
   }
 
     return (
-
+      <div className='cscontainer'>
       <form
        onSubmit={onSubmit}
       >
+       <div className='spotform'>
        <h2>Create A New Spot</h2>
+       </div>
+
        <ul>
         {errors.map((error)=>(
           <li key={error}>{error}</li>
         ))}
        </ul>
 
+       <div className='row'>
+       <div>
        <label>
         Name
-        <input
+       </label>
+       </div>
+
+       <div>
+       <input
           type="text"
           name="name"
           value={name}
           onChange={(e)=>setName(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='row'>
+        <div>
         <label>
         Description
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="description"
           value={description}
           onChange={(e)=>setDescription(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+        <div className='row'>
+        <div>
         <label>
         Address
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="address"
           value={address}
           onChange={(e)=>setAddress(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+        <div className='row'>
+        <div>
         <label>
         City
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="city"
           value={city}
           onChange={(e)=>setCity(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='row'>
+        <div>
         <label>
         State
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="state"
           value={state}
           onChange={(e)=>setState(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+        <div className='row'>
+         <div>
         <label>
         Country
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="country"
           value={country}
           onChange={(e)=>setCountry(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='row'>
+        <div>
         <label>
         lat
+        </label>
+        </div>
+
+        <div>
         <input
           type="decimal"
           name="lat"
           value={lat}
           onChange={(e)=>setLat(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='row'>
+        <div>
         <label>
         lng
+        </label>
+        </div>
+
+        <div>
         <input
           type="decimal"
           name="lng"
           value={lng}
           onChange={(e)=>setLng(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='row'>
+        <div>
         <label>
         Price
+        </label>
+        </div>
+
+        <div>
         <input
           type="integer"
           name="price"
           value={price}
           onChange={(e)=>setPrice(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='row'>
+        <div>
         <label>
         imageurl
+        </label>
+        </div>
+
+        <div>
         <input
           type="string"
           name="imageurl"
           value={imageurl}
           onChange={(e)=>setImageurl(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
+
+
 
         <button
         type="submit"
@@ -191,6 +269,7 @@ function SpotCreate(){
         Create a Spot
       </button>
       </form>
+      </div>
 
     );
 

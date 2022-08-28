@@ -5,7 +5,7 @@ import {useHistory, Redirect} from "react-router-dom";
 import {createOneSpot} from "../../store/spots";
 import {useParams} from 'react-router-dom';
 import {updatespot,getOneSpot} from '../../store/spots';
-
+import './SpotEditCss.css'
 
 function SpotEdit(){
   console.log('get a sopt ');
@@ -98,7 +98,7 @@ function SpotEdit(){
 
     return (
 
-
+      <div className='secontainer'>
       <form
        onSubmit={onSubmit}
       >
@@ -109,105 +109,187 @@ function SpotEdit(){
         ))}
        </ul>
 
+       <div className='serow'>
+       <div>
        <label>
         Name
-        <input
+       </label>
+       </div>
+
+       <div>
+       <input
           type="text"
           name="name"
           value={name}
           onChange={(e)=>setName(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+        <div className='serow'>
+        <div>
         <label>
         Description
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="description"
           value={description}
           onChange={(e)=>setDescription(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+        <div className='serow'>
+        <div>
         <label>
         Address
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="address"
           value={address}
           onChange={(e)=>setAddress(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+
+       <div className='serow'>
+        <div>
         <label>
         City
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="city"
           value={city}
           onChange={(e)=>setCity(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+        <div className='serow'>
+        <div>
         <label>
         State
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="state"
           value={state}
           onChange={(e)=>setState(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+
+        <div className='serow'>
+         <div>
         <label>
         Country
+        </label>
+        </div>
+
+        <div>
         <input
           type="text"
           name="country"
           value={country}
           onChange={(e)=>setCountry(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+       <div className='serow'>
+        <div>
         <label>
         lat
+        </label>
+        </div>
+
+        <div>
         <input
           type="decimal"
           name="lat"
           value={lat}
           onChange={(e)=>setLat(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+
+        <div className='serow'>
+        <div>
         <label>
         lng
+        </label>
+        </div>
+
+        <div>
         <input
           type="decimal"
           name="lng"
           value={lng}
           onChange={(e)=>setLng(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+
+        <div className='serow'>
+        <div>
         <label>
         Price
+        </label>
+        </div>
+
+        <div>
         <input
           type="integer"
           name="price"
           value={price}
           onChange={(e)=>setPrice(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
+
+        <div className='serow'>
+        <div>
         <label>
         imageurl
+        </label>
+        </div>
+
+        <div>
         <input
           type="string"
           name="imageurl"
           value={imageurl}
           onChange={(e)=>setImageurl(e.target.value)}
         />
-        </label>
+        </div>
+        </div>
 
 
         <button
@@ -217,7 +299,7 @@ function SpotEdit(){
         Update a Spot
       </button>
       </form>
-
+      </div>
     );
    }
   }

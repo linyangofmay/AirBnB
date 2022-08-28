@@ -23,7 +23,7 @@ const ReviewCurrent = () =>{
 //  if (!reviewArr) return null;
   return (
     <div>
-      <h2>All The Reviews for the Current User</h2>
+      <h2>My Reviews</h2>
       <ul>
         {reviewfilter.map((review) => (
           <div key={review.id}>
