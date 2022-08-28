@@ -53,7 +53,7 @@ function SpotCreate(){
     if(price <= 0 ){
       errors.push("price field must be more than 0")
     }
-    if(!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')) ){
+    if(!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash'))  ){
       errors.push("image filed is required")
     }
     setErrors(errors)

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import cloud from './cloud.png';
 
 
 function Navigation({ isLoaded }){
@@ -29,34 +30,37 @@ function Navigation({ isLoaded }){
   }
 
   return (
-  //    <ul>
-  //     <li>
-  //      <NavLink exact to="/">Home</NavLink>
-  //        {isLoaded && sessionLinks}
-  //      </li>
-  //    </ul>
+
+        <div>
+         <div>
+          <img src={cloud} />
+         </div>
+       <NavLink exact to="/">CloudBnB</NavLink>
+         {isLoaded && sessionLinks}
+         </div>
+
+   );
+
+  //    <div className="line">
+  //     <div>
+  //       <NavLink
+  //         exact
+  //         to="/"
+  //         className="nav_link home_link"
+  //         id="cloudbnb_logo"
+  //       >
+  //         <span
+  //           className="iconify"
+  //           data-icon="fa-brands:airbnb"
+  //           data-width="40"
+  //         ></span>
+  //         <span className="logo">CloudBnB</span>
+  //       </NavLink>
+  //     </div>
+
+  //     <div>{isLoaded && sessionLinks}</div>
+  //   </div>
   // );
-
-     <div className="line">
-      <div>
-        <NavLink
-          exact
-          to="/"
-          className="nav_link home_link"
-          id="cloudbnb_logo"
-        >
-          <span
-            className="iconify"
-            data-icon="fa-brands:airbnb"
-            data-width="40"
-          ></span>
-          <span className="logo">CloudBnB</span>
-        </NavLink>
-      </div>
-
-      <div>{isLoaded && sessionLinks}</div>
-    </div>
-  );
 
 }
 
