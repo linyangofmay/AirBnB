@@ -61,7 +61,10 @@ const SpotDetail = () => {
       <div className='sdreviewdiv'>Reviews</div>
       {reviewArr.map((review) => (
 
-        <div>{review.stars} {'⭐️'} {review.review}</div>
+        <div>{review.stars} {'⭐️'} userId:{review.userId}   {review.review}
+
+        </div>
+
 
       ))}
 
