@@ -281,11 +281,11 @@ router.put('/:spotId', requireAuth, async (req, res) => {
 //create a review for a spot  ( how to check the exisitng review from a same user)
 router.post('/:spotId/reviews', requireAuth, async (req, res) => {
   const { spotId } = req.params;
-  console.log('spotId-----------', spotId)
+  //console.log('spotId-----------', spotId)
   const {user} =req
-  console.log('user.id---------', user.id);
+  //console.log('user.id---------', user.id);
   const spot = await Spot.findByPk(spotId);
-  console.log('spot-----------', spot);
+  //console.log('spot-----------', spot);
   if (!spot) {
 
     return res.json({
