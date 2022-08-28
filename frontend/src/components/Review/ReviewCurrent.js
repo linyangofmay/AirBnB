@@ -29,16 +29,21 @@ const ReviewCurrent = () =>{
           <div key={review.id}>
             <div>spotId: {review.spotId}</div>
 
-            <div>{review.review}</div>
+            <div>{review.stars}{'⭐️'} {review.review}</div>
 
-            <div>{review.stars}{'⭐️'}</div>
+            <div></div>
 
 
             <button onClick={()=> {dispatch(deleteReviews(review.id))
             history.push('/reviews/current')}
             }>DELETE</button>
+            <p></p>
+            <p></p>
+            <p></p>
           </div>
+
         ))}
+
       </ul>
 
 

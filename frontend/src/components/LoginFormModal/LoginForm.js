@@ -4,6 +4,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import "./LoginForm.css"
+import cloud from '../Navigation/cloud.jpeg';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -31,31 +32,32 @@ const history = useHistory();
   };
 
   return (
-    <div className="lfmaincontainer">
-    <form onSubmit={handleSubmit}>
-       <div className='cloudlable'>CloudBnB</div>
+    <div className="lfcontainer">
+    <form onSubmit={handleSubmit} className='loginformdiv'>
+       <div className='cloudlogo'><img src={cloud} /> CloudBnB</div>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <div >
+
+
       <label>
         Username or Email
-        <input
+        </label>
+        <input className='loginusername'
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
         />
-      </label>
-      </div>
 
-      <p></p>
+
+
       <div>
       <label>
         Password
-        <input
+        <input className='loginusername'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

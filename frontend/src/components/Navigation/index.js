@@ -32,9 +32,10 @@ function Navigation({ isLoaded }){
   return (
 
         <div>
-         <div>
-          <img src={cloud} />
+         <div className= 'homepagelogo'>
+          <img src={cloud} /> CloudBnB
          </div>
+
        <NavLink exact to="/">CloudBnB</NavLink>
          {isLoaded && sessionLinks}
          </div>

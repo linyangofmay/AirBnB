@@ -5,6 +5,7 @@ import LoginForm from './LoginForm';
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 
+
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
@@ -20,9 +21,10 @@ function LoginFormModal() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />
-          
+
         </Modal>
       )}
+      
     </>
   );
 }
