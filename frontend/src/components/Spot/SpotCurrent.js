@@ -31,7 +31,7 @@ const SpotCurrent =()=>{
           <div>{spot.city} {spot.state}</div>
           <div>{spot.description}</div>
           <div>{spot.price}</div>
-          <div>{'⭐️'}{spot.avgRating}</div>
+          <div>{'⭐️'}{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
           <p></p>
 
           <NavLink to={`/spots/${spot.id}/edit`}><button className='scbtn'>EDIT</button></NavLink>
