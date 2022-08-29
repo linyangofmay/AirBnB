@@ -43,3 +43,6 @@ You will be able to test the features without sign up by cliking on the `Demo Us
 You will be able to leave a review by clicking on the `Leave a Review` button
 <img width="828" alt="Screen Shot 2022-08-29 at 6 12 32 AM" src="https://user-images.githubusercontent.com/59943346/187212738-42bfe84d-58ed-46e9-8f0d-c6525273aeec.png">
 
+You will be able to create a spot by clicking on teh `Create a Spot` button
+<img width="713" alt="Screen Shot 2022-08-29 at 6 12 48 AM" src="https://user-images.githubusercontent.com/59943346/187213080-40fcac2f-5dfb-46b1-a25f-df971d77c296.png">
+
