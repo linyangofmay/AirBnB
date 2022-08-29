@@ -17,14 +17,14 @@ function LoginFormModal() {
   }
   return (
     <>
-      <button onClick={() => setShowModal(true)} className='menubtn'>Log In</button>
+      <button onClick={() => setShowModal(true)} className='loginbtn'>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />
 
         </Modal>
       )}
-      
+
     </>
   );
 }

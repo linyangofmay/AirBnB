@@ -24,7 +24,7 @@ function Navigation({ isLoaded }){
       <>
 
         <LoginFormModal />
-        <NavLink to="/signup"><button>Sign Up</button></NavLink>
+        <NavLink className='signupnavlink'to="/signup"><button className='signupbtn'>Sign Up</button></NavLink>
       </>
     );
   }
@@ -33,10 +33,13 @@ function Navigation({ isLoaded }){
 
         <div>
          <div className= 'homepagelogo'>
-          <img src={cloud} /> CloudBnB
+         <NavLink exact to ='/'>
+         <div className='homepagelogo'><img src={cloud} /> </div>
+         </NavLink>
+         <div className='wordlogo'> CloudBnB </div>
          </div>
-
-       <NavLink exact to="/">CloudBnB</NavLink>
+         <hr></hr>
+       {/* <NavLink exact to="/">CloudBnB</NavLink> */}
          {isLoaded && sessionLinks}
          </div>
 

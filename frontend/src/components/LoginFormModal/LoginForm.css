@@ -52,8 +52,9 @@
   font-size:15px;
   border:red;
   border-radius: 10px;
-  color: red;
-  display: block
+  color: black;
+  display: block;
+  margin-left: 33px;
 }
 
 .demouserbtn{
