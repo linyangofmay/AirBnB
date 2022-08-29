@@ -33,10 +33,11 @@ function Navigation({ isLoaded }){
 
         <div>
          <div className= 'homepagelogo'>
-         <NavLink exact to ='/'>
+         <NavLink className='wordlogolink' exact to ='/'>
          <div className='homepagelogo'><img src={cloud} /> </div>
-         </NavLink>
+
          <div className='wordlogo'> CloudBnB </div>
+         </NavLink>
          </div>
          <hr></hr>
        {/* <NavLink exact to="/">CloudBnB</NavLink> */}

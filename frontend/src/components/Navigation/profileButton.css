@@ -1,6 +1,6 @@
 
 
-.profile_dropdown {
+/* .profile_dropdown {
   font-size: 15px;
   color: black;
   font-weight: 500;
@@ -12,4 +12,55 @@
 
 #menu {
   background-color: gray;
+} */
+
+.actions_menu {
+  color:light grey;
+  background-color: white;
+  margin-top: 15px;
+  margin-left:30px;
+  border: white;
+  border-radius: 20px;
+  height: 40px;
+  width: 80px;
+  padding-left: 17px;
+  padding-right: 40px;
+  font-size: 20px;
+  display: flex;
+  position: relative;
+  text-align: start;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid grey;
+}
+
+.actions_menu:hover {
+  box-shadow: 0px 0px 5px gray;
+}
+.usernamediv{
+  margin-left: 40px;
+  font-size: 16px;
+  border: grey;
+  border-radius: 10px;
+  color: black;
+  display: block;
+  font-weight:20px;
+}
+.myspotsnavlink{
+  text-decoration:none;
+}
+
+
+.ddmenu{
+  margin-left: 40px;
+  font-size: 16px;
+  border: grey;
+  border-radius: 10px;
+  color: black;
+  display: block;
+  font-weight:20px;
+}
+
+.ddmenu:hover{
+  box-shadow: 0px 0px 5px gray;
 }
