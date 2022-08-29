@@ -22,6 +22,6 @@ Redux
 
 Feature Directions:
 Home Page Demo User:
-You will be able to test the features without sign up by cliking on the 'Demo User' button
+You will be able to test the features without sign up by cliking on the `Demo User` button
 
 <img src="./img/demo_user_homepage.png"/>
