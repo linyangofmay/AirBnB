@@ -45,13 +45,25 @@ You will be able to leave a review by clicking on the `Leave a Review` button
 
 
 
+
+
+
 You will be able to create a spot by clicking on the `Create a Spot` button
 <img width="713" alt="Screen Shot 2022-08-29 at 6 12 48 AM" src="https://user-images.githubusercontent.com/59943346/187213080-40fcac2f-5dfb-46b1-a25f-df971d77c296.png">
 
 
 
+
+
+
+
 You will be able to edit or delete a spot by clicking on the `EDIT` or `DELETE` button
 <img width="613" alt="Screen Shot 2022-08-29 at 6 13 04 AM" src="https://user-images.githubusercontent.com/59943346/187213943-fd981941-aef1-4060-9868-f3317d19c619.png">
+
+
+
+
+
 
 
 You will be able to delete a review by clicking on the `DELETE` button
