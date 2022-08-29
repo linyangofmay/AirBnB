@@ -41,4 +41,5 @@ You will be able to test the features without sign up by cliking on the `Demo Us
 ![Screen Shot 2022-08-28 at 11 06 58 PM](https://user-images.githubusercontent.com/59943346/187212210-49fdbe77-fed9-41e8-ba08-fa9868cd89dc.png)
 
 You will be able to leave a review by clicking on the `Leave a Review` button
+<img width="828" alt="Screen Shot 2022-08-29 at 6 12 32 AM" src="https://user-images.githubusercontent.com/59943346/187212738-42bfe84d-58ed-46e9-8f0d-c6525273aeec.png">
 
