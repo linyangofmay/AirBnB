@@ -51,3 +51,4 @@ You will be able to create a spot by clicking on the `Create a Spot` button
 
 
 You will be able to edit or delete a spot by clicking on the `EDIT` or `DELETE` button
+<img width="613" alt="Screen Shot 2022-08-29 at 6 13 04 AM" src="https://user-images.githubusercontent.com/59943346/187213943-fd981941-aef1-4060-9868-f3317d19c619.png">
