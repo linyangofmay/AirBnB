@@ -38,5 +38,5 @@ Feature Directions:
 Home Page Demo User:
 You will be able to test the features without sign up by cliking on the `Demo User` button
 
-(https://user-images.githubusercontent.com/59943346/187209622-de7bc44a-f7be-467a-9130-ccc0bce88c94.png)
+https://github.com/linyangofmay/AirBnB/issues/6#issue-1354294148
 
