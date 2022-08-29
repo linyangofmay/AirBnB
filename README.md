@@ -22,6 +22,18 @@ This project is built with :
 - React
 - Redux
 
+To Run Locally:
+In the project directory, you should start with running the following commands in the backend and frontend simultaneously.
+/AirBnB/backend/npm start
+/AirBnB/frontend/npm start 
+
+Local Address:
+Open http://localhost:3000 
+
+When you edit the page will reload and you can see the errors in the console.
+
+
+
 Feature Directions:
 Home Page Demo User:
 You will be able to test the features without sign up by cliking on the `Demo User` button
