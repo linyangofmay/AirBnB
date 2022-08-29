@@ -22,8 +22,10 @@ const ReviewCurrent = () =>{
 
 //  if (!reviewArr) return null;
   return (
-    <div>
+    <div className='rccontainer'>
+      <div className = 'rchdiv'>
       <h2>My Reviews</h2>
+      </div>
       <ul>
         {reviewfilter.map((review) => (
           <div key={review.id}>
@@ -34,7 +36,7 @@ const ReviewCurrent = () =>{
             <div></div>
 
 
-            <button onClick={()=> {dispatch(deleteReviews(review.id))
+            <button className='reviewdeletebtn' onClick={()=> {dispatch(deleteReviews(review.id))
             history.push('/reviews/current')}
             }>DELETE</button>
             <p></p>

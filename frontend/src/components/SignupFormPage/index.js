@@ -31,69 +31,87 @@ function SignupFormPage() {
   };
 
   return (
+    <div className= 'signupcontainer'>
     <form onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
 
+      <div>
       <label>
         firstName
-        <input
+        </label>
+        <input  className='signupinputdiv'
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
-      </label>
+      </div>
 
+      <div>
       <label>
         lastName
-        <input
+       </label>
+        <input  className='signupinputdiv'
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
         />
-      </label>
+      </div>
 
+      <div>
       <label>
         Email
-        <input
+       </label>
+        <input   className='signupinputdiv'
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
+       </div>
+
+      <div>
       <label>
         Username
-        <input
+      </label>
+        <input   className='signupinputdiv'
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
+      </div>
+
+      <div>
       <label>
         Password
-        <input
+      </label>
+        <input   className='signupinputdiv'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
+      </div>
+
+      <div>
       <label>
         Confirm Password
-        <input
+       </label>
+        <input   className='signupinputdiv'
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-      </label>
-      <button type="submit">Sign Up</button>
+      </div>
+
+      <button type="submit" className='signupsubmit'>Sign Up</button>
     </form>
+    </div>
   );
 }
 
