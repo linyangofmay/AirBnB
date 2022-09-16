@@ -22,8 +22,50 @@ This project is built with :
 - React
 - Redux
 
+To Run Locally:
+In the project directory, you should start with running the following commands in the backend and frontend simultaneously.
+/AirBnB/backend/npm start
+/AirBnB/frontend/npm start 
+
+Local Address:
+Open http://localhost:3000 
+
+When you edit the page will reload and you can see the errors in the console.
+
+
+
 Feature Directions:
 Home Page Demo User:
 You will be able to test the features without sign up by cliking on the `Demo User` button
 
-<img src="./img/demo_user_homepage.png"/>
+![Screen Shot 2022-08-28 at 11 06 58 PM](https://user-images.githubusercontent.com/59943346/187212210-49fdbe77-fed9-41e8-ba08-fa9868cd89dc.png)
+
+You will be able to leave a review by clicking on the `Leave a Review` button
+<img width="828" alt="Screen Shot 2022-08-29 at 6 12 32 AM" src="https://user-images.githubusercontent.com/59943346/187212738-42bfe84d-58ed-46e9-8f0d-c6525273aeec.png">
+
+
+
+
+
+
+You will be able to create a spot by clicking on the `Create a Spot` button
+<img width="713" alt="Screen Shot 2022-08-29 at 6 12 48 AM" src="https://user-images.githubusercontent.com/59943346/187213080-40fcac2f-5dfb-46b1-a25f-df971d77c296.png">
+
+
+
+
+
+
+
+You will be able to edit or delete a spot by clicking on the `EDIT` or `DELETE` button
+<img width="613" alt="Screen Shot 2022-08-29 at 6 13 04 AM" src="https://user-images.githubusercontent.com/59943346/187213943-fd981941-aef1-4060-9868-f3317d19c619.png">
+
+
+
+
+
+
+
+You will be able to delete a review by clicking on the `DELETE` button
+<img width="714" alt="Screen Shot 2022-08-29 at 6 13 15 AM" src="https://user-images.githubusercontent.com/59943346/187214146-a49ede7f-58ce-4569-a053-81bad671bed9.png">
+
