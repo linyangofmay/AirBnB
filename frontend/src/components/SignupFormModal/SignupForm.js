@@ -31,9 +31,13 @@ function SignupForm() {
 
   return (
     <div className= 'signupcontainer'>
+    <div><h3>Finishing Sign Up</h3></div>
+    <hr style={{color:'GhostWhite', backgroundColor:'ghostwhite'}}/>
+
     <form onSubmit={handleSubmit}>
+
       <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        {errors.map((error, id) => <li key={id}>{error}</li>)}
       </ul>
 
       <div>
