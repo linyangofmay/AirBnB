@@ -41,7 +41,7 @@ function Navigation({ isLoaded }){
          </NavLink>
          </div>
          {isLoaded && sessionLinks}
-         <hr></hr>
+         <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/>
        {/* <NavLink exact to="/">CloudBnB</NavLink> */}
          {/* {isLoaded && sessionLinks} */}
          </div>

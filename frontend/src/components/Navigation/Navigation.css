@@ -72,7 +72,7 @@
 
 
 .wordlogo{
-  color :red;
+  color :tomato;
   font-family:'Courier New', Courier, monospace;
   font-weight: bold;
   display: flex;
@@ -103,3 +103,6 @@
 .wordlogolink{
   text-decoration:none;
 }
+/* nav .a{
+  text-decoration: none;
+} */
