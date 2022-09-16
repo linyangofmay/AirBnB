@@ -13,7 +13,7 @@ import SpotCreate from './components/Spot/SpotCreate'
 import SpotEdit from './components/Spot/SpotEdit';
 import ReviewCurrent from './components/Review/ReviewCurrent';
 import ReviewCreate from './components/Review/ReviewCreate';
-import SignupFormPage from './components/SignupFormPage';
+import SignupFormModal from './components/SignupFormModal';
 
 import LoginFormModal from './components/LoginFormModal';
 
@@ -31,11 +31,11 @@ function App() {
       {isLoaded && (
 
         <Switch>
-          <Route path="/signup">
+          {/* <Route path="/signup">
             <SignupFormPage />
-          </Route>
+          </Route> */}
 
-          <Route exact path='/login' component={LoginFormModal} />
+          {/* <Route exact path='/login' component={LoginFormModal} /> */}
 
           <Route exact path="/spots/current/new" component={SpotCreate} />
 

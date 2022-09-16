@@ -4,6 +4,7 @@ import { NavLink, Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 import cloud from './cloud.jpeg';
 
@@ -24,7 +25,7 @@ function Navigation({ isLoaded }){
       <>
 
         <LoginFormModal />
-        <NavLink className='signupnavlink'to="/signup"><button className='signupbtn'>Sign Up</button></NavLink>
+        <SignupFormModal />
       </>
     );
   }
@@ -39,9 +40,10 @@ function Navigation({ isLoaded }){
          <div className='wordlogo'> CloudBnB </div>
          </NavLink>
          </div>
+         {isLoaded && sessionLinks}
          <hr></hr>
        {/* <NavLink exact to="/">CloudBnB</NavLink> */}
-         {isLoaded && sessionLinks}
+         {/* {isLoaded && sessionLinks} */}
          </div>
 
    );

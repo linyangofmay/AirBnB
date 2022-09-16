@@ -15,6 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Booking.init({
+    id:{
+      type: DataTypes.INTEGER,
+      primaryKey:true,
+      autoIncrement:true
+    }, //added the id on booking make it as joint table.
     spotId: {
       type:DataTypes.INTEGER,
       allowNull:false

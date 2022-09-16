@@ -44,10 +44,10 @@ function SpotCreate(){
     if (country.length < 2){
       errors.push('country filed is required')
     }
-    if (lat.length <= 0){
+    if (lat <-90 || lat> 90){
       errors.push('lat filed is required')
     }
-    if (lng.length <=0){
+    if (lng <-180 || lng > 180){
       errors.push('lng filed is required')
     }
     if(price <= 0 ){
@@ -63,7 +63,7 @@ function SpotCreate(){
     e.preventDefault()
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
     const dispatchhelper = await dispatch(createOneSpot(spotinfo));
-    console.log('dispatchhelper-----------------', dispatchhelper)
+    //console.log('dispatchhelper-----------------', dispatchhelper)
     if(dispatchhelper ){
       history.push(`/spots/${dispatchhelper.id}`);
       // history.push(`/`);

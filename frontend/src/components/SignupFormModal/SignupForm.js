@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
-import './SignupForm.css';
 
-function SignupFormPage() {
-  const dispatch = useDispatch();
+function SignupForm() {
   const sessionUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
   const [firstName, setFirstName] =useState("");
   const [lastName, setLastName]= useState("");
   const [email, setEmail] = useState("");
@@ -43,6 +42,7 @@ function SignupFormPage() {
         </label>
         <input  className='signupinputdiv'
           type="text"
+          placeholder='FirstName'
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
@@ -56,6 +56,7 @@ function SignupFormPage() {
         <input  className='signupinputdiv'
           type="text"
           value={lastName}
+          placeholder='LastName'
           onChange={(e) => setLastName(e.target.value)}
           required
         />
@@ -68,6 +69,7 @@ function SignupFormPage() {
         <input   className='signupinputdiv'
           type="text"
           value={email}
+          placeholder='email'
           onChange={(e) => setEmail(e.target.value)}
           required
         />
@@ -80,6 +82,7 @@ function SignupFormPage() {
         <input   className='signupinputdiv'
           type="text"
           value={username}
+          placeholder='username'
           onChange={(e) => setUsername(e.target.value)}
           required
         />
@@ -92,6 +95,7 @@ function SignupFormPage() {
         <input   className='signupinputdiv'
           type="password"
           value={password}
+          placeholder='password'
           onChange={(e) => setPassword(e.target.value)}
           required
         />
@@ -103,6 +107,7 @@ function SignupFormPage() {
        </label>
         <input   className='signupinputdiv'
           type="password"
+          placeholder='password'
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
@@ -115,4 +120,4 @@ function SignupFormPage() {
   );
 }
 
-export default SignupFormPage;
+export default SignupForm;
