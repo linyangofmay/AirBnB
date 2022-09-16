@@ -36,14 +36,17 @@
   font-size:14px;
   border:white;
   border-radius: 10px;
-  color: tomato;
+  color: #ff385c;
   display: block;
-  margin-left: 1150px;
+  margin-left: 1050px;
   font-weight: 400px;
   margin-top: -52px;
   margin-bottom:20px;
   height: 10px;
   background: none;
   font-family: Helvetica neue;
-
+  cursor:pointer;
+}
+.signupbtn1:active{
+  
 }

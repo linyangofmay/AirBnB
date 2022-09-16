@@ -11,17 +11,14 @@ import './SpotDetailCss.css'
 const SpotDetail = () => {
   const { spotId } = useParams();
   const spotdata = useSelector((state) => state.spot);
-  const spoty = spotdata.oneSpot;
+  const spoty = spotdata[spotId];
   console.log('spotdata------------', spotdata);
   console.log('spoty-----------', spoty);
   // const spotArr = Object.values(spotObj)
   const sessionUser = useSelector(state => state.session.user);
   const reviewObj = useSelector((state) => state.review)
   const reviewArr = Object.values(reviewObj);
-  console.log('reviewArr---------', reviewArr)
-
-
-
+  //console.log('reviewArr---------', reviewArr)
 
 
 
@@ -34,27 +31,30 @@ const SpotDetail = () => {
 
   }, [dispatch, spotId]);
 
+  if (!spoty){
+    return null;
+  }
   return (
     <div className='spotdetailmain'>
 
       <div>
-        <h2>{spoty?.name}</h2>
+        <h2>{spoty.name}</h2>
       </div>
 
       <div>
-        {'⭐️'}{spoty?.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0} {spoty?.numReviews} reviews
+        {'⭐️'}{spoty.avgRating  ?Number.parseFloat(spoty.avgRating).toFixed(2) : 0} {spoty?.numReviews} reviews
         <p></p>
-        {spoty?.address}, {spoty?.city},{spoty?.state},{spoty?.country}
+        {spoty.address}, {spoty.city},{spoty.state},{spoty.country}
       </div>
 
       <div >
-        <img src={spoty?.imageurl} className='spotdetailimage'/>
+        <img src={spoty.imageurl} className='spotdetailimage'/>
       </div>
 
       <div>
-        {spoty?.description}
+        {spoty.description}
         <p></p>
-        ${spoty?.price}  /night
+        ${spoty.price}  /night
         <p></p>
       </div>
 

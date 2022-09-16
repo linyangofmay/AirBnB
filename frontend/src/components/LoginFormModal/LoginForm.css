@@ -52,15 +52,20 @@
   font-size:15px;
   border:white;
   border-radius: 10px;
-  color: tomato;
+  color: #ff385c;
   display: block;
-  margin-left: 1050px;
+  margin-left: 1150px;
   font-weight: 400px;
   margin-top: -40px;
   margin-bottom:20px;
   height: 48px;
-  background: none;
+
   font-family: Helvetica neue;
+  cursor:pointer;
+}
+.loginbtn1:hover{
+  
+  border:2px solid darkblue;
 }
 
 .demouserbtn{

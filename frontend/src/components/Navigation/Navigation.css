@@ -48,18 +48,8 @@
 } */
 
 .homepagelogo{
-  /* color :red;
-  font-family:'Courier New', Courier, monospace;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 30px;
-  line-height: 40px;
-  height: 30px;
-  font-size:20px; */
 
-
-  color :red;
+  color :#ff385c;
   font-family:'Courier New', Courier, monospace;
   font-weight: bold;
   display: flex;
@@ -72,7 +62,7 @@
 
 
 .wordlogo{
-  color :tomato;
+  color :#ff385c;
   font-family:'Courier New', Courier, monospace;
   font-weight: bold;
   display: flex;
@@ -103,6 +93,3 @@
 .wordlogolink{
   text-decoration:none;
 }
-/* nav .a{
-  text-decoration: none;
-} */
