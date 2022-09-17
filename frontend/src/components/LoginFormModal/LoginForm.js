@@ -6,6 +6,7 @@ import { NavLink, Link, useHistory } from 'react-router-dom';
 import "./LoginForm.css"
 import cloud from '../Navigation/cloud.jpeg';
 
+
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
@@ -20,6 +21,7 @@ function LoginForm() {
     history.push('/');
 
     setErrors([]);
+
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
@@ -33,15 +35,16 @@ function LoginForm() {
 
   return (
     <div className="lfcontainer">
+      <h3 className='login_head'>Log In</h3>
+    
+      <hr style={{color:'grey', backgroundColor:'grey'}}/>
       <form onSubmit={handleSubmit} className='loginform'>
-      <h3 className='login_welcome'>Welcome to CloudBnB</h3>
-
         <ul>
           {errors.map((error, id) => (
             <li key={id} className='login_error'>{error}</li>
           ))}
         </ul>
-
+        <h3 className='login_welcome'>Welcome to CloudBnB</h3>
         <div className='inputdiv'>
           <div className='borderdiv'>
             <label>
@@ -52,6 +55,7 @@ function LoginForm() {
                 type="text"
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
+                placeholder ='Username or Email'
                 required
               />
           </div>
@@ -67,6 +71,7 @@ function LoginForm() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder = 'Password'
               required
             />
           </div>
