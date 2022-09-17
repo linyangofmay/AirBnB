@@ -30,7 +30,40 @@
   font-weight:bold;
 }
  */
+.signup_head{
+  font-family:sans-serif;
+  display: flex;
+  align-items: flex-start;
+  margin-left: 50px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  height: 20px;
 
+
+}
+.signup_form{
+  width: 400px;
+  height:430px;
+  font-family:sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 30px;
+
+  background:white;
+  margin-top: -30px;
+
+}
+.signup_error{
+  display: flex;
+  text-align: start;
+  justify-content: start;
+  align-items: start;
+  color: tomato;
+  
+
+}
 
  .signupbtn1{
   font-size:15px;

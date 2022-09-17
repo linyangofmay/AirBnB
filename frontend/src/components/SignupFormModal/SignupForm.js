@@ -30,96 +30,99 @@ function SignupForm() {
   };
 
   return (
-    <div className= 'signupcontainer'>
-    <div><h3>Finishing Sign Up</h3></div>
-    <hr style={{color:'GhostWhite', backgroundColor:'ghostwhite'}}/>
 
-    <form onSubmit={handleSubmit}>
+    <div>
+      <h3 className='signup_head'>Finishing Sign Up</h3>
 
-      <ul>
-        {errors.map((error, id) => <li key={id}>{error}</li>)}
-      </ul>
+      {/* <hr style={{ color: 'grey', backgroundColor: 'gre' }} /> */}
+      <hr></hr>
 
-      <div>
-      <label>
-        firstName
-        </label>
-        <input  className='signupinputdiv'
-          type="text"
-          placeholder='FirstName'
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-      </div>
+      <form onSubmit={handleSubmit} className='signup_form'>
 
-      <div>
-      <label>
-        lastName
-       </label>
-        <input  className='signupinputdiv'
-          type="text"
-          value={lastName}
-          placeholder='LastName'
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-      </div>
+        <ul>
+          {errors.map((error, id) => <li key={id} className='signup_error'>{error}</li>)}
+        </ul>
 
-      <div>
-      <label>
-        Email
-       </label>
-        <input   className='signupinputdiv'
-          type="text"
-          value={email}
-          placeholder='email'
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-       </div>
+        <div>
+          <label>
+            firstName
+          </label>
+          <input className='signupinputdiv'
+            type="text"
+            placeholder='FirstName'
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
 
-      <div>
-      <label>
-        Username
-      </label>
-        <input   className='signupinputdiv'
-          type="text"
-          value={username}
-          placeholder='username'
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
+        <div>
+          <label>
+            lastName
+          </label>
+          <input className='signupinputdiv'
+            type="text"
+            value={lastName}
+            placeholder='LastName'
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
 
-      <div>
-      <label>
-        Password
-      </label>
-        <input   className='signupinputdiv'
-          type="password"
-          value={password}
-          placeholder='password'
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
+        <div>
+          <label>
+            Email
+          </label>
+          <input className='signupinputdiv'
+            type="text"
+            value={email}
+            placeholder='email'
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-      <div>
-      <label>
-        Confirm Password
-       </label>
-        <input   className='signupinputdiv'
-          type="password"
-          placeholder='password'
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </div>
+        <div>
+          <label>
+            Username
+          </label>
+          <input className='signupinputdiv'
+            type="text"
+            value={username}
+            placeholder='username'
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
 
-      <button type="submit" className='signupsubmit'>Sign Up</button>
-    </form>
+        <div>
+          <label>
+            Password
+          </label>
+          <input className='signupinputdiv'
+            type="password"
+            value={password}
+            placeholder='password'
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label>
+            Confirm Password
+          </label>
+          <input className='signupinputdiv'
+            type="password"
+            placeholder='password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className='signupsubmit'>Sign Up</button>
+      </form>
     </div>
   );
 }

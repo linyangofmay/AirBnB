@@ -36,7 +36,7 @@ function LoginForm() {
   return (
     <div className="lfcontainer">
       <h3 className='login_head'>Log In</h3>
-    
+      <span></span>
       <hr style={{color:'grey', backgroundColor:'grey'}}/>
       <form onSubmit={handleSubmit} className='loginform'>
         <ul>
@@ -47,8 +47,8 @@ function LoginForm() {
         <h3 className='login_welcome'>Welcome to CloudBnB</h3>
         <div className='inputdiv'>
           <div className='borderdiv'>
-            <label>
-              Username or Email
+
+
           <div>
 
               <input className='loginusername'
@@ -59,13 +59,13 @@ function LoginForm() {
                 required
               />
           </div>
-            </label>
+
        </div>
 
 
         <div className='borderdiv'>
-          <label>
-            Password
+
+
           <div>
             <input className='loginusername'
               type="password"
@@ -75,7 +75,7 @@ function LoginForm() {
               required
             />
           </div>
-          </label>
+          
         </div>
 
       </div>

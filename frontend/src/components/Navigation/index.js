@@ -48,26 +48,7 @@ function Navigation({ isLoaded }){
 
    );
 
-  //    <div className="line">
-  //     <div>
-  //       <NavLink
-  //         exact
-  //         to="/"
-  //         className="nav_link home_link"
-  //         id="cloudbnb_logo"
-  //       >
-  //         <span
-  //           className="iconify"
-  //           data-icon="fa-brands:airbnb"
-  //           data-width="40"
-  //         ></span>
-  //         <span className="logo">CloudBnB</span>
-  //       </NavLink>
-  //     </div>
-
-  //     <div>{isLoaded && sessionLinks}</div>
-  //   </div>
-  // );
+  
 
 }
 
