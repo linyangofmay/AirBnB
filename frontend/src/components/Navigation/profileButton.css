@@ -1,28 +1,13 @@
 
-
-/* .profile_dropdown {
-  font-size: 15px;
-  color: black;
-  font-weight: 500;
-}
-
-.actions_button {
-  background-color: gray;
-}
-
-#menu {
-  background-color: gray;
-} */
-
-.actions_menu {
+.profile_btn {
   color:light grey;
   background-color: white;
   margin-top: -30px;
-  margin-left:1290px;
+  margin-left:1400px;
   border: white;
   border-radius: 20px;
   height: 40px;
-  width: 80px;
+  width: 70px;
   padding-left: 17px;
   padding-right: 40px;
   font-size: 20px;
@@ -32,7 +17,8 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid grey;
-  
+  cursor:pointer;
+
 }
 
 .actions_menu:hover {
@@ -64,4 +50,22 @@
 
 .ddmenu:hover{
   box-shadow: 0px 0px 5px gray;
+}
+
+.separate_line{
+  border-top: 1px solid lightgrey;
+}
+
+.profile_dropdow{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 250px;
+  width: 250px;
+  box-shadow: lightslategrey 5px 5px 20px 0px;
+  border-radius: 15px;
+  margin-top: 100px;
+  position: absolute;
+  right: 57px;
+  top: -20px;
 }

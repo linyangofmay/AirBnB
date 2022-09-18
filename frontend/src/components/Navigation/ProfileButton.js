@@ -35,57 +35,47 @@ function ProfileButton({ user }) {
   const myreviewsbtn =(e) =>{};
 
   return (
-    //<>
-      /* <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-           <li><NavLink to={`/spots/current`}>My Spots</NavLink></li>
-           <li><Link to={`/reviews/current`}>My Reviews</Link></li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
-      )}
-    </> */
-   //<>
-  <div className="actions_button">
-      <button className="actions_menu" onClick={openMenu}>
+    <>
+      <button className='profile_btn' onClick={openMenu}>
         <i className="fas fa-bars nav_bars_icon"></i>
         <i className="fas fa-user-circle user_icon"></i>
       </button>
       {showMenu && (
-        <div id="menu">
-          <p className='usernamediv'> {user.username}</p>
-          <p className= 'usernamediv'>{user.email}</p>
-          <NavLink className='myspotsnavlink'  to="/spots/current">
-            <button className= 'ddmenu' onClick={myspotsbtn}>My Spots</button>
-          </NavLink>
+        <div className="profile_dropdown">
 
-          <p></p><NavLink className='myspotsnavlink' to="/reviews/current">
-            <button className= 'ddmenu' onClick={myreviewsbtn}>My Reviews</button>
-          </NavLink>
 
-          <p>
+          <div>
+            {user.username}
+          </div>
+          <div>
+          {user.email}
+          </div>
 
-          <button className= 'ddmenu' onClick={logout}>
-            Log Out
-          </button>
+          <div className='separate_line'></div>
 
-          </p>
 
-        </div>
+          <div>
+          <Link to='/spots/current'>Manage Listings</Link>
+          </div>
+
+          <div>
+          <Link to='/reviews/current'>Manage Reviews</Link>
+          </div>
+
+
+          <div className='separate_line'></div>
+
+          <div>
+            <button onClick={logout}>Log Out</button>
+          </div>
+
+       </div>
       )}
-    </div>
-
-
-
-
-
+    </>
   );
 }
+
+
+
 
 export default ProfileButton;

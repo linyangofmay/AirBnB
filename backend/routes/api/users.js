@@ -17,16 +17,66 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isLength({ min: 4 })
     .withMessage('Please provide a username with at least 4 characters.'),
-  check('username')
+   check('username')
     .not()
     .isEmail()
-    .withMessage('Username cannot be an email.'),
+    .withMessage('Username cannot be an email'),
   check('password')
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
     .withMessage('Password must be 6 characters or more.'),
+  check('firstName')
+    .exists({ checkFalsy: true })
+    .withMessage('First Name is required.'),
+  check('lastName')
+    .exists({ checkFalsy: true })
+    .withMessage('Last Name is required.'),
   handleValidationErrors
 ];
+const validateSignupunique = async (req, res, next)=>{
+  const findbyemail = await User.findOne({
+    where: { email: req.body.email }
+})
+  const findbyusername = await User.findOne({
+  where:{username: req.body.username}
+})
+
+if (findbyemail){  res.status(403)
+    res.json({
+    message: "User already exists",
+    statusCode: 403,
+    errors: {
+      email: "User with that email already exists"
+    }
+  })}
+  if(findbyusername){
+  res.status(403)
+  res.json({
+        message: "Validation error",
+        statusCode: 400,
+        errors: {
+          username: "User with that username already exists",
+
+       }
+      })
+}
+// if (!firstName || !lastName || !username) {
+//   res.status(400)
+//   res.json({
+
+//       message: "Validation error",
+//       statusCode: 400,
+//       errors: {
+//           email: "Invalid email",
+//           username: "Username is required",
+//           firstName: "First Name is required",
+//           lastName: "Last Name is required"
+//       }
+//   })
+//}
+next();
+
+}
 
 // router.post(
 //   '/',
@@ -45,68 +95,8 @@ const validateSignup = [
 // );
 
 //sign up
-router.post('/', validateSignup, async (req, res) => {
+router.post('/',  validateSignup, validateSignupunique, async (req, res, next) => {
   const { firstName, lastName, email, username, password } = req.body;
-
-  const findbyemail = await User.findAll({
-      where: { email: email }
-  })
-  const findbyusername = await User.findAll({
-    where:{username: username}
-  })
-
-  if (findbyemail.length >0){
-    return res.json({
-      "message": "User already exists",
-      "statusCode": 403,
-      "errors": {
-        "email": "User with that email already exists"
-      }
-    })
-  }
-
-  if(findbyusername.length >0){
-    return res.json({
-      "message": "User already exists",
-      "statusCode": 403,
-      "errors": {
-        "username": "User with that username already exists"
-      }
-    })
-  }
-  if (!firstName){
-   res.json({
-    "message": "Validation error",
-   "statusCode": 400,
-   "errors": {
-
-    "firstName": "First Name is required",
-
-  }
-   })
-  };
-
-  if(!lastName){
-    res.json({
-      "message": "Validation error",
-      "statusCode": 400,
-      "errors": {
-
-        "lastName": "Last Name is required"
-
-     }
-    })
-  };
-  if(!username){
-    res.json({
-      "message": "Validation error",
-      "statusCode": 400,
-      "errors": {
-        "username": "Username is required",
-
-     }
-    })
-  };
   const user = await User.signup({
      firstName: firstName,
      lastName: lastName,
@@ -116,9 +106,10 @@ router.post('/', validateSignup, async (req, res) => {
   })
 
   const token= await setTokenCookie(res,user);
-  user.dataValues.token= token;
-
-  res.json(user);
+  user.dataValues.token = token
+  res.json(
+    user
+  );
 
 });
 

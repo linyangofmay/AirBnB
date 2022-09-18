@@ -50,7 +50,7 @@ function LoginForm() {
 
 
           <div>
-
+              <lable className='loginusernamelabel' htmlFor='loginusername'>Username or Email</lable>
               <input className='loginusername'
                 type="text"
                 value={credential}
@@ -67,7 +67,8 @@ function LoginForm() {
 
 
           <div>
-            <input className='loginusername'
+            <lable className='loginusernamelabel'>Password</lable>
+            <input className='loginusername placeholder'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -75,7 +76,7 @@ function LoginForm() {
               required
             />
           </div>
-          
+
         </div>
 
       </div>

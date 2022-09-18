@@ -58,10 +58,12 @@
 .signup_error{
   display: flex;
   text-align: start;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   color: tomato;
   font-family:sans-serif;
+  margin-left: -110px;
+  
 }
 
  .signupbtn1{
