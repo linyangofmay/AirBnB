@@ -31,7 +31,7 @@ function SignupForm() {
 
   return (
 
-    <div className='signup_container'>
+    <div className='signup_container1'>
       <h3 className='signup_head'>Finishing Sign Up</h3>
 
       <hr style={{ color: 'grey', backgroundColor: 'gre' }} />
