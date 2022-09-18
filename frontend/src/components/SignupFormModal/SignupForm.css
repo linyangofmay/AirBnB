@@ -6,11 +6,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
-
-
-
 }
 
 .signup_username{
@@ -24,14 +19,8 @@
   color: black;
   font-family: sans-serif;
   font-weight: 50px;
-
-
 }
 
-
-
-
- */
 .signup_head{
   font-family:sans-serif;
   display: flex;
@@ -61,13 +50,9 @@
   flex-direction: column;
   align-items: center;
   border-radius: 30px;
-
   background:white;
   font-family:sans-serif;
-
   margin-top: -30px;
-
-
 }
 .signup_error{
   display: flex;
@@ -76,8 +61,6 @@
   align-items: start;
   color: tomato;
   font-family:sans-serif;
-
-
 }
 
  .signupbtn1{
@@ -102,7 +85,6 @@
 .signupbtn2{
   height: 48px;
   width: 330px;
-
   border: none;
   border-radius: 12px;
   background-color: rgb(230, 30, 77);

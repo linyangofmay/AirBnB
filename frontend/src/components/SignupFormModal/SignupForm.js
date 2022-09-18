@@ -34,8 +34,8 @@ function SignupForm() {
     <div className='signup_container'>
       <h3 className='signup_head'>Finishing Sign Up</h3>
 
-      {/* <hr style={{ color: 'grey', backgroundColor: 'gre' }} /> */}
-      <hr></hr>
+      <hr style={{ color: 'grey', backgroundColor: 'gre' }} />
+
 
       <form onSubmit={handleSubmit} className='signup_form'>
 
@@ -76,7 +76,7 @@ function SignupForm() {
           />
         </div>
 
-        <div>
+
 
           <input className='signup_username'
             type="text"
@@ -85,9 +85,9 @@ function SignupForm() {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </div>
 
-        <div>
+
+
 
           <input className='signup_username'
             type="password"
@@ -96,7 +96,7 @@ function SignupForm() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
+
 
 
 
