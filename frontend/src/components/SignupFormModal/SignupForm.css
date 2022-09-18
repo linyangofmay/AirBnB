@@ -1,40 +1,42 @@
-/* .signupcontainer{
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.signupinputdiv{
-  background: transparent;
-  width: 180px;
-  height:4px;
-  padding: 1em;
-  margin-bottom: 2em;
-  border: lightpink;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
+.signup_container{
+  width:470px;
+  height: 550px;
   border-radius: 30px;
-  backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
-  color: black;
-  font-family: Montserrat, sans-serif;
-  font-weight: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+
 }
 
-.signupsubmit{
-  font-size:15px;
-  border:red solid;
+.signup_username{
+  background: transparent;
+  width: 300px;
+  height:30px;
+  padding: 9px;
+  border: 1px solid lightgrey;
   border-radius: 10px;
-  color: red;
-  display: block;
-  font-weight:bold;
+  margin-bottom:7px;
+  color: black;
+  font-family: sans-serif;
+  font-weight: 50px;
+
+
 }
+
+
+
+
  */
 .signup_head{
   font-family:sans-serif;
   display: flex;
   align-items: flex-start;
-  margin-left: 50px;
+  margin-left: 70px;
   margin-bottom: 40px;
   font-size: 20px;
   height: 20px;
@@ -42,7 +44,7 @@
 
 }
 .signup_form{
-  width: 400px;
+  /* width: 400px;
   height:430px;
   font-family:sans-serif;
   display: flex;
@@ -52,7 +54,19 @@
   border-radius: 30px;
 
   background:white;
+  margin-top: -30px; */
+  width: 400px;
+  height:450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+
+  background:white;
+  font-family:sans-serif;
+
   margin-top: -30px;
+
 
 }
 .signup_error{
@@ -61,7 +75,8 @@
   justify-content: start;
   align-items: start;
   color: tomato;
-  
+  font-family:sans-serif;
+
 
 }
 
@@ -83,4 +98,18 @@
 .signupbtn1:hover{
   background-color:white;
   border:2px solid darkblue;
+}
+.signupbtn2{
+  height: 48px;
+  width: 330px;
+
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(230, 30, 77);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-bottom:20px;
 }

@@ -31,7 +31,7 @@ function SignupForm() {
 
   return (
 
-    <div>
+    <div className='signup_container'>
       <h3 className='signup_head'>Finishing Sign Up</h3>
 
       {/* <hr style={{ color: 'grey', backgroundColor: 'gre' }} /> */}
@@ -44,10 +44,8 @@ function SignupForm() {
         </ul>
 
         <div>
-          <label>
-            firstName
-          </label>
-          <input className='signupinputdiv'
+
+          <input className='signup_username'
             type="text"
             placeholder='FirstName'
             value={firstName}
@@ -57,10 +55,8 @@ function SignupForm() {
         </div>
 
         <div>
-          <label>
-            lastName
-          </label>
-          <input className='signupinputdiv'
+
+          <input className='signup_username'
             type="text"
             value={lastName}
             placeholder='LastName'
@@ -70,10 +66,8 @@ function SignupForm() {
         </div>
 
         <div>
-          <label>
-            Email
-          </label>
-          <input className='signupinputdiv'
+
+          <input className='signup_username'
             type="text"
             value={email}
             placeholder='email'
@@ -83,10 +77,8 @@ function SignupForm() {
         </div>
 
         <div>
-          <label>
-            Username
-          </label>
-          <input className='signupinputdiv'
+
+          <input className='signup_username'
             type="text"
             value={username}
             placeholder='username'
@@ -96,10 +88,8 @@ function SignupForm() {
         </div>
 
         <div>
-          <label>
-            Password
-          </label>
-          <input className='signupinputdiv'
+
+          <input className='signup_username'
             type="password"
             value={password}
             placeholder='password'
@@ -108,20 +98,18 @@ function SignupForm() {
           />
         </div>
 
-        <div>
-          <label>
-            Confirm Password
-          </label>
-          <input className='signupinputdiv'
+
+
+          <input className='signup_username'
             type="password"
             placeholder='password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </div>
 
-        <button type="submit" className='signupsubmit'>Sign Up</button>
+
+        <button type="submit" className='signupbtn2'>Sign Up</button>
       </form>
     </div>
   );
