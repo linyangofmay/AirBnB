@@ -35,43 +35,46 @@ function ProfileButton({ user }) {
   const myreviewsbtn =(e) =>{};
 
   return (
-    <>
+
+    <div className="profile_dropdown">
       <button className='profile_btn' onClick={openMenu}>
         <i className="fas fa-bars nav_bars_icon"></i>
         <i className="fas fa-user-circle user_icon"></i>
       </button>
       {showMenu && (
-        <div className="profile_dropdown">
+        <div className="profile_wrapper">
+          <div className='itemwrapper'>
 
-
-          <div>
+          <div className='userProfile'>
             {user.username}
           </div>
-          <div>
+          <div className='userProfile'>
           {user.email}
           </div>
 
           <div className='separate_line'></div>
 
 
-          <div>
-          <Link to='/spots/current'>Manage Listings</Link>
+          <div >
+          <NavLink to='/spots/current' className='allspotbutton' >Manage Listings</NavLink>
           </div>
 
-          <div>
-          <Link to='/reviews/current'>Manage Reviews</Link>
+          <div className='allspotbutton'>
+          <Link to='/reviews/current' className='allspotbutton'>Manage Reviews</Link>
           </div>
 
 
           <div className='separate_line'></div>
 
-          <div>
-            <button onClick={logout}>Log Out</button>
+          <div >
+            <button onClick={logout} className='profile_logoutbtn'>Log Out</button>
           </div>
-
+         </div>
        </div>
+
       )}
-    </>
+    </div>
+
   );
 }
 

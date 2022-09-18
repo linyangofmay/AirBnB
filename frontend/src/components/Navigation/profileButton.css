@@ -4,7 +4,7 @@
   background-color: white;
   margin-top: -30px;
   margin-left:1400px;
-  border: white;
+  border: 1px solid lightgrey;
   border-radius: 20px;
   height: 40px;
   width: 70px;
@@ -16,8 +16,21 @@
   text-align: start;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   cursor:pointer;
+  background: transparent;
+
+  /* display: flex;
+  width: 77px;
+  height: 42px;
+  align-items: center;
+  justify-content: space-around;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  text-align: inherit;
+  border: 1px solid lightgrey;
+  border-radius: 21px; */
 
 }
 
@@ -56,10 +69,10 @@
   border-top: 1px solid lightgrey;
 }
 
-.profile_dropdow{
-  display: flex;
+.profile_dropdown{
+  /* display: flex;
   flex-direction: column;
-  background: white;
+  background:white;
   height: 250px;
   width: 250px;
   box-shadow: lightslategrey 5px 5px 20px 0px;
@@ -67,5 +80,93 @@
   margin-top: 100px;
   position: absolute;
   right: 57px;
-  top: -20px;
+  top: -20px; */
+  display: flex;
+  justify-content: center;
+
+
+
+
+}
+
+.allspotbutton{
+  color: rgb(70, 70, 70);
+  text-decoration: none;
+  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
+  sans-serif;
+  font-size: 15px;
+  font-weight:400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 5px;
+}
+.userProfile{
+  color: rgb(70, 70, 70);
+  text-decoration: none;
+  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
+  sans-serif;
+  font-size: 15px;
+  font-weight:400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 5px;
+}
+#main-logged-in-menu1{
+  display: flex;
+  width: 77px;
+  height: 42px;
+  align-items: center;
+  justify-content: space-around;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  text-align: inherit;
+  border: 1px solid lightgrey;
+  border-radius: 21px;
+}
+.profile_wrapper{
+  position: relative;
+  top: 19px;
+  right: 205px;
+  width: 0;
+  height: 0;
+}
+
+.itemwrapper{
+  width: 200px;
+  height: 260px;
+  display: flex;
+  flex-flow: column;
+  align-items: left;
+  border: 1px lightgrey solid;
+  border-radius: 15px;
+  background-color: white;
+  font-family: sans-serif;
+  padding-top: 9px;
+  padding-bottom: 15px;
+  line-height: 30px;
+}
+.allspotbutton{
+  font-family: sans-serif;
+  text-decoration:none;
+  cursor: point;
+}
+.profile_logoutbtn{
+  font-size:15px;
+  border:white;
+  border-radius: 10px;
+  color:black;
+  display: block;
+  margin-left: 65px;
+  font-weight: 400px;
+  margin-top: 10px;
+  margin-bottom:10px;
+  height: 20px;
+  background: none;
+  font-family: Helvetica neue;
+  cursor:pointer;
+
+
 }
