@@ -40,6 +40,10 @@ function ProfileButton({ user }) {
       <button className='profile_btn' onClick={openMenu}>
         <i className="fas fa-bars nav_bars_icon"></i>
         <i className="fas fa-user-circle user_icon"></i>
+
+
+
+       
       </button>
       {showMenu && (
         <div className="profile_wrapper">
@@ -59,7 +63,7 @@ function ProfileButton({ user }) {
           <NavLink to='/spots/current' className='allspotbutton' >Manage Listings</NavLink>
           </div>
 
-          <div className='allspotbutton'>
+          <div >
           <Link to='/reviews/current' className='allspotbutton'>Manage Reviews</Link>
           </div>
 

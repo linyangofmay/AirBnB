@@ -29,33 +29,36 @@ const SpotsBrowser = () =>{
 
    useEffect(()=>{
 
-    dispatch(fetchSpots()).then(setIsLoaded(true));
+    dispatch(fetchSpots())
    }, [dispatch]);
 
+   if (!spotsArr) return null;
   return (
 
-     <div className='maindiv'>
-
+     <div className='outermost_div'>
+        <div className ='outer_div'>
         {spotsArr.map((spot) => (
           <div className='spotdiv'>
-            <NavLink to={`/spots/${spot.id}`} key={spot.id}>
+            <NavLink to={`/spots/${spot.id}`} key={spot.id} className='browser_navlink'>
 
               <div>
-                <img src={`${spot?.imageurl}`} className="imageclass" />
-                {/* <div>{spot.name}</div> */}
+                <img src={`${spot.imageurl}`} className="browser_image_div" alt='preview'/>
               </div>
 
-              <div className='infoclass'>
-                <div>{spot.city} {spot.state}</div>
-                <div>{'⭐️'}{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
-              </div>
+              <div className='browser_rate_div'>
+                <div style={{fontweight:'500'}}>{spot.city}, {spot.state}</div>
+                <div>
 
-              <div className='pricediv'>{spot.price}/night</div>
+
+                {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0} <i className="fas fa-solid fa-star"></i></div>
+              </div>
+              <div >{spot.name}</div>
+              <div >${spot.price}/night</div>
             </NavLink>
 
           </div>
       ))}
-
+       </div>
 
       </div>
 
