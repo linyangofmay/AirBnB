@@ -94,6 +94,7 @@ const SpotDetail = () => {
           {/* <div className='oneimage_div'>
           <div><img src={spoty.imageurl} alt ='image' className='spotdetailimage'/></div>
           </div> */}
+          
         </div>
 
         <div className='host_div'>
