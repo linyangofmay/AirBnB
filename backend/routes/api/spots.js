@@ -158,7 +158,7 @@ router.get('/current', requireAuth, async (req, res) => {
 });
 
 
-
+//add image to a spot
 router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
@@ -173,6 +173,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
     });
+    //console.log('Image-----', Image);
     res.json(await Image.findByPk(newimage.id, {
       attributes: [
         'id',
@@ -195,35 +196,38 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 router.get('/:spotId', async (req, res) => {
   const { spotId } = req.params;
   const spot = await Spot.findByPk(spotId);
+  console.log('spot--------------', spot);
   if (!spot) {
     // res.status(404);
     // return res.json({message: "Couldn't find a Spot with the specified id"})
-    return res.json({
+     res.status(404).json({
       "message": "Spot couldn't be found",
       "statusCode": 404
     })
   };
-  const spotitem = await Spot.findByPk(req.params.spotId, {
-    include: [{
-      model: Image,
-      attributes: [
-        'id',
-        ['spotId', 'imageableId'],
-        'url'
-      ]
+  // const spotitem = await Spot.findByPk(req.params.spotId, {
+  //   include: [{
+  //     model: Image,
+  //     attributes: [
+  //       'id',
+  //       ['spotId', 'imageableId'],
+  //       'url'
+  //     ]
 
-    },
-    {
-      model: User, as: 'Owner',
-      attributes: [
-        'id',
-        'firstName',
-        'lastName'
+  //   },
+  //   {
+  //     model: User, as: 'Owner',
+  //     attributes: [
+  //       'id',
+  //       'firstName',
+  //       'lastName'
 
-      ]
-    }]
+  //     ]
+  //   }]
 
-  });
+  // });
+
+
   const reviews = await Review.findAll({where: {spotId: spotId } });
   const reviewnum = reviews.length;
 
@@ -236,9 +240,20 @@ router.get('/:spotId', async (req, res) => {
     ]
 })
  const avgrating = reviewavgrating[0].dataValues.avgRating;
- spotitem.dataValues.numReviews = reviewnum;
- spotitem.dataValues.avgRating = avgrating;
-  res.json(spotitem);
+ const images = await spot.getImages({atrributes:['id', 'url']})
+ const owners = await User.findOne({where:spot.ownerId, attributes:['id', 'firstName', 'lastName']})
+ let spotitem = {...spot.dataValues};
+ console.log('spotitem----', spotitem);
+ //console.log('images--------', images[0].dataValues);
+spotitem.numReviews = reviewnum;
+ spotitem.avgRating = avgrating;
+ spotitem.images = images;
+ spotitem.owners= owners;
+ console.log('spotitem----------', spotitem);
+
+
+ res.json(spotitem);
+
 
 
 });

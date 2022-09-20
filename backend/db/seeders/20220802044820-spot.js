@@ -79,7 +79,7 @@ module.exports = {
         imageurl:"https://images.unsplash.com/photo-1520446396645-d72d96708bcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
-        ownerId: 6,
+        ownerId: 1,
         address: '568 Italian Lanee',
         city: 'Milan',
         state: 'Milane',
@@ -93,7 +93,7 @@ module.exports = {
       },
 
       {
-        ownerId: 7,
+        ownerId: 2,
         address: '576 Italian Lanee',
         city: 'Milan',
         state: 'Milane',
@@ -106,7 +106,7 @@ module.exports = {
         imageurl:"https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmVuaWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
       },
       {
-        ownerId: 8,
+        ownerId: 3,
         address: '589 Italian Lanee',
         city: 'Milan',
         state: 'Milane',
@@ -119,7 +119,7 @@ module.exports = {
         imageurl:"https://images.unsplash.com/photo-1506807520672-c4a8d5bbe260?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
       },
       {
-        ownerId: 9,
+        ownerId: 4,
         address: '580 Italian Lanee',
         city: 'Milan',
         state: 'Milane',
@@ -132,7 +132,7 @@ module.exports = {
         imageurl:"https://images.unsplash.com/photo-1510265236892-329bfd7de7a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bG9uZG9uJTIwd2VzdCUyMGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
       },
       {
-        ownerId: 10,
+        ownerId: 5,
         address: '580 Italian Lanee',
         city: 'Milan',
         state: 'Milane',
@@ -145,7 +145,7 @@ module.exports = {
         imageurl:"https://images.unsplash.com/photo-1624184780131-189b96898b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
       },
       {
-        ownerId: 11,
+        ownerId: 1,
         address: '600 French Lanee',
         city: 'Marseille',
         state: 'South State',
@@ -158,7 +158,7 @@ module.exports = {
         imageurl:"https://images.unsplash.com/photo-1593264286097-bf76a0717ff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1878&q=80",
       },
       {
-        ownerId: 12,
+        ownerId: 2,
         address: '580 Italian Lanee',
         city: 'Milan',
         state: 'Milane',

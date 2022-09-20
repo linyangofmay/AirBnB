@@ -104,7 +104,7 @@ function SignupForm() {
 
           <input className='signup_username'
             type="password"
-            placeholder='password'
+            placeholder='confirm password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required

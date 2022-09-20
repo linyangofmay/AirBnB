@@ -32,7 +32,7 @@ function Navigation({ isLoaded }){
 
   return (
 
-        <div>
+        <div className='navtop_div'>
          <div className= 'homepagelogo'>
          <NavLink className='wordlogolink' exact to ='/'>
          <div className='homepagelogo'><img src={cloud} /> </div>
@@ -40,15 +40,18 @@ function Navigation({ isLoaded }){
          <div className='wordlogo'> CloudBnB </div>
          </NavLink>
          </div>
+         
+         <div className='navtop_right_div'>
          {isLoaded && sessionLinks}
-         <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/>
+         </div>
+         {/* <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/> */}
        {/* <NavLink exact to="/">CloudBnB</NavLink> */}
          {/* {isLoaded && sessionLinks} */}
          </div>
 
    );
 
-  
+
 
 }
 

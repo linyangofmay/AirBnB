@@ -4,6 +4,7 @@ import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import "./LoginForm.css"
 
 
 function LoginFormModal() {
@@ -17,7 +18,9 @@ function LoginFormModal() {
   }
   return (
     <>
+
       <button onClick={() => setShowModal(true)} className='loginbtn1'>Log In</button>
+   
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />

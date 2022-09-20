@@ -78,7 +78,7 @@ export const getOneSpot = (spotId) => async dispatch => {
   if (res.ok) {
 
     dispatch(loadsportbyid(data));
-    // return data.Spots
+    return res;
   }
 }
 
@@ -157,11 +157,17 @@ const spotReducer = (state = initialState, action) => {
 
 
     case LOAD_SPOT_ID:
-      const oneSpot = { ...action.spot }
-      return {
-        ...state,
-        oneSpot
-      }
+      // const oneSpot = { ...action.spot }
+      // return {
+      //   ...state,
+      //   oneSpot
+      // }
+      let spotIdnewState ={};
+      spotIdnewState= {...state, [action.spot.id]:{...action.spot}};
+      return spotIdnewState;
+
+
+
 
     case CREATEONE:
       // let newone = {};
