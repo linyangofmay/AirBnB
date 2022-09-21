@@ -14,10 +14,12 @@ function ReviewCreate() {
   const [stars, setStars] = useState("");
   const [errors, setErrors] = useState([]);
 
-
   const { spotId } = useParams();
   const spots = useSelector(state => state.spot);
-  const spotone = spots.oneSpot;
+  //const spotone = spots.oneSpot;
+  const reviewObj = useSelector(state => state.review);
+  //console.log('reviewObj-------------', reviewObj)
+  const reviewArr = Object.values(reviewObj);
 
   // console.log('spots--------------', spots)
   // console.log('spotone ------------', spotone)
@@ -26,52 +28,56 @@ function ReviewCreate() {
 
   // console.log('user--------------' ,user)
 
-  const reviewObj = useSelector(state => state.review);
-  console.log('reviewObj-------------', reviewObj)
 
-  const reviewArr = Object.values(reviewObj);
-  console.log('reviewArr--------------', reviewArr[1]);
+  //console.log('reviewArr--------------', reviewArr[1]);
   //console.log('reviewArr[1]----------', reviewArr[1].userId);
-  console.log('user.id-------', user.id)
+  //console.log('user.id-------', user.id)
   const existingreview = reviewArr.filter(review => review.userId === user.id)
   //console.log('existingreview----------', existingreview);
+  // useEffect(() => {
+  //   let errors = [];
+  //   if (content.length <= 0) {
+  //     errors.push('review field is required')
+  //   }
+  //   if (stars <= 0 || stars > 5) {
+  //     errors.push('stars must be between 1 and 5')
+  //   }
+  //   setErrors(errors);
+  // }, [content, stars]);
 
-  useEffect(() => {
-    const errors = [];
-    if (content.length <= 0) {
-      errors.push('review field is required')
-    }
-    if (stars <= 0 || stars > 5) {
-      errors.push('stars must be between 1 and 5')
-    }
 
 
-    setErrors(errors)
-  }, [content, stars])
+
 
   const onSubmit = async (e) => {
+
     e.preventDefault()
+
+   setErrors([]);
+
+
     const reviewinfo = { spotId, review: content, stars, userId: user.id };
-    console.log('reviewinfo---------------', reviewinfo);
-    const reviewdata = await dispatch(createReviews(reviewinfo));
+    //console.log('reviewinfo---------------', reviewinfo);
+    //const reviewdata = await dispatch(createReviews(reviewinfo));
     //console.log('reviewdata--------------------', reviewdata);
 
-    if (reviewdata) {
-      history.push(`/spots/${spotId}/`);
-      // }
-      // const reviewinfo = {content, stars, spotId, userid};
-      // dispatch(createReviews(reviewinfo));
-      //   setSubmitted(true);
-      //   if(!user) throw errors ('Please log in as a user');
+
+    const reviewdata = await dispatch(createReviews(reviewinfo)).catch(async(res)=>{
+      const data = await res.json()
+      console.log('data----', data);
+      if (data && data.errors) setErrors(data.errors)
+      }
 
 
-    };
-  }
-  if (existingreview.length) {
-    return (
-      <div className='review_error'>Sorry, you have already made a review for this spot</div>
-    )
+    );
 
+    if (reviewdata){
+      history.push(`/spots/${spotId}`);
+    }
+
+   }
+   if (existingreview.length) {
+    return (<div className='review_error'>Sorry, you have already made a review for this spot.</div>)
   }
   return (
     <div className='createreview_container'>
@@ -80,9 +86,11 @@ function ReviewCreate() {
         Create A review
         </div>
 
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
+          <div>
+          { Object.values(errors).map((error,idx) => (
+            <div key={idx} className='review_error'>{error}</div>
           ))}
+          </div>
 
 
       <br></br>
