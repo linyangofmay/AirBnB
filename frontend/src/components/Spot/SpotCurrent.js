@@ -15,38 +15,47 @@ const SpotCurrent =()=>{
   useEffect(()=>{
     dispatch(getspotcurrent())
   }, [dispatch]);
-  // if (spotsArr.length === 0){
-  //   return null;
-  // }
-  return (
-    <div>
-      <h2 className='msh2'> My Spots</h2>
 
-      <ul>
+  if(!spotsArr){
+    return null
+  }
+  return (
+    <div className='myspot_div'>
+
+      <div className='myspottop_div'>
+      <h2 className='myspot_head'> My Listings</h2>
       <NavLink to={`/spots/current/new`}><button className='createspotbtn'>Create A New Spot</button> </NavLink>
+      </div>
+
+
+
+      <div className='myspotimg_div'>
         {spotsArr.map((spot) => (
-        <div key={spot.id}>
-          <img src={spot.imageurl} className='scimg'/>
+        <div key={spot.id} className='eachspot_nav'>
+          <NavLink className='myspot_navlink' to={`/spots/${spot.id}`}>
+          <div className='allimg_div'>
+          <img src={spot.imageurl} className='eachimg_div' alt='image'/>
+          </div>
+
+          <div className='myspotinfo_div'>
           <div>{spot.name}</div>
           <div>{spot.city} {spot.state}</div>
-          <div>{spot.description}</div>
-          <div>{spot.price}</div>
-          <div>{'⭐️'}{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
+          <div><i className="fas fa-solid fa-star"></i>{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
+          </div>
+          </NavLink>
+
+          <div className='myspotbtns_div'>
+          <NavLink  to={`/spots/${spot.id}/edit`}><button className='myspot_btn'>EDIT</button></NavLink>
           <p></p>
-
-          <NavLink to={`/spots/${spot.id}/edit`}><button className='scbtn'>EDIT</button></NavLink>
-          <p></p>
-          <button className='scbtn' onClick={()=> dispatch(removespot(spot.id))}>DELETE</button>
-
-
-
+          <button className='myspot_btn' onClick={()=> dispatch(removespot(spot.id))}>DELETE</button>
+          </div>
 
         </div>
 
-      ))}
+        ))}
 
-      </ul>
       </div>
+    </div>
 
   )
 }

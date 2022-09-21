@@ -62,7 +62,7 @@ function SpotCreate(){
   const onSubmit = async (e) =>{
     e.preventDefault()
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
-
+    const errors= [];
     if(name.length ===0 ){
       alert("Name field is required")
       return;
@@ -108,10 +108,7 @@ function SpotCreate(){
 
       return history.push('/spots/current')
 
-    //console.log('dispatchhelper-----------------', dispatchhelper)
-    // if(dispatchhelper ){
-    //   history.push(`/spots/${dispatchhelper.id}`);
-      // history.push(`/`);
+
     };
 
 
@@ -120,7 +117,7 @@ function SpotCreate(){
       <div className='createspot_container'>
 
       <form className='createspot_form' onSubmit={onSubmit}>
-      <div className='createspot_title'>
+       <div className='createspot_title'>
        Create A New Spot
        </div>
        <ul>

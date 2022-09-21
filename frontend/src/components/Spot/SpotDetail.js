@@ -94,7 +94,7 @@ const SpotDetail = () => {
           {/* <div className='oneimage_div'>
           <div><img src={spoty.imageurl} alt ='image' className='spotdetailimage'/></div>
           </div> */}
-          
+
         </div>
 
         <div className='host_div'>
@@ -118,7 +118,7 @@ const SpotDetail = () => {
           <div>
             {reviewArr.map((review) => (
 
-              <div>{review.stars} <i className="fas fa-solid fa-star"></i> userId:{review.userId}   {review.review}
+              <div>{review.stars} <i className="fas fa-solid fa-star"></i>{review.review}
 
               </div>
 

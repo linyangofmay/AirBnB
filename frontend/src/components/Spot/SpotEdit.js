@@ -8,7 +8,7 @@ import {updatespot,getOneSpot} from '../../store/spots';
 import './SpotEditCss.css'
 
 function SpotEdit(){
-  console.log('get a sopt ');
+  // console.log('get a sopt ');
   let spotObj =  useSelector(state => (state.spot));
   const spotArr = Object.values(spotObj)
   console.log('spotObj---------------', spotObj)
@@ -83,12 +83,12 @@ function SpotEdit(){
   const onSubmit = async (e) =>{
     e.preventDefault()
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
-    const dispatchhelper = await dispatch(updatespot(spotId,spotinfo));
+    const updatedspot = await dispatch(updatespot(spotId,spotinfo));
     console.log('dispatchhelper')
-    if(dispatchhelper ){
+    if(updatedspot ){
     //  history.push(`/spots/${dispatchhelper.id}`);
       // history.push(`/`);
-    history.push(`/spots/${spotId}`);
+    history.push('/spots/current');
 
     // history.push(`/spots`)
   }
@@ -98,206 +98,147 @@ function SpotEdit(){
 
     return (
 
-      <div className='secontainer'>
-      <form
-       onSubmit={onSubmit}
-      >
-       <h2>Update A Spot</h2>
+      <div className='createspot_container'>
+      <form  className='createspot_form' onSubmit={onSubmit}>
+       <div className='createspot_title'>
+       Update A  Spot
+       </div>
        <ul>
         {errors.map((error)=>(
           <li key={error}>{error}</li>
         ))}
        </ul>
+       <br></br>
 
-       <div className='serow'>
-       <div>
        <label>
-        Name
-       </label>
-       </div>
-
-       <div>
        <input
           type="text"
           name="name"
           value={name}
+          placeholder='name'
           onChange={(e)=>setName(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
-
-        <div className='serow'>
-        <div>
-        <label>
-        Description
         </label>
-        </div>
 
-        <div>
+
+        <lable>
         <input
           type="text"
           name="description"
           value={description}
+          placeholder='description'
           onChange={(e)=>setDescription(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
-        <div className='serow'>
-        <div>
-        <label>
-        Address
-        </label>
-        </div>
-
-        <div>
+        <lable>
         <input
           type="text"
           name="address"
           value={address}
+          placeholder='address'
           onChange={(e)=>setAddress(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
 
-       <div className='serow'>
-        <div>
-        <label>
-        City
-        </label>
-        </div>
 
-        <div>
+        <lable>
         <input
           type="text"
           name="city"
           value={city}
+          placeholder='city'
           onChange={(e)=>setCity(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
-        <div className='serow'>
-        <div>
-        <label>
-        State
-        </label>
-        </div>
-
-        <div>
+        <lable>
         <input
           type="text"
           name="state"
           value={state}
+          placeholder='state'
           onChange={(e)=>setState(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
 
-        <div className='serow'>
-         <div>
-        <label>
-        Country
-        </label>
-        </div>
-
-        <div>
+        <lable>
         <input
           type="text"
           name="country"
           value={country}
+          placeholder='country'
           onChange={(e)=>setCountry(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
-       <div className='serow'>
-        <div>
-        <label>
-        lat
-        </label>
-        </div>
-
-        <div>
+        <lable>
         <input
           type="decimal"
           name="lat"
           value={lat}
+          placeholder='lat'
           onChange={(e)=>setLat(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
 
-        <div className='serow'>
-        <div>
-        <label>
-        lng
-        </label>
-        </div>
 
-        <div>
+        <lable>
         <input
           type="decimal"
           name="lng"
           value={lng}
+          placeholder='lng'
           onChange={(e)=>setLng(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
-
-
-        <div className='serow'>
-        <div>
-        <label>
-        Price
-        </label>
-        </div>
-
-        <div>
+        <lable>
         <input
           type="integer"
           name="price"
           value={price}
+          placeholder='price'
           onChange={(e)=>setPrice(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
-        <div className='serow'>
-        <div>
-        <label>
-        imageurl
-        </label>
-        </div>
-
-        <div>
+        <lable>
         <input
           type="string"
           name="imageurl"
           value={imageurl}
+          placeholder='imageurl'
           onChange={(e)=>setImageurl(e.target.value)}
+          className='createspot_input'
         />
-        </div>
-        </div>
+        </lable>
 
 
-        <button
-        type="submit"
-        disabled ={errors.length>0}
-      >
+        <button type="submit" disabled ={errors.length>0} className='updatespot_btn'>
         Update a Spot
-      </button>
+       </button>
+
+
       </form>
       </div>
     );

@@ -9,7 +9,7 @@
 
 .createspot_form{
   width: 600px;
-  height: 740px;
+  height: 680px;
   padding: 20px;
   border-radius: 10px;
   border: black solid 1px;
@@ -37,7 +37,7 @@
   margin: 5px;
   padding: 5px;
   box-sizing: border-box;
-  
+
 }
 .createspot_btn{
   background-color: #FF385C;
@@ -47,6 +47,7 @@
   border-radius: 10px;
   font-size: 18px;
   cursor: pointer;
+  margin-top: 30px;
 }
 .createspot_btn:hover{
   box-shadow:15px 15px 15px lightred;

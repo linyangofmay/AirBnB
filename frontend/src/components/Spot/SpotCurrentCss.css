@@ -1,16 +1,44 @@
-.msh2{
-  font-family:'Courier New', Courier, monospace;
-  font-size: 30px;
-  margin-left:39px;
+.myspot_div{
+  width:100%;
+  display:flex;
+  justify-content: start;
+  flex-direction: column;
+
 }
 
-.scimg{
-  width:600px;
-    height:600px;
-    margin-right:20px;
-    margin-bottom:10px;
-    margin-top:30px;
+.myspot_head{
+  font-family:sans-serif;
+  font-size: 30px;
+  margin-left:39px;
+  justify-content: space-between;
+}
+.myspottop_div{
+  display: flex;
+  justify-content: space-between;
+}
 
+.myspotimg_div{
+
+  width: 80%;
+  padding-left: 300px;
+  padding-right: 80px;
+  margin-top: 50px;
+  margin-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 30%);
+  grid-template-rows: auto;
+  column-gap: 15px;
+  row-gap: 20px;
+  justify-items: start;
+}
+
+.eachimg_div{
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 2px;
 }
 .scbtn{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -25,9 +53,37 @@
     cursor: pointer;
 }
 .createspotbtn{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   font-size:20px;
   background: light blue;
   border-radius: 10px;
+  cursor:pointer;
+  margin-top: 28px;
 
+}
+.createspotbtn:hover{
+  border: 1px, blue, solid;
+}
+
+.myspotbtns_div{
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+  margin-top: -100px;
+  margin-left: 800px;
+  margin-bottom: 70px;
+}
+
+.myspot_btn{
+  background-color: white;
+  border: 1px lightgrey solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2px;
+  cursor: pointer;
+  font-family:sans-serif;
+}
+.myspot_btn:hover{
+  border: 2px solid blue;
+  margin: 1px;
 }

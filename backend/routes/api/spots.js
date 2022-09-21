@@ -65,10 +65,15 @@ router.get('/', async (req, res) => {
 
 
 
-
+//create a spot
 router.post('/', requireAuth, async (req, res, next) => {
   const { address, city, state, country, lat, lng, name, description, price, imageurl } = req.body;
-
+  const error={
+    message:"Validation error",
+    statusCode:400,
+    errros:{}
+  }
+  
   if (req.body) {
     const newSpot = await Spot.create({
       ownerId: req.user.id,
