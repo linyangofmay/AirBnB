@@ -68,75 +68,72 @@ function ReviewCreate() {
     };
   }
   if (existingreview.length) {
-    return "Sorry, you have already made a review for this spot."
+    return (
+      <div className='review_error'>Sorry, you have already made a review for this spot</div>
+    )
+
   }
   return (
-    <div className='rccontainer'>
-      <form
-        onSubmit={onSubmit}>
-        <div className='reviewtitle'>
-        <h2>Create A review</h2>
+    <div className='createreview_container'>
+      <form onSubmit={onSubmit} className='createreview_form'>
+        <div className='reviewform_title'>
+        Create A review
         </div>
 
-        <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul>
 
-        <div className='rcrow'>
-          <div>
-            <label>
-              Review
 
-            </label>
-          </div>
+      <br></br>
 
-          <div>
-            <input
+        <div className='reviewform_rows'>
+
+
+            <lable>
+            <textarea
               type="text"
               name="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              placeholder="review content"
+              rows='5'
+              cols='25'
+              wrap='hard'
+              className='review_content_div'
             />
-          </div>
-        </div>
+            </lable>
 
-        <div>
-          <div>
-            <label>
-              Stars
 
-            </label>
-          </div>
-
-          <div>
+            <div className='review_star_num'>
             <input
               type="Integer"
               name="stars"
               value={stars}
               onChange={(e) => setStars(e.target.value)}
+              placeholder='star numbers'
             />
-          </div>
-        </div>
+            </div>
 
-        <div className='reviewcreatebtn'>
+
+
+
           <button
             type="submit"
             //disabled ={errors.length>0 || (!user) || (existingreview)}
             disabled={errors.length > 0 || (!user) || (existingreview.length >= 1)}
-          >
+            className='createreview_btn'>
             Create a Review
           </button>
-        </div>
 
 
+
+       </div>
 
       </form>
-    </div>
+     </div>
+  );
 
-  )
-  //}
 
 
 
