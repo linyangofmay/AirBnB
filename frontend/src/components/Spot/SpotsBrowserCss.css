@@ -2,6 +2,8 @@
 
 .outermost_div{
 display: flex;
+font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
+sans-serif;
 flex-direction:row;
 flex-wrap: wrap ;
 width: 100%;
@@ -66,6 +68,12 @@ align-content: space-around; */
   display:flex;
   justify-content:space-between;
   width:250px;
+  padding-top: 10px;
+
+
+}
+.spotmiddle{
+  color:grey;
 }
 
 @media all and (max-width:1220px) {
@@ -81,4 +89,8 @@ align-content: space-around; */
     row-gap: 20px;
     justify-items: center;
   }
+}
+a{
+  text-decoration:none;
+  color:black
 }

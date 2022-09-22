@@ -80,7 +80,7 @@ function SpotCreate(){
 
     return (
       <div className='createspot_container'>
-
+      
       <form className='createspot_form' onSubmit={handleSubmit}>
        <div className='createspot_title'>
        Create A New Spot

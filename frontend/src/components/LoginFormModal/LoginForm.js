@@ -68,7 +68,7 @@ function LoginForm() {
 
           <div>
             {/* <lable className='loginusernamelabel'>Password</lable> */}
-            <input className='loginusername placeholder'
+            <input className='loginusername'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
