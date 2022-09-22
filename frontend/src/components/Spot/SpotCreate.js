@@ -59,7 +59,7 @@ function SpotCreate(){
   //   setErrors(errors)
   // }, [name, description, price, address, city, state, country, lat, lng, price, imageurl])
 
-  const onSubmit = async (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault()
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
     const errors= [];
@@ -116,7 +116,7 @@ function SpotCreate(){
     return (
       <div className='createspot_container'>
 
-      <form className='createspot_form' onSubmit={onSubmit}>
+      <form className='createspot_form' onSubmit={handleSubmit}>
        <div className='createspot_title'>
        Create A New Spot
        </div>

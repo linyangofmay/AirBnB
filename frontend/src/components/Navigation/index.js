@@ -9,12 +9,12 @@ import './Navigation.css';
 import cloud from './cloud.jpeg';
 
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
   // const sessionUserArr = Object.values(sessionUser);
 
   let sessionLinks;
-  if (sessionUser && Object.values(sessionUser).length>0) {
+  if (sessionUser && Object.values(sessionUser).length > 0) {
     //console.log('i m a sessionUser---------', sessionUser)
     sessionLinks = (
       <ProfileButton user={sessionUser} />
@@ -22,34 +22,46 @@ function Navigation({ isLoaded }){
   } else {
     //console.log('i m not a session suer--------------', sessionUser)
     sessionLinks = (
-      <>
 
-        <LoginFormModal />
+        <>
+        <div className='login-signup-container'>
+
+
+
+        <div className='login-signup'>
         <SignupFormModal />
-      </>
+        </div>
+        <div className='login-signup'>
+        <LoginFormModal />
+        </div>
+
+        </div>
+        </>
     );
   }
 
   return (
 
-        <div className='navtop_div'>
-         <div className= 'homepagelogo'>
-         <NavLink className='wordlogolink' exact to ='/'>
-         <div className='homepagelogo'><img src={cloud} /> </div>
+    <div className='NavBar'>
+      <div className='homeNav'>
+        <NavLink className='wordlogolink' exact to='/'>
+          <div className='twologo'>
+          <div ><img src={cloud} className='cloudlogo'/> </div>
 
-         <div className='wordlogo'> CloudBnB </div>
-         </NavLink>
-         </div>
-         
-         <div className='navtop_right_div'>
-         {isLoaded && sessionLinks}
-         </div>
-         {/* <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/> */}
-       {/* <NavLink exact to="/">CloudBnB</NavLink> */}
-         {/* {isLoaded && sessionLinks} */}
-         </div>
+          <div className='wordlogo'> CloudBnB </div>
+          </div>
+        </NavLink>
+      </div>
 
-   );
+      <div>
+        {isLoaded && sessionLinks}
+      </div>
+      {/* <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/>
+      <NavLink exact to="/">CloudBnB</NavLink>
+       {isLoaded && sessionLinks} */}
+    </div>
+
+  );
 
 
 

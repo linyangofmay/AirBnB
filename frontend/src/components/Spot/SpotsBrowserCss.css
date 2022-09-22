@@ -56,12 +56,10 @@ align-content: space-around; */
  .browser_image_div{
   width: 250px;
   height: 250px;
-
   display: flex;
   justify-content: center;
   border-radius: 20px;
-
-
+  object-fit:cover;
 }
 
 .browser_rate_div{

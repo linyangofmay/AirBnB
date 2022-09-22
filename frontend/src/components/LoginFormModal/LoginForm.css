@@ -56,23 +56,20 @@
 }
 
 .loginbtn1{
-  font-size:15px;
-  border:white;
-  border-radius: 10px;
-  color: #ff385c;
-  display: block;
-  margin-left: 1150px;
-  font-weight: 400px;
-  margin-top: -40px;
-  margin-bottom:10px;
-  height: 37px;
-  background:none;
-  font-family: sans-serif;
-  cursor:pointer;
+  background-color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
+  sans-serif;
+  border-radius:15px;
+
 }
 .loginbtn1:hover{
   background-color:white;
   border:2px solid darkblue;
+  cursor:pointer
+
 }
 
 .loginbtn{
@@ -163,12 +160,12 @@
   font-family: sans-serif;
   }
 
-  loginusernamelabel {
+  /* loginusernamelabel {
     display: none;
     position: absolute;
     top: 0;
-  }
+  }  */
 
-  input:not(:placeholder-shown) + label {
+  /* /* input:not(:placeholder-shown) + label {
     display: block;
-  }
+  } */

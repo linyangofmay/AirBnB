@@ -110,7 +110,7 @@ const SpotDetail = () => {
         </div>
 
         <div className='review_div'>
-          <div><i className="fas fa-solid fa-star"></i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
+          <div><i className="fas fa-solid fa-star">&nbsp; </i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
           <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
           <div>{reviewArr.length} reviews</div>
           </div>
@@ -118,7 +118,7 @@ const SpotDetail = () => {
           <div>
             {reviewArr.map((review) => (
 
-              <div>{review.stars} <i className="fas fa-solid fa-star"></i>{review.review}
+              <div>{review.stars} <i className="fas fa-solid fa-star"></i> &nbsp;{review.review}
 
               </div>
 

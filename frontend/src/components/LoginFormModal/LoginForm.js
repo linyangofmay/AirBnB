@@ -50,7 +50,7 @@ function LoginForm() {
 
 
           <div>
-              <lable className='loginusernamelabel' htmlFor='loginusername'>Username or Email</lable>
+              {/* <lable className='loginusernamelabel' htmlFor='loginusername'>Username or Email</lable> */}
               <input className='loginusername'
                 type="text"
                 value={credential}
@@ -67,7 +67,7 @@ function LoginForm() {
 
 
           <div>
-            <lable className='loginusernamelabel'>Password</lable>
+            {/* <lable className='loginusernamelabel'>Password</lable> */}
             <input className='loginusername placeholder'
               type="password"
               value={password}

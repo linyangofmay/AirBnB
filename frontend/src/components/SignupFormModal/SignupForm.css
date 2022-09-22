@@ -63,7 +63,7 @@
   color: tomato;
   font-family:sans-serif;
   margin-left: -110px;
-  
+
 }
 
  .signupbtn1{
@@ -97,4 +97,19 @@
   cursor: pointer;
   border-radius: 25px;
   margin-bottom:20px;
+}
+.signup_btn{
+  background-color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
+  sans-serif;
+  border-radius: 15px;
+}
+.signup_btn:hover{
+  cursor: pointer;
+  background-color:white;
+
+  border:2px solid darkblue;
 }

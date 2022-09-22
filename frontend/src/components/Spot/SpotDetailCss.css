@@ -59,21 +59,27 @@
     "one one two three"
     "one one four five";
   grid-area: images;
+  object-fit: cover;
+
   }
   .oneimage_div{
     width: 100%;
+    object-fit: cover;
+
   }
   .spotdetailimage{
     width: 100%;
   height: 100%;
   padding: 4px;
   box-sizing: border-box;
+  object-fit: cover;
   }
 
 
 #image0 {
   grid-area: one;
   border-radius: 15px 0px 0px 15px;
+  object-fit: cover;
 }
 
 
