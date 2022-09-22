@@ -68,14 +68,14 @@
   width:1200px;
   height:100%;
   grid-area: images;
-  object-fit: cover;
+  object-fit: contain;
 
 
   }
   .oneimage_div{
     width:1200px;
     height:100%;
-    object-fit: cover;
+    object-fit: contain;
     display:flex;
     justify-content:center;
     grid-area: one;
@@ -99,7 +99,7 @@
 #image0 {
   grid-area: one;
   border-radius: 30px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 
