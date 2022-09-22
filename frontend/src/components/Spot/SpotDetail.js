@@ -6,7 +6,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import ReviewSpot from '../Review/ReviewSpot';
 import { getSpotsReviews } from '../../store/reviews';
-import { getSpotsImages} from '../../store/images';
+import { getSpotsImages } from '../../store/images';
 import './SpotDetailCss.css'
 
 const SpotDetail = () => {
@@ -32,8 +32,8 @@ const SpotDetail = () => {
   const sessionUser = useSelector(state => state.session.user);
   const reviewObj = useSelector((state) => state.review)
   const reviewArr = Object.values(reviewObj);
-   console.log('reviewArr---------', reviewArr)
-   console.log('sessionUser-----', sessionUser)
+  console.log('reviewArr---------', reviewArr)
+  console.log('sessionUser-----', sessionUser)
 
   // const imageObj = useSelector((state) => {
   //   console.log('state image -------', state.image)
@@ -71,37 +71,37 @@ const SpotDetail = () => {
           <div className='headname'><h2 >{spoty.name}</h2></div>
 
           <div className='subheader_div'>
-             <div><i className="fas fa-solid fa-star"></i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
-             <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
-             <div>{reviewArr.length} reviews</div>
-             <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
-             <div>{spoty.address}, {spoty.city},{spoty.state},{spoty.country}</div>
+            <div><i className="fas fa-solid fa-star"></i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+            <div>{reviewArr.length} reviews</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+            <div>{spoty.address}, {spoty.city},{spoty.state},{spoty.country}</div>
           </div>
 
         </div>
 
         <div className='images_div' >
 
-          {spoty?.images?.map((image, index) => {
+          {/* {spoty?.images?.map((image, index) => {
 
             return (
-              <div id={`image${index}`} key={index} className='oneimage_div'>
-                <img src={image.url} id={`image${index}`} className='spotdetailimage' alt='image' />
-              </div>
+              // <div id={`image${index}`} key={index} className='oneimage_div'>
+              //   <img src={image.url} id={`image${index}`} className='spotdetailimage' alt='image' />
+              // </div>
+
 
             )
-          })}
-          {/* <div className='oneimage_div'>
-          <div><img src={spoty.imageurl} alt ='image' className='spotdetailimage'/></div>
-          </div> */}
-
+          })} */}
+          <div className='oneimage_div'>
+            <div><img src={spoty.imageurl} alt='image' className='spotdetailimage' /></div>
+          </div>
         </div>
 
         <div className='host_div'>
           <div>Spot hosted by {spoty?.owners?.firstName}  </div>
           <div >
-          {(sessionUser && Object.values(sessionUser).length > 0) && <button className='addreview_btn'><NavLink className='addreview_btn'to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
-         </div>
+            {(sessionUser && Object.values(sessionUser).length > 0) && <button className='addreview_btn'><NavLink className='addreview_btn' to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
+          </div>
         </div>
 
 
@@ -113,8 +113,8 @@ const SpotDetail = () => {
           <div><i className="fas fa-solid fa-star">&nbsp; </i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
           <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
           <div>{reviewArr.length} reviews</div>
-          </div>
-          <div className='reviewsub_div'>
+        </div>
+        <div className='reviewsub_div'>
           <div>
             {reviewArr.map((review) => (
 
@@ -124,6 +124,7 @@ const SpotDetail = () => {
 
 
             ))}
+
           </div>
         </div>
 

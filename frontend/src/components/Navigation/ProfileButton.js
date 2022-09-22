@@ -39,11 +39,12 @@ function ProfileButton({ user }) {
     <div className="profile_dropdown">
       <button className='profile_btn' onClick={openMenu}>
         <i className="fas fa-bars nav_bars_icon"></i>
+        <div>&nbsp;</div>
         <i className="fas fa-user-circle user_icon"></i>
       </button>
 
 
-      
+
       {showMenu && (
         <div className="profile_wrapper">
           <div className='itemwrapper'>

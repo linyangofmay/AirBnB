@@ -62,51 +62,16 @@ function SpotCreate(){
   const handleSubmit = async (e) =>{
     e.preventDefault()
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
-    const errors= [];
-    if(name.length ===0 ){
-      alert("Name field is required")
-      return;
-    } else if (description.length  <=3){
-      alert('Description filed is required')
-      return;
-    } else if (address.length <= 3){
-      alert ('address filed is required')
-      return;
-    }else if (city.length < 2){
-      alert ('city filed is required')
-      return
-    } else if (state.length <2){
-      alert('state filed is required')
-      return
-    } else if (country.length < 2){
-      alert('country filed is required')
-      return
-    } else if (lat <-90 || lat> 90){
-      alert('lat is not legit')
-      return
-    }else if (lng <-180 || lng > 180){
-      alert('lng is not legit')
-      return
-    } else if(price <= 0 ){
-      alert ("price field must be more than 0")
-      return
-    } else if(!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash'))  ){
-      alert ("image filed is required")
-      return
-    } else {
-       dispatch(createOneSpot(spotinfo)).catch(
+   setErrors([]);
+
+       const newspot=await dispatch(createOneSpot(spotinfo)).catch(
         async(res) =>{
           const data=await res.json();
           if(data && data.errors) setErrors(data.errors);
         }
-       )
-
-      }
-
-
-
-
-      return history.push('/spots/current')
+       );
+      if (newspot){
+       history.push(`/spots/${newspot.id}`)}
 
 
     };
@@ -120,11 +85,11 @@ function SpotCreate(){
        <div className='createspot_title'>
        Create A New Spot
        </div>
-       <ul>
-        {errors.map((error)=>(
-          <li key={error}>{error}</li>
+
+        {Object.values(errors).map((error)=>(
+          <div key={error} className='spotcreate_error'>{error}</div>
         ))}
-       </ul>
+
 
        <br></br>
 
