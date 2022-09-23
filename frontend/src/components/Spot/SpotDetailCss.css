@@ -10,8 +10,8 @@
 
 
   .container_div{
-    max-width: 1120px;
-    width: 80%;
+    /* max-width: 1120px; */
+    width: 60%;
     padding-left: 80px;
     padding-right: 80px;
     display: grid;
@@ -50,7 +50,7 @@
   }
 
   .images_div{
-    margin-top: 100px;
+    margin-top: 60px;
     max-height: 450px;
     display: grid;
     grid-template-columns: repeat(4, 25%);
@@ -112,9 +112,10 @@
   padding-top: 30px;
   font-family:sans-serif;
   font-weight:600;
+  font-size:22px;
   grid-area: host;
   display: flex;
-  width: 650px;
+  width: 63%;
   height: 50px;
   justify-content: space-between;
   border-bottom: lightgrey 1px solid;
@@ -128,17 +129,19 @@
   min-height: 120px;
 
   font-size: large; */
-  margin-top:50px;
+  margin-top:40px;
   padding-top: 30px;
   font-family:sans-serif;
-  font-weight:600;
-  grid-area: host;
+  font-weight:300;
+  font-size:16px;
+  color:dark;
   display: flex;
-  width: 650px;
+  width: 63%;
   height: 50px;
   justify-content: space-between;
   border-bottom: lightgrey 1px solid;
   grid-area: description;
+  min-height: 80px;
 }
 
 .review_div{
@@ -154,7 +157,7 @@
   font-weight:370;
 
   display: flex;
-  width: 650px;
+  width: 850px;
 
   justify-content: start;
   /* border-bottom: lightgrey 1px solid; */

@@ -124,7 +124,7 @@ const SpotDetail = () => {
 
 
         <div className='description_div'>
-          <div>{spoty.description}</div>
+          <div>{spoty?.description}</div>
         </div>
 
         <div className='review_div'>
