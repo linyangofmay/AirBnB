@@ -42,24 +42,22 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className='divoutsidenavbar'>
-    <div className='NavBar'>
-      <div className='homeNav'>
-        <NavLink className='wordlogolink' exact to='/'>
-          <div className='twologo'>
-          <div ><img src={cloud} className='cloudlogo'/> </div>
+      <div className='NavBar'>
+        <div className='homeNav'>
+          <NavLink className='wordlogolink' exact to='/'>
+            <div className='twologo'>
+              <div ><img src={cloud} className='cloudlogo' /> </div>
 
-          <div className='wordlogo'> CloudBnB </div>
-          </div>
-        </NavLink>
-      </div>
+              <div className='wordlogo'> CloudBnB </div>
+            </div>
+          </NavLink>
+        </div>
 
-      <div>
-        {isLoaded && sessionLinks}
+        <div className='signuploginnav'>
+          {isLoaded && sessionLinks}
+        </div>
+
       </div>
-      {/* <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/>
-      <NavLink exact to="/">CloudBnB</NavLink>
-       {isLoaded && sessionLinks} */}
-    </div>
     </div>
 
   );

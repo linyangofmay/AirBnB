@@ -41,12 +41,12 @@ const SpotsBrowser = () =>{
           <div className='spotdiv'>
             <NavLink to={`/spots/${spot.id}`} key={spot.id} className='browser_navlink'>
 
-              <div>
+
                 <img src={`${spot.imageurl}`} className="browser_image_div" alt='preview'/>
-              </div>
+
 
               <div className='browser_rate_div'>
-                <div style={{fontweight:'500'}}>{spot.city}, {spot.state}</div>
+                <div style={{fontweight:'600'}}>{spot.city}, {spot.state}</div>
                 <div>
                 {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0} <i className="fas fa-solid fa-star"></i></div>
               </div>

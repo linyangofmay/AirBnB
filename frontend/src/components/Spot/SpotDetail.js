@@ -85,16 +85,34 @@ const SpotDetail = () => {
           {/* {spoty?.images?.map((image, index) => {
 
             return (
-              // <div id={`image${index}`} key={index} className='oneimage_div'>
-              //   <img src={image.url} id={`image${index}`} className='spotdetailimage' alt='image' />
-              // </div>
+              <div id={`image${index}`} key={index} className='oneimage_div'>
+                <img src={image.url} id={`image${index}`} className='spotdetailimage' alt='image' />
+              </div>
 
 
             )
           })} */}
-          <div className='oneimage_div'>
-            <div><img src={spoty.imageurl} alt='image' className='spotdetailimage' /></div>
-          </div>
+
+            <div  id='image0'   className='oneimage_div'>
+              <img  id='image0' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            </div>
+            <div  id='image1'   className='oneimage_div'>
+              <img id='image1'  src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            </div>
+            <div  id='image2'   className='oneimage_div'>
+              <img  id='image2' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            </div>
+            <div  id='image3'   className='oneimage_div'>
+              <img id='image3'  src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            </div>
+            <div  id='image4'   className='oneimage_div'>
+              <img id='image4' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            </div>
+
+
+
+
+
         </div>
 
         <div className='host_div'>
@@ -129,9 +147,7 @@ const SpotDetail = () => {
         </div>
 
 
-        {/* <div className='sdbtndiv'>
-          {(sessionUser && Object.values(sessionUser).length > 0) && <button><NavLink to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
-         </div> */}
+
 
 
       </div>

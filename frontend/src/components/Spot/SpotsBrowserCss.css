@@ -1,75 +1,68 @@
 /* main-class for whole page */
 
 .outermost_div{
-display: flex;
+
 font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
 sans-serif;
-flex-direction:row;
-flex-wrap: wrap ;
 width: 100%;
 
-justify-content:center;
+font-size:16px;
+font-weight:400px;
 
-/* padding: 80px; */
-
-/* padding: 3em;
-display:grid;
-grid-gap: 2em;
-grid-template-columns:repeat(auto-fit, minmax(250px 1fr)); */
 }
+
 .outer_div{
-
-  /* width:100%; */
-  margin:auto;
-
-
+  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
+  sans-serif;
+  /* padding-left:40px;
+  padding-right: 40px; */
   display:grid;
   grid-template-columns:repeat(5, 1fr);
   grid-template-rows: auto;
-  column-gap: 15px;
-  row-gap:20px;
+  column-gap: 10px;
+  row-gap:50px;
   justify-items:center;
-  width:70%
+  width:80%
 }
 
 /* one card dive including an image and info */
 
 .spotdiv{
-width:250px;
-height:100%;
+width:300px;
+height:300px;
 display: flex;
 justify-content:center;
 flex-direction:column;
 align-items:center;
-font-family:sans-serif
-/* flex-wrap: wrap;
-align-content: space-around; */
+font-family:sans-serif ;
+margin-bottom:10px;
 
 }
 .browser_navlink{
   text-decoration: none;
   color: black;
-  display: grid;
-  justify-self: center;
-  align-items: center;
-  padding: 5px;
+
+
 }
 
 /* one image div */
  .browser_image_div{
-  width: 250px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  border-radius: 12px;
+  height:250px;
+  width: 290px;
+  border-radius: 10px;
   object-fit:cover;
+  display:flex;
+  justify-content:center;
+
+
 }
 
 .browser_rate_div{
-  display:flex;
-  justify-content:space-between;
-  width:250px;
-  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top:10px;
+  font-size: 15;
 
 
 }

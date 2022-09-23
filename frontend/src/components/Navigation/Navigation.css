@@ -1,113 +1,4 @@
-/* .body {
 
-  font-family: "Verdana", sans-serif;
-} */
-
-/* .line {
-  padding: 0px 0 10px 0;
-  background-color: white;
-  display: flex;
-  border-bottom: 0.5px solid #d3d3d3;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
-  font-size: 1px;
-  height: 197px;
-  gap: 10px;
-} */
-/*
-
-
-
-
-/* .nav_link {
-  text-decoration: none;
-} */
-
-/* .home_link {
-  color: #ff385c;
-  display: flex;
-  font-weight: bold;
-  font-size: 1.15rem;
-} */
-
-/* #cloudBnB_logo {
-  align-items: center;
-  font-size: 4.75rem;
-  font-weight: bold;
-  line-height: 40px;
-  padding-left: 8px;
-  padding-top: 14px;
-} */
-
- /* .home_buttons {
-  display: flex;
-  font-size: 18px;
-  margin-right: 8px;
-  margin-top: 15px;
-} */
-
-/* .homepagelogo{
-
-  color :#ff385c;
-  font-family:'Courier New', Courier, monospace;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 4px;
-  margin-left: 15px;
-  height: 48px;
-} */
-
-
-/*
-.wordlogo{
-  color :#ff385c;
-  font-family:sans-serif;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: -30px;
-  margin-left: 65px;
-
-} */
-/* .signupbtn{
-  font-size:15px;
-  border:red;
-  border-radius: 10px;
-  color: black;
-  display: block;
-  font-weight:20px;
-  margin-top: -20px;
-  margin-left: 1150px;
-  margin-right:20px;
-
-} */
-/* .signupnavlink{
-  text-decoration:none;
-} */
-
-/* .signupbtn:hover {
-  box-shadow: 0px 0px 5px gray;
-} */
-/* .wordlogolink{
-  text-decoration:none;
-} */
-/* .navtop_div{
-
-  /* flex-direction:row;
- position: sticky;
-
- top:0;
- background-color:white;
-    /* z-index: 100; */
-    /* width: 100%;
-    height: 60px;
-    box-sizing: border-box;
-    justify-content: space-between;
-    border-bottom: solid 1px lightgrey;
-
-  /* width:100%  */
 
 .wordlogolink{
   color: red;
@@ -119,7 +10,11 @@
 }
 .twologo{
   display: flex;
-  margin-left: 1px;
+  margin-left: 5px;
+}
+.singuploginnav{
+  display:flex;
+  margin-right:5px;
 }
 .wordlogo{
   font-weight: 500;
@@ -154,7 +49,7 @@
   display: flex;
   /* border: 2px dashed green; */
   /* border-bottom: 1px; */
-  width:70%;
+  width:80%;
   align-items: center;
   justify-content: space-between;
   align-content: center;
@@ -169,11 +64,12 @@
 
 }
 .divoutsidenavbar{
-  
+
   width:100%;
   display:flex;
-  justify-content:center;
+  justify-content:space-around;
   border-bottom: 1px solid lightgrey;
+
 
 }
 .cloudlogo{

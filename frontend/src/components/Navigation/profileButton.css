@@ -1,4 +1,9 @@
-
+.profilebtnwrapper{
+  display:flex;
+  /* justify-content: space-between; */
+  /* align-items:flex-end; */
+  margin-right:-5px;
+}
 .profile_btn {
   color:light grey;
   background-color: white;
@@ -24,9 +29,6 @@
     /* align-content: center; */
     /* border: 1px solid red; */
     /* margin-top: 4px; */
-
-
-
 
 
 }
@@ -79,10 +81,6 @@
   right: 57px;
   top: -20px; */
   display: flex;
-  justify-content: center;
-
-
-
 
 }
 
