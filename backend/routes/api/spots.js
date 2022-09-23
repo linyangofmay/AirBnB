@@ -27,12 +27,12 @@ const validateSpot = [
   check('lat')
     .exists({ checkFalsy: true })
     .notEmpty()
-    .isInt({min:-90, max:90})
+    .isDecimal({min:-90, max:90})
     .withMessage('Latitude is not valid'),
   check('lng')
     .exists({ checkFalsy: true })
     .notEmpty()
-    .isInt({min:-180, max:180})
+    .isDecimal({min:-180, max:180})
     .withMessage('Longitude is not valid'),
   check('name')
     .exists({ checkFalsy: true })
@@ -45,7 +45,8 @@ const validateSpot = [
   check('price')
     .exists({ checkFalsy: true })
     .isLength({ max: 6 })
-    .withMessage('Price is required'),
+    .isInt({min:1})
+    .withMessage('Price is not valid'),
   handleValidationErrors
 ];
 
@@ -120,7 +121,7 @@ const validateReviewexists = async(req, res, next)=>{
 
 
 
-router.get('/', async (req, res) => {
+router.get('/',  async (req, res) => {
   let { size, page } = req.query;
   const pagination = {};
   let result = [];
@@ -176,29 +177,29 @@ router.get('/', async (req, res) => {
 
 
 //create a spot
-router.post('/', requireAuth, async (req, res, next) => {
+router.post('/', requireAuth,  async (req, res, next) => {
   const { address, city, state, country, lat, lng, name, description, price, imageurl } = req.body;
-  const error={
-    message:"Validation error",
-    statusCode:400,
-    errors:{}
+  const error = {
+    message: "Validation error",
+    statusCode: 400,
+    errors: {}
   }
-  if(!name) error.errors.name = 'Name is required';
- if (address.length<=3) error.errors.address ='Address is required';
- if(description.length<=3) error.errors.description='Description is required';
- if (city.length < 2) error.errors.city='city is required';
- if (state.length < 2) error.errors.city='city is required';
- if (country.length < 2) error.errors.city='city is required';
- if (lat <-90 || lat> 90) error.errors.lat = 'lat is not legit';
- if (lng <-180|| lat> 180) error.errors.lat = 'lng is not legit';
- if (price <= 0 ) error.errors.price='price must be more than 0';
- if (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')))
- error.errors.image = 'image field is required';
+    if(!name) error.errors.name = 'Name is required';
+   if (address.length<=3) error.errors.address ='Address is required';
+   if(description.length<=3) error.errors.description='Description is required';
+   if (city.length < 2) error.errors.city='city is required';
+   if (state.length < 2) error.errors.city='city is required';
+   if (country.length < 2) error.errors.city='city is required';
+   if (parseFloat(lat) <-90 || parseFloat(lat)> 90) error.errors.lat = 'lat is not legit';
+   if (parseFloat(lng) <-180|| parseFloat(lat)> 180) error.errors.lat = 'lng is not legit';
+   if (parseInt(price)<= 0 ) error.errors.price='price must be more than 0';
+  if (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl)) && !(imageurl.includes('unsplash')))
+    error.errors.image = 'image field is required';
 
- if (!name || address.length<=3 || description.length<=3 || city.length < 2 || state.length < 2 || country.length < 2 || lat <-90 || lat> 90 || lng <-180|| lat> 180 ||price <= 0 || (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')))){
-  res.statusCode =400;
-  res.json(error);
- }
+    if (!name || address.length<=3 || description.length<=3 || city.length < 2 || state.length < 2 || country.length < 2 || parseFloat(lat) <-90 || parseFloat(lat)> 90 || parseFloat(lng )<-180|| parseFloat(lat)> 180 ||parseInt(price) <= 0 || (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')))){
+      res.statusCode =400;
+      res.json(error);
+     }
 
   if (req.body) {
     const newSpot = await Spot.create({
@@ -220,26 +221,26 @@ router.post('/', requireAuth, async (req, res, next) => {
     // })
     res.json(newSpot);
 
-  } else {
-    res.json({
-      "message": "Validation Error",
-      "statusCode": 400,
-      "errors": {
-        "address": "Street address is required",
-        "city": "City is required",
-        "state": "State is required",
-        "country": "Country is required",
-        "lat": "Latitude is not valid",
-        "lng": "Longitude is not valid",
-        "name": "Name must be less than 50 characters",
-        "description": "Description is required",
-        "price": "Price per day is required",
-        "imageurl": "previewImage is required"
-      }
-    })
-  }
+    // } else {
+    //   res.json({
+    //     "message": "Validation Error",
+    //     "statusCode": 400,
+    //     "errors": {
+    //       "address": "Street address is required",
+    //       "city": "City is required",
+    //       "state": "State is required",
+    //       "country": "Country is required",
+    //       "lat": "Latitude is not valid",
+    //       "lng": "Longitude is not valid",
+    //       "name": "Name must be less than 50 characters",
+    //       "description": "Description is required",
+    //       "price": "Price per day is required",
+    //       "imageurl": "previewImage is required"
+    //     }
+    //   })
+    }
 
-})
+  });
 
 //get spot of a current user
 router.get('/current', requireAuth, async (req, res) => {
@@ -417,7 +418,7 @@ router.put('/:spotId', requireAuth, async (req, res) => {
  if (state.length < 2) error.errors.city='city is required';
  if (country.length < 2) error.errors.city='city is required';
  if (lat <-90 || lat> 90) error.errors.lat = 'lat is not legit';
- if (lng <-180|| lat> 180) error.errors.lat = 'lng is not legit';
+ if (lng <-180|| lng> 180) error.errors.lat = 'lng is not legit';
  if (price <= 0 ) error.errors.price='price must be more than 0';
  if (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')))
  error.errors.image = 'image field is required';

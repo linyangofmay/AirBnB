@@ -41,7 +41,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-
+    <div className='divoutsidenavbar'>
     <div className='NavBar'>
       <div className='homeNav'>
         <NavLink className='wordlogolink' exact to='/'>
@@ -59,6 +59,7 @@ function Navigation({ isLoaded }) {
       {/* <hr style={{background:'snow', borderColor:'snow',color:'snow'}}/>
       <NavLink exact to="/">CloudBnB</NavLink>
        {isLoaded && sessionLinks} */}
+    </div>
     </div>
 
   );

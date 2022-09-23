@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false,
     },
     price: {
-      type:DataTypes.DECIMAL,
+      type:DataTypes.INTEGER,
       allowNull:false,
     },
     imageurl: {

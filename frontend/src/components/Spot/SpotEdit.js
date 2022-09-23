@@ -121,6 +121,7 @@ function SpotEdit(){
           placeholder='name'
           onChange={(e)=>setName(e.target.value)}
           className='createspot_input'
+          required
         />
         </label>
 
@@ -133,6 +134,7 @@ function SpotEdit(){
           placeholder='description'
           onChange={(e)=>setDescription(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -145,6 +147,7 @@ function SpotEdit(){
           placeholder='address'
           onChange={(e)=>setAddress(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -159,6 +162,7 @@ function SpotEdit(){
           placeholder='city'
           onChange={(e)=>setCity(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -171,6 +175,7 @@ function SpotEdit(){
           placeholder='state'
           onChange={(e)=>setState(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -184,18 +189,20 @@ function SpotEdit(){
           placeholder='country'
           onChange={(e)=>setCountry(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
 
         <lable>
         <input
-          type="decimal"
+          type="number"
           name="lat"
           value={lat}
           placeholder='lat'
           onChange={(e)=>setLat(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -204,23 +211,25 @@ function SpotEdit(){
 
         <lable>
         <input
-          type="decimal"
+          type="number"
           name="lng"
           value={lng}
           placeholder='lng'
           onChange={(e)=>setLng(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
         <lable>
         <input
-          type="integer"
+          type="number"
           name="price"
           value={price}
           placeholder='price'
           onChange={(e)=>setPrice(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -233,6 +242,7 @@ function SpotEdit(){
           placeholder='imageurl'
           onChange={(e)=>setImageurl(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 

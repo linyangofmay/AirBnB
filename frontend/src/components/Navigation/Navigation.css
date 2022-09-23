@@ -154,17 +154,26 @@
   display: flex;
   /* border: 2px dashed green; */
   /* border-bottom: 1px; */
+  width:70%;
   align-items: center;
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  margin-left: 12.8%;
-  margin-right: 15%;
+  /* margin-left: 12.8%;
+  margin-right: 15%; */
   margin-top: 18px;
   padding-bottom: 15px;
   /* margin-bottom: 30px; */
-  border-bottom: 1px solid lightgrey;
+  /* border-bottom: 1px solid lightgrey; */
 
+
+}
+.divoutsidenavbar{
+  
+  width:100%;
+  display:flex;
+  justify-content:center;
+  border-bottom: 1px solid lightgrey;
 
 }
 .cloudlogo{

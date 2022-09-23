@@ -80,7 +80,7 @@ function SpotCreate(){
 
     return (
       <div className='createspot_container'>
-      
+
       <form className='createspot_form' onSubmit={handleSubmit}>
        <div className='createspot_title'>
        Create A New Spot
@@ -103,6 +103,7 @@ function SpotCreate(){
           placeholder='name'
           onChange={(e)=>setName(e.target.value)}
           className='createspot_input'
+          required
         />
         </label>
 
@@ -112,8 +113,10 @@ function SpotCreate(){
           name="description"
           value={description}
           placeholder='description'
+          required
           onChange={(e)=>setDescription(e.target.value)}
           className='createspot_input'
+
         />
         </lable>
 
@@ -125,6 +128,7 @@ function SpotCreate(){
           placeholder='address'
           onChange={(e)=>setAddress(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -136,6 +140,7 @@ function SpotCreate(){
           placeholder='city'
           onChange={(e)=>setCity(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -147,6 +152,7 @@ function SpotCreate(){
           placeholder='state'
           onChange={(e)=>setState(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -158,39 +164,43 @@ function SpotCreate(){
           placeholder='country'
           onChange={(e)=>setCountry(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
         <lable>
         <input
-          type="decimal"
+          type="number"
           name="lat"
           value={lat}
           placeholder='lat'
           onChange={(e)=>setLat(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
         <lable>
         <input
-          type="decimal"
+          type="number"
           name="lng"
           value={lng}
           placeholder='lng'
           onChange={(e)=>setLng(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
         <lable>
         <input
-          type="integer"
+          type="number"
           name="price"
           value={price}
           placeholder='price'
           onChange={(e)=>setPrice(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
@@ -202,6 +212,7 @@ function SpotCreate(){
           placeholder='imageurl'
           onChange={(e)=>setImageurl(e.target.value)}
           className='createspot_input'
+          required
         />
         </lable>
 
