@@ -72,7 +72,7 @@ const SpotDetail = () => {
 
           <div className='newsubheader_div'>
             <div><i className="fas fa-solid fa-star"></i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
-            <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+            <div>&nbsp; &nbsp; </div><span>·</span><div>&nbsp; &nbsp; </div>
             <div>{reviewArr.length} reviews</div>
             <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
             <div>{spoty.address}, {spoty.city},{spoty.state},{spoty.country}</div>
