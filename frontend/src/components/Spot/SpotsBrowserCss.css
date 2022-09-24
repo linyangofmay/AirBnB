@@ -5,7 +5,7 @@
 font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
 sans-serif;
 width: 100%;
-
+justify-content:center;
 font-size:16px;
 font-weight:400px;
 
@@ -58,6 +58,7 @@ margin-bottom:30px;
   height:250px;
   width: 255px;
   border-radius: 10px;
+  display:flex;
   object-fit:cover;
   display:flex;
   justify-content:center;

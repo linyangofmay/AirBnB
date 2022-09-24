@@ -48,11 +48,12 @@ module.exports = {
         allowNull:false
       },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING,
+        allowNull:false
       },
       price: {
         type: Sequelize.INTEGER,
-       
+
       },
       imageurl: {
         type: Sequelize.STRING,
