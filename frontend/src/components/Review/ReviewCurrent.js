@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
+import { getOneSpot } from '../../store/spots';
 import { getCurrReview, deleteReviews } from '../../store/reviews';
 import {useHistory} from 'react-router-dom';
 import "./ReviewCurrentCss.css";

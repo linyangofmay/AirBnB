@@ -44,7 +44,7 @@ function LoginForm() {
             <li key={id} className='login_error'>{error}</li>
           ))}
         </ul>
-        <h3 className='login_welcome'>Welcome to CloudBnB</h3>
+        <div className='login_welcome'>Welcome to CloudBnB </div>
         <div className='inputdiv'>
           <div className='borderdiv'>
 
