@@ -163,8 +163,6 @@
 
   display: flex;
   width: 100%;
-
-
   justify-content: start;
   /* border-bottom: lightgrey 1px solid; */
   grid-area: reviews;
@@ -174,7 +172,6 @@
   font-size: 14px;
   display: flex;
   flex-wrap: wrap;
-
   row-gap:5px;
    flex-direction:row;
   justify-content:flex-start;
@@ -239,11 +236,11 @@
   margin-top:-10px;
 
 }
-/* @media screen and (max-width:600px){
+@media screen and (max-width:600px){
   .images_div{
     margin-top: 60px;
-    /* max-height: 450px; */
-    /* display: grid;
+     max-height: 450px;
+     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(4, 25%);
     grid-template-areas:
@@ -263,4 +260,4 @@
   .reviewsub_div{
     flex-direction:column;
   }
-} */
+}

@@ -1,8 +1,28 @@
+
+
+.reviewcreateoutermost{
+  display:flex;
+  padding-right: 80px;
+  padding-left: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+
+}
+textarea:focus{
+  outline:none;
+  box-shadow:5px 5px 5px 5px rgb(248, 244, 244);
+}
+input:focus{
+  outline:none;
+  box-shadow:5px rgb(248, 244, 244);
+}
+
 .createreview_container{
   display: flex;
   padding-right: 80px;
   padding-left: 80px;
-  margin-top: 30px;
+  margin-top: 17px;
   margin-bottom: 30px;
   justify-content: left;
 }
@@ -11,16 +31,11 @@
   width: 500px;
   height: 370px;
   padding: 20px;
-  border-radius: 10px;
-  border: black solid 1px;
+  border-radius: 12px;
+  border: grey solid 1px;
   justify-content: center;
 }
-.createreview_title{
-  font-weight: 600;
-  font-size: 24px;
-  padding-left: 10px;
-  font-family: sans-serif
-}
+
 
 .createreview_rows{
   display: flex;
@@ -29,24 +44,34 @@
   align-items: center;
 }
 
-.review_content_div{
-  width: 100%;
+.reviewcontent_div{
+  width: 98%;
   /* min-width: 400px; */
   height: 150px;
-  border-radius: 5px;
+  border-radius: 6px;
   resize: none;
   word-break: break-word;
   font-size: large;
+
+  border: 1px solid grey;
+  margin-top:10px;
+
+}
+
+
+.review_star_num{
+  border-radius:6px;
+  border:1px solid grey;
 }
 .reviewform_title{
   font-weight: 600;
   font-size: 24px;
-  padding-left: 10px;
+  /* margin-left:0px; */
   font-family: sans-serif
 
 }
 .createreview_btn{
-  background-color: #FF385C;
+  /* background-color: #FF385C;
   color: white;
   width: 380px;
   height: 40px;
@@ -54,8 +79,23 @@
   font-size: 18px;
   cursor: pointer;
   margin-top: 30px;
- margin-left: 55px;
-
+ margin-left: 55px; */
+ height: 48px;
+    width: 100%;
+    border: none;
+    border-radius:6px;
+    background-color: #FF385C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+.createreview_btn:hover{
+  box-shadow:5px 5px 5px 5px rgb(248, 244, 244);
+  transition-duration:200ms;
+  cursor:pointer
 }
 .review_error{
   font-family: sans-serif;
@@ -63,6 +103,6 @@
   color:red;
   display:flex;
   flex-direction: row;
-  
+
 
 }

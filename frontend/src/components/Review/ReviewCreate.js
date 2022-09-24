@@ -63,7 +63,7 @@ function ReviewCreate() {
 
 
     );
-    console.log('reviewdata-----', reviewdata)
+
     if (reviewdata){
       history.push(`/spots/${spotId}`);
     }
@@ -74,6 +74,7 @@ function ReviewCreate() {
   // }
 
   return (
+    <div className='reviewcreateoutermost'>
     <div className='createreview_container'>
       <form onSubmit={onSubmit} className='createreview_form'>
         <div className='reviewform_title'>
@@ -92,8 +93,24 @@ function ReviewCreate() {
         <div className='reviewform_rows'>
 
 
+            <input
+              type="number"
+              name="stars"
+              value={stars}
+              onChange={(e) => setStars(e.target.value)}
+              placeholder='1'
+              min='1'
+              max='5'
+              className='review_star_num'
+            />
+            <span>{" "}</span>
+            <lable>
+            <i className="fas fa-solid fa-star"></i>
+            </lable>
+
             <lable>
             <textarea
+
               type="text"
               name="content"
               value={content}
@@ -102,25 +119,13 @@ function ReviewCreate() {
               rows='5'
               cols='25'
               wrap='hard'
-              className='review_content_div'
+              className='reviewcontent_div'
+
+
               required
+
             />
             </lable>
-
-
-            <div className='review_star_num'>
-            <input
-              type="number"
-              name="stars"
-              value={stars}
-              onChange={(e) => setStars(e.target.value)}
-              placeholder='star numbers'
-              min='1'
-              max='5'
-            />
-            </div>
-
-
 
 
           <button
@@ -136,6 +141,7 @@ function ReviewCreate() {
        </div>
 
       </form>
+     </div>
      </div>
   );
 
