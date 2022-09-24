@@ -44,7 +44,7 @@ function Navigation({ isLoaded }) {
     <div className='divoutsidenavbar'>
 
       <div className='NavBar'>
-        {/* <div className='homeNav'> */}
+        <div className='homeNav'>
           <NavLink className='wordlogolink' exact to='/'>
             <div className='twologo'>
               <div ><img src={cloud} className='cloudlogo' /> </div>
@@ -52,13 +52,13 @@ function Navigation({ isLoaded }) {
               <div className='wordlogo'> CloudBnB </div>
             </div>
           </NavLink>
-        {/* </div> */}
+        </div>
 
         <div className='signuploginnav'>
           {isLoaded && sessionLinks}
         </div>
         </div>
-       
+
      </div>
 
   );

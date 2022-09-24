@@ -480,11 +480,15 @@ router.post('/:spotId/reviews',  requireAuth, async (req, res) => {
 
     }
   })
-  console.log('reviewspots------------------', reviewspots)
+
+
+
+
   const { review, stars } = req.body;
   if (!review) error.errors.review = 'Review content is required';
-  if(!stars || stars> 5 || stars <1) error.errors.stars = 'Stars must be an integer from 1 to 5'
-  if (!review || ! stars || stars>5 || stars<1){
+  if(!stars || stars> 5 || stars <1) error.errors.stars = 'Stars must be an integer from 1 to 5';
+
+  if (!review || ! stars || stars>5 || stars<1  ){
     res. statusCode=400;
     res.json(error);
   }

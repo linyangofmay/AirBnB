@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { getSpotsReviews } from '../../store/reviews';
 import { getSpotsImages } from '../../store/images';
 import './SpotDetailCss.css'
+import { createReviews } from "../../store/reviews";
 
 const SpotDetail = () => {
   const { spotId } = useParams();
@@ -32,6 +33,10 @@ const SpotDetail = () => {
   const sessionUser = useSelector(state => state.session.user);
   const reviewObj = useSelector((state) => state.review)
   const reviewArr = Object.values(reviewObj);
+  const existingreview = reviewArr.filter(review => review.userId === sessionUser.id)
+  const userReview = useSelector(state =>state.session.user?.id);
+  const spotOwner = useSelector(state =>state.spot[spotId]?.ownerId);
+
   console.log('reviewArr---------', reviewArr)
   console.log('sessionUser-----', sessionUser)
 
@@ -41,8 +46,8 @@ const SpotDetail = () => {
   // const imageArr = Object.values(imageObj);
   // console.log('imageObj------', imageObj);
   // console.log('Image Arr---------', imageArr);
-
-
+ console.log('userReview------------', userReview);
+ console.log('spotOwner--------------', spotOwner);
 
   const dispatch = useDispatch();
 
@@ -116,7 +121,7 @@ const SpotDetail = () => {
         <div className='host_div'>
           <div>Spot hosted by {spoty?.owners?.firstName}  </div>
           <div >
-            {(sessionUser && Object.values(sessionUser).length > 0) && <button className='addreview_btn'><NavLink className='addreview_btn' to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
+            {(sessionUser && Object.values(sessionUser).length > 0 && spotOwner !== userReview && !existingreview.length ) && <button className='addreview_btn'><NavLink className='addreview_btn' to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
           </div>
         </div>
 

@@ -33,28 +33,21 @@ function ReviewCreate() {
   //console.log('reviewArr[1]----------', reviewArr[1].userId);
   //console.log('user.id-------', user.id)
   const existingreview = reviewArr.filter(review => review.userId === user.id)
-  //console.log('existingreview----------', existingreview);
-  // useEffect(() => {
-  //   let errors = [];
-  //   if (content.length <= 0) {
-  //     errors.push('review field is required')
-  //   }
-  //   if (stars <= 0 || stars > 5) {
-  //     errors.push('stars must be between 1 and 5')
-  //   }
-  //   setErrors(errors);
-  // }, [content, stars]);
-
-
-
-
+  console.log('existingreview----------', existingreview);
 
   const onSubmit = async (e) => {
 
     e.preventDefault()
 
    setErrors([]);
+   if(!content){
+    return setErrors(['review content is required'])
+   }
 
+
+  //  if (existingreview.length){
+  //   error.errors.existing ='Sorry, you have already made a review for this spot';
+  //  }
 
     const reviewinfo = { spotId, review: content, stars, userId: user.id };
     //console.log('reviewinfo---------------', reviewinfo);
@@ -64,21 +57,22 @@ function ReviewCreate() {
 
     const reviewdata = await dispatch(createReviews(reviewinfo)).catch(async(res)=>{
       const data = await res.json()
-      console.log('data----', data);
+      console.log('review error data----', data);
       if (data && data.errors) setErrors(data.errors)
       }
 
 
     );
-
+    console.log('reviewdata-----', reviewdata)
     if (reviewdata){
       history.push(`/spots/${spotId}`);
     }
 
    }
-   if (existingreview.length) {
-    return (<div className='review_error'>Sorry, you have already made a review for this spot.</div>)
-  }
+  //  if (existingreview.length) {
+  //   return (<div className='review_error'>Sorry, you have already made a review for this spot.</div>)
+  // }
+
   return (
     <div className='createreview_container'>
       <form onSubmit={onSubmit} className='createreview_form'>
@@ -109,17 +103,20 @@ function ReviewCreate() {
               cols='25'
               wrap='hard'
               className='review_content_div'
+              required
             />
             </lable>
 
 
             <div className='review_star_num'>
             <input
-              type="Integer"
+              type="number"
               name="stars"
               value={stars}
               onChange={(e) => setStars(e.target.value)}
               placeholder='star numbers'
+              min='1'
+              max='5'
             />
             </div>
 
@@ -128,8 +125,8 @@ function ReviewCreate() {
 
           <button
             type="submit"
-            //disabled ={errors.length>0 || (!user) || (existingreview)}
-            disabled={errors.length > 0 || (!user) || (existingreview.length >= 1)}
+            //disabled ={errors.length>0 || (!user) || (existingreview.length>=1)}
+            disabled={errors.length > 0 }
             className='createreview_btn'>
             Create a Review
           </button>
@@ -141,7 +138,6 @@ function ReviewCreate() {
       </form>
      </div>
   );
-
 
 
 
