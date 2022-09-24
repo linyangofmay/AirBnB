@@ -10,6 +10,7 @@
 }
 .twologo{
   display: flex;
+  flex-direction:row;
   margin-left: 5px;
 }
 .singuploginnav{
@@ -44,22 +45,27 @@
   display: flex;
 
 }
+
 .NavBar {
 
   display: flex;
+  flex-direction:row;
+
   /* border: 2px dashed green; */
   /* border-bottom: 1px; */
-  width:63%;
-  align-items: center;
+  width:68%;
+  align-items: space-between;
   justify-content: space-between;
-  align-content: center;
-  align-items: center;
+  /* align-content: center; */
+  /* align-items: center; */
   /* margin-left: 12.8%;
   margin-right: 15%; */
   margin-top: 18px;
   padding-bottom: 15px;
   /* margin-bottom: 30px; */
   /* border-bottom: 1px solid lightgrey; */
+  margin-right:65px;
+  margin-left:65px;
 
 
 }
@@ -67,7 +73,9 @@
 
   width:100%;
   display:flex;
-  justify-content:space-around;
+  flex-direction:row;
+  justify-content: center;
+
   border-bottom: 1px solid lightgrey;
 
 

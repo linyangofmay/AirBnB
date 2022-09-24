@@ -19,22 +19,25 @@ font-weight:400px;
   /* display:grid;
   grid-template-columns:repeat(5, 1fr);
   grid-template-rows: auto; */
-  column-gap: 19px;
-  row-gap:20px;
+  column-gap: 20px;
+  row-gap:10px;
   /* justify-items:center; */
-  width:63%;
+  width:68%;
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
   margin-top:10px;
+  /* margin-left:80px;
+  margin-left:80px; */
 
 }
 
 /* one card dive including an image and info */
 
 .spotdiv{
-width:280px;
-height:290px;
+width:240px;
+height:330px;
+
 display: flex;
 justify-content:center;
 flex-direction:column;
@@ -53,7 +56,7 @@ margin-bottom:30px;
 /* one image div */
  .browser_image_div{
   height:250px;
-  width: 290px;
+  width: 255px;
   border-radius: 10px;
   object-fit:cover;
   display:flex;

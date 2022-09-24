@@ -68,9 +68,9 @@ const SpotDetail = () => {
       <div className='container_div'>
         <div className='header_div'>
 
-          <div className='headname'><h2 >{spoty.name}</h2></div>
+          <div className='headname'><h2>{spoty.name}</h2></div>
 
-          <div className='subheader_div'>
+          <div className='newsubheader_div'>
             <div><i className="fas fa-solid fa-star"></i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
             <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
             <div>{reviewArr.length} reviews</div>
@@ -109,12 +109,10 @@ const SpotDetail = () => {
               <img id='image4' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
             </div>
 
-
-
-
-
         </div>
 
+
+       {/* <div className='hostanddescription'> */}
         <div className='host_div'>
           <div>Spot hosted by {spoty?.owners?.firstName}  </div>
           <div >
@@ -127,27 +125,44 @@ const SpotDetail = () => {
           <div>{spoty?.description}</div>
         </div>
 
+
         <div className='review_div'>
           <div><i className="fas fa-solid fa-star">&nbsp; </i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
-          <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+
+          <div>&nbsp; &nbsp; </div><span>·</span><div>&nbsp; &nbsp; </div>
           <div>{reviewArr.length} reviews</div>
         </div>
+
         <div className='reviewsub_div'>
-          <div>
+
             {reviewArr.map((review) => (
 
-              <div>{review.stars} <i className="fas fa-solid fa-star"></i> &nbsp;{review.review}
+              <div className='onereview' key={review.id}>
+
+                <div className='reviewuser'>
+                  <div className='reviewer'>
+                    <i className="fas fa-solid fa-user"></i>
+                  </div>
+                  <div className='reviewername'>
+                    <p className='subreviewername'>{review.User?.firstName}</p>
+                    <p className='reviewtime'>{review.createdAt.slice(0, 10)}</p>
+                  </div>
+                </div>
+
+                <div className='reviewcontent'>
+                {review.stars} <i className="fas fa-solid fa-star"></i> &nbsp;{review.review}
+                </div>
 
               </div>
 
 
             ))}
 
-          </div>
+
         </div>
 
 
-
+      {/* </div> */}
 
 
       </div>

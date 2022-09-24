@@ -191,7 +191,7 @@ router.post('/', requireAuth,  async (req, res, next) => {
    if (state.length < 2) error.errors.city='city is required';
    if (country.length < 2) error.errors.city='city is required';
    if (parseFloat(lat) <-90 || parseFloat(lat)> 90) error.errors.lat = 'lat is not legit';
-   if (parseFloat(lng) <-180|| parseFloat(lat)> 180) error.errors.lat = 'lng is not legit';
+   if (parseFloat(lng) <-180|| parseFloat(lng)> 180) error.errors.lng = 'lng is not legit';
    if (parseInt(price)<= 0 ) error.errors.price='price must be more than 0';
   if (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl)) && !(imageurl.includes('unsplash')))
     error.errors.image = 'image field is required';
@@ -415,10 +415,10 @@ router.put('/:spotId', requireAuth, async (req, res) => {
  if (address.length<=3) error.errors.address ='Address is required';
  if(description.length<=3) error.errors.description='Description is required';
  if (city.length < 2) error.errors.city='city is required';
- if (state.length < 2) error.errors.city='city is required';
- if (country.length < 2) error.errors.city='city is required';
- if (lat <-90 || lat> 90) error.errors.lat = 'lat is not legit';
- if (lng <-180|| lng> 180) error.errors.lat = 'lng is not legit';
+ if (state.length < 2) error.errors.state='state is required';
+ if (country.length < 2) error.errors.country='country is required';
+ if (parseFloat(lat) <-90 || parseFloat(lat)> 90) error.errors.lat = 'lat is not legit';
+ if (parseFloat(lng) <-180|| parseFloat(lng)> 180) error.errors.lng = 'lng is not legit';
  if (price <= 0 ) error.errors.price='price must be more than 0';
  if (!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash')))
  error.errors.image = 'image field is required';

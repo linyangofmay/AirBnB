@@ -118,19 +118,7 @@ module.exports = {
         price: 2500,
         imageurl:"https://images.unsplash.com/photo-1506807520672-c4a8d5bbe260?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
       },
-      {
-        ownerId: 4,
-        address: '580 Italian Lanee',
-        city: 'Milan',
-        state: 'Milane',
-        country: 'Italy',
-        lat: 90.764535,
-        lng: -70.49876,
-        name: "Water House",
-        description: "The Sweet Retreat is perfectly located in the heart of the Sierra Mountains. This modern mountain house resides in the small town of Sugar Pine, Ca ( Between Twain Harte & Me Wuk Village ). 8 miles to Black Oak Casino and 16 miles from Pinecrest Lake and Dodge Ridge Ski Resort. Escape from the daily grind and retreat to this peaceful place. ",
-        price: 2500,
-        imageurl:"https://images.unsplash.com/photo-1510265236892-329bfd7de7a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bG9uZG9uJTIwd2VzdCUyMGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-      },
+      
       {
         ownerId: 5,
         address: '580 Italian Lanee',

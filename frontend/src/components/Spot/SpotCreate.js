@@ -176,6 +176,8 @@ function SpotCreate(){
           placeholder='lat'
           onChange={(e)=>setLat(e.target.value)}
           className='createspot_input'
+          min='-90'
+          max='90'
           required
         />
         </lable>
@@ -188,6 +190,8 @@ function SpotCreate(){
           placeholder='lng'
           onChange={(e)=>setLng(e.target.value)}
           className='createspot_input'
+          min='-180'
+          max='180'
           required
         />
         </lable>
@@ -200,6 +204,7 @@ function SpotCreate(){
           placeholder='price'
           onChange={(e)=>setPrice(e.target.value)}
           className='createspot_input'
+          min='1'
           required
         />
         </lable>
