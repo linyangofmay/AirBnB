@@ -13,7 +13,7 @@ import { createReviews } from "../../store/reviews";
 const SpotDetail = () => {
   const { spotId } = useParams();
   const spoty = useSelector((state) => state.spot[spotId]);
-
+  console.log('spoty------', spoty);
   console.log('spotyimage----', spoty?.image)
   // const spoty = spotdata.oneSpot;
   console.log('spoty------------', spoty);

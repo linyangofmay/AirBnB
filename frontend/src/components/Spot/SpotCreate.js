@@ -70,9 +70,11 @@ function SpotCreate(){
           if(data && data.errors) setErrors(data.errors);
         }
        );
-      if (newspot){
-       history.push(`/spots/${newspot.id}`)}
-
+      // if (newspot){
+      //  history.push(`/spots/${newspot.id}`)}
+      if(newspot){
+        history.push('/spots/current');
+      }
 
     };
 

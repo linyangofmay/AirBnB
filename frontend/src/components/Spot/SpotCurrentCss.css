@@ -1,30 +1,141 @@
-.myspot_div{
+.myspotoutermost_div{
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items: center;
+  font-family:sans-serif;
+}
+.myspottop_div{
+  width: 80%;
+  display:flex;
+  flex-direction:column;
+ font-family:sans-serif;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:non-wrap;
+}
+/* .myspot_div{
   width:100%;
   display:flex;
   justify-content: start;
   flex-direction: column;
 
+} */
+.myspot_head{
+  font-family:sans-serif;
+  font-size: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding:10px;
+  margin:10px;
+
 }
-.myspotinner_div{
-  width:68%;
+.createspotbtn{
+ display:flex;
+ justify-content: center;
+ font-family:sans-serif;
+ padding:10px;
+ margin:10px;
+ text-decoration:none;
+ font-weight:600;
+ border-radius:6px;
+ background-color:#FF385C;
+ color:white;
+
+}
+.createspotbtn:hover{
+  /* border:2px solid rgb(248, 244, 244); */
+  box-shadow: 0px 0px 5px rgb(180, 180, 180);
+  transition-duration:200ms;
+  cursor:pointer;
+}
+
+
+.myspotbody_div{
+  width:80%;
+  padding-left:80px;
+  padding-right:80px;
+  margin-top:10px;
+  display:grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: auto;
+  column-gap: 5px;
+  row-gap: 20px;
+  justify-items: center;
+}
+
+.eachspot_nav{
+  text-decoration:none;
+  color:black;
+
+
+}
+.eachspot_nav{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.eachimg_div{
+ width:250px;
+ height:250px;
+ border-radius:12px;
+ display:flex;
+ justify-content:center;
+ padding:3px;
+
+}
+.myspotinfo_div{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width:250px;
+  padding-top:5px;
+}
+.myspotbtns_div{
+  display:flex;
+  flex-direction:column;
+ font-family:sans-serif;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:non-wrap;
+  width:250px;
+
+}
+ .myspot_btn{
+  width:250px;
+ display:flex;
+ justify-content: center;
+ font-family:sans-serif;
+ padding:5px;
+ margin:5px;
+ border:none;
+ text-decoration:none;
+ font-weight:600;
+ border-radius:6px;
+ background-color:#FF385C;
+ color:white;
+}
+.myspot_btn:hover{
+  /* border:2px solid rgb(248, 244, 244); */
+  box-shadow: 0px 0px 5px rgb(180, 180, 180);
+  transition-duration:200ms;
+  cursor:pointer;
+}
+/* .myspotinner_div{
+  width:80%;
   display: flex;
   flex-direction:row;
   flex-wrap: wrap;
 
 
-}
-.myspot_head{
-  font-family:sans-serif;
-  font-size: 30px;
-  margin-left:39px;
-  justify-content: space-between;
-}
-.myspottop_div{
-  display: flex;
-  justify-content: space-between;
-}
+} */
 
-.myspotimg_div{
+/* .myspotimg_div{
 
   width: 80%;
   padding-left: 300px;
@@ -37,9 +148,9 @@
   column-gap: 15px;
   row-gap: 20px;
   justify-items: start;
-}
+} */
 
-
+/*
 .eachimg_div{
   width: 250px;
   height: 250px;
@@ -65,25 +176,26 @@
   border: 1px, blue, solid;
 }
 
-.myspotbtns_div{
+ .myspotbtns_div1{
   display: flex;
-  justify-content: space-around;
-  width: 250px;
-  margin-top: -100px;
+  justify-content: space-between;
+  width: 40px;
+   margin-top: -100px;
   margin-left: 800px;
   margin-bottom: 70px;
 }
 
 .myspot_btn{
-  background-color: white;
-  border: 1px lightgrey solid;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 2px;
-  cursor: pointer;
-  font-family:sans-serif;
-}
-.myspot_btn:hover{
-  border: 2px solid blue;
-  margin: 1px;
-}
+  height: 40px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background-color: #FF385C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: sans-serif;
+
+    margin-bottom:20px;
+} */

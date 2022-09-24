@@ -87,26 +87,25 @@
 .allspotbutton{
   color: rgb(70, 70, 70);
   text-decoration: none;
-  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
-  sans-serif;
+  font-family: sans-serif;
   font-size: 15px;
   font-weight:400;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  padding: 10px 5px;
+  padding:5px 12px;
 }
 .userProfile{
-  color: rgb(70, 70, 70);
+  color: rgb(69, 68, 70);
   text-decoration: none;
   font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
   sans-serif;
   font-size: 15px;
   font-weight:400;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  padding: 10px 5px;
+  padding: 5px 12px;
 }
 #main-logged-in-menu1{
   display: flex;
@@ -134,12 +133,12 @@
 
 .itemwrapper{
   width: 200px;
-  height: 260px;
+  height: 200px;
   display: flex;
   flex-flow: column;
   align-items: left;
   border: 1px lightgrey solid;
-  border-radius: 15px;
+  border-radius: 12px;
   background-color: white;
   font-family: sans-serif;
   padding-top: 9px;
@@ -151,20 +150,30 @@
   text-decoration:none;
   cursor: point;
 }
+.allspotbutton:hover,
+.profile_logoutbtn:hover {
+  background-color: rgb(248, 244, 244);
+  transition-duration:200ms;
+}
+
 .profile_logoutbtn{
   font-size:15px;
   border:white;
-  border-radius: 10px;
-  color:black;
-  display: block;
-  margin-left: 65px;
-  font-weight: 400px;
-  margin-top: 10px;
-  margin-bottom:10px;
-  height: 20px;
-  background: none;
-  font-family: Helvetica neue;
-  cursor:pointer;
 
+  color:black;
+
+
+  font-weight: 400px;
+
+   /* height: 20px; */
+   background: none;
+  font-family: sans-serif;
+  cursor:pointer;
+  color: rgb(70, 70, 70);
+
+  display: flex;
+  justify-content: left;
+
+  padding: 5px 12px;
 
 }

@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
           <div className='itemwrapper'>
 
           <div className='userProfile'>
-            {user.username}
+            Hello, {user.firstName}
           </div>
           <div className='userProfile'>
           {user.email}
@@ -72,9 +72,9 @@ function ProfileButton({ user }) {
 
           <div className='separate_line'></div>
 
-          <div >
-            <button onClick={logout} className='profile_logoutbtn'>Log Out</button>
-          </div>
+
+            <div onClick={logout} className='profile_logoutbtn'>Log Out</div>
+          
          </div>
        </div>
 
