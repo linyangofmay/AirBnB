@@ -22,6 +22,7 @@ module.exports = {
         lng: -172.4730328,
         name: "Stripe",
         description: "The Sweet Retreat is perfectly located in the heart of the Sierra Mountains. This modern mountain house resides in the small town.",
+        price: 780,
         imageurl:"https://images.unsplash.com/photo-1631528858266-5ebeb8bfc6f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1260&q=80",
       },
       {

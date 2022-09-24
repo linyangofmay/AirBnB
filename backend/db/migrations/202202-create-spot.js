@@ -52,7 +52,7 @@ module.exports = {
       },
       price: {
         type: Sequelize.INTEGER,
-        allowNull:false
+       
       },
       imageurl: {
         type: Sequelize.STRING,
