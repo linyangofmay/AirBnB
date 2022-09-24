@@ -10,7 +10,7 @@
 
 
   .container_div{
-    /* max-width: 1120px; */
+    max-width: 1120px;
     width: 80%;
     padding-left: 80px;
     padding-right: 80px;
@@ -48,7 +48,7 @@
   font-size: medium;
   display: flex;
 
-  margin-left: -130px;
+  margin-left: -83px;
   margin-top:80px;
 
   }
