@@ -75,9 +75,12 @@ body {
   gap:10px;
 }
 
+
 .myspot_navlink{
   text-decoration:none;
   color:black;
+  width:265px;
+  height:500px;
 
 
 }
