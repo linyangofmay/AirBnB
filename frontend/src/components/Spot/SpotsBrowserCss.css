@@ -5,60 +5,56 @@
 font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
 sans-serif;
 width: 100%;
-justify-content:center;
-font-size:16px;
-font-weight:400px;
+
 
 }
 
 .outer_div{
-  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
-  sans-serif;
-  /* padding-left:40px;
-  padding-right: 40px; */
-  /* display:grid;
-  grid-template-columns:repeat(5, 1fr);
-  grid-template-rows: auto; */
-  column-gap: 20px;
-  row-gap:10px;
+  font-family: sans-serif;
+
   justify-items:center;
-  width:85%;
+  width:90%;
+  /* padding-left:80px;
+  padding-right:80px; */
+  column-gap:20px;
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
-  margin-top:10px;
-  /* margin-left:80px;
-  margin-left:80px; */
-  /* margin-left: 300px; */
+  justify-content:center;
+  margin-top:6px;
+
 
 }
 
 /* one card dive including an image and info */
 
 .spotdiv{
-width:240px;
-height:330px;
+width:300px;
+height:370px;
 
 display: flex;
 justify-content:center;
 flex-direction:column;
 align-items:center;
-font-family:sans-serif ;
+font-family:sans-serif;
+font-size:16px;
 margin-bottom:30px;
+cursor:pointer;
+
 
 }
 .browser_navlink{
   text-decoration: none;
-  color: black;
+
 
 
 }
 
 /* one image div */
  .browser_image_div{
-  height:250px;
-  width: 255px;
-  border-radius: 10px;
+  height:290px;
+  width: 300px;
+  border-radius: 12px;
   display:flex;
   object-fit:cover;
   display:flex;
@@ -72,7 +68,8 @@ margin-bottom:30px;
   flex-direction: row;
   justify-content: space-between;
   padding-top:10px;
-  font-size: 15;
+  font-size: 16;
+  font-family:sans-serif;
 
 
 }
