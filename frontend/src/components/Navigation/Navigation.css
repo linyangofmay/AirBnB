@@ -1,4 +1,7 @@
-
+html,
+body {
+  margin: 0;
+}
 
 .wordlogolink{
   color: red;
@@ -50,10 +53,10 @@
 
   display: flex;
   flex-direction:row;
-
+  width:74.5%;
   /* border: 2px dashed green; */
   /* border-bottom: 1px; */
-  width:83%;
+
   align-items: space-between;
   justify-content: space-between;
   /* align-content: center; */
@@ -64,15 +67,15 @@
   padding-bottom: 15px;
   /* margin-bottom: 30px; */
   /* border-bottom: 1px solid lightgrey; */
-   margin-right:8px;
+  margin-right:10px;
   /* margin-left:100px; */
-
+  margin-left:10px;
 
 }
 .divoutsidenavbar{
 
   width:100%;
-  display:flex;
+   display:flex;
   flex-direction:row;
   justify-content: center;
 

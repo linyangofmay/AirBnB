@@ -5,8 +5,8 @@ body {
 
 .outermost_div{
     width: 100%;
-    margin-top:20px;
-    margin-bottom: 20px;
+    /* margin-top:20px;
+    margin-bottom: 20px; */
     display: flex;
     justify-content: center;
   }
@@ -17,7 +17,7 @@ body {
     /* width: 80%; */
     /* padding-left: 80px;
     padding-right: 80px; */
-    
+
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 40px 500px 30px auto auto;
