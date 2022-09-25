@@ -1,5 +1,10 @@
 /* main-class for whole page */
 
+html,
+body {
+  margin: 0;
+}
+
 .outermost_div{
 
 
@@ -14,17 +19,18 @@ justify-content:center;
   margin-top:15px;
   margin-left:90px;
   margin-right:90px;
-  width:80%;
+  /* /* width:80% */
   font-family: sans-serif;
-
+  justify-content: center;
   justify-items:center;
-  display:grid;
-  grid-template-columns:repeat(4,25%);
-  grid-template-rows:auto;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  gap:10px;
 
-  column-gap:20px;
-  row-gap:20px;
-  justify-items:center;
+
+
+
 
 
 }
@@ -32,8 +38,8 @@ justify-content:center;
 /* one card dive including an image and info */
 
 .spotdiv{
-width:100%;
-height:100%;
+/* width:25%; */
+height:auto;
 display: flex;
 flex-direction:column;
 align-items:center;
@@ -54,7 +60,7 @@ justify-content:center;
 /* one image div */
  .browser_image_div{
   height:250px;
-  width: 275px;
+  width: 265px;
   border-radius: 12px;
   display:flex;
   object-fit:cover;
@@ -71,7 +77,7 @@ justify-content:center;
   padding-top:10px;
   font-size: 16;
   font-family:sans-serif;
-  width:275px;
+  width:265px;
 
 
 }
@@ -79,62 +85,10 @@ justify-content:center;
   color:grey;
 }
 
- @media screen and (max-width:1200px) {
-  .outer_div{
-    max-width:1760px;
-  margin-top:15px;
-  margin-left:100px;
-  margin-right:100px;
-  width:80%;
-  font-family: sans-serif;
 
-  justify-items:center;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-template-rows:auto;
 
-  column-gap:15px;
-  row-gap:20px;
-  justify-items:center;
-  }
-}
 
-@media screen and (max-width:900px) {
-  .outer_div{
-  margin-top:15px;
-  margin-left:100px;
-  margin-right:100px;
-  width:80%;
-  font-family: sans-serif;
 
-  justify-items:center;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto;
-
-  column-gap:15px;
-  row-gap:20px;
-  justify-items:center;
-  }
-}
-@media screen and (max-width:600px) {
-  .outer_div{
-  margin-top:15px;
-  margin-left:100px;
-  margin-right:100px;
-  width:80%;
-  font-family: sans-serif;
-
-  justify-items:center;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  grid-template-rows:auto;
-
-  column-gap:15px;
-  row-gap:20px;
-  justify-items:center;
-  }
-}
 
 a{
   text-decoration:none;
