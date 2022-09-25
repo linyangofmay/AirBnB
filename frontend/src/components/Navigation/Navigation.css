@@ -18,7 +18,9 @@ body {
 }
 .singuploginnav{
   display:flex;
-  margin-right:5px;
+  justify-content:space-between;
+
+   margin-right:6px;
 }
 .wordlogo{
   font-weight: 500;

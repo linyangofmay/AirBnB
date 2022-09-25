@@ -1,8 +1,9 @@
 .profilebtnwrapper{
   display:flex;
+
   /* justify-content: space-between; */
   /* align-items:flex-end; */
-  /* margin-right:5px; */
+  margin-right:3px;
 }
 .profile_btn {
   color:light grey;
@@ -123,7 +124,7 @@
 .profile_wrapper{
   position: relative;
   top: 50px;
-  right: 205px;
+  right: 203px;
   width: 0;
   height: 0;
 
