@@ -35,8 +35,9 @@ const SpotCurrent = () => {
 
 
       <div className='myspotbody_div'>
+
         {spotsArr.map((spot) => (
-          <div key={spot.id} className='eachspot_nav'>
+          <div key={spot.id} className='myspoteachspot_nav'>
             <NavLink className='myspot_navlink' to={`/spots/${spot.id}`}>
               <div>
                 <img src={spot.imageurl} className='eachimg_div' alt='image' />
@@ -69,6 +70,7 @@ const SpotCurrent = () => {
           </div>
 
         ))}
+
 
       </div>
 
