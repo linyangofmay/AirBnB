@@ -47,8 +47,7 @@ const SpotsBrowser = () => {
 
               <div className='browser_rate_div'>
                 <div style={{ fontweight: '600' }}>{spot.city}, {spot.state}</div>
-                <div>
-                  {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0} <i className="fas fa-solid fa-star"></i></div>
+                <div>{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0} <i className="fas fa-solid fa-star"></i></div>
               </div>
               <div className='spotmiddle'>{spot.name}</div>
               <br></br>

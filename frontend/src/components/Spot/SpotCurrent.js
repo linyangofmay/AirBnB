@@ -40,20 +40,17 @@ const SpotCurrent = () => {
           <div key={spot.id} className='myspoteachspot_nav'>
 
             <NavLink className='myspot_navlink' to={`/spots/${spot.id}`}>
-              <div>
-                <img src={spot.imageurl} className='eachimg_div' alt='image' />
-              </div>
 
-              <div className='browser_rate_div'>
-                 {/* <div>{spot.name}</div>
-                <div>{spot.city} {spot.state}</div>
-                <div><i className="fas fa-solid fa-star"></i> &nbsp;{spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0}</div>
-                 */}
+                <img src={spot.imageurl} className='eachimg_div' alt='image' />
+
+
+              <div className='myspot_rate_div'>
+                
                  <div style={{fontweight:'600'}}>{spot.city}, {spot.state}</div>
                 <div>
                 {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0} <i className="fas fa-solid fa-star"></i></div>
                </div>
-              <div className='spotmiddle'>{spot.name}</div>
+              <div className='myspotmiddle'>{spot.name}</div>
               <br></br>
               <div >${spot.price}/night</div>
 
