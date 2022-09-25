@@ -13,7 +13,7 @@ width: 100%;
   font-family: sans-serif;
 
   justify-items:center;
-  width:90%;
+  padding: 0 5%;
   /* padding-left:80px;
   padding-right:80px; */
   column-gap:20px;
@@ -29,11 +29,11 @@ width: 100%;
 /* one card dive including an image and info */
 
 .spotdiv{
-width:300px;
-height:370px;
+width:320px;
+height:400px;
 
 display: flex;
-justify-content:center;
+
 flex-direction:column;
 align-items:center;
 font-family:sans-serif;
@@ -52,8 +52,8 @@ cursor:pointer;
 
 /* one image div */
  .browser_image_div{
-  height:290px;
-  width: 300px;
+  height:65%;
+  width: 100%;
   border-radius: 12px;
   display:flex;
   object-fit:cover;
