@@ -1,4 +1,7 @@
-
+html,
+body {
+  margin: 0;
+}
 
 .outermost_div{
     width: 100%;
@@ -10,10 +13,10 @@
 
 
   .container_div{
-    max-width: 1120px;
-    width: 80%;
-    padding-left: 80px;
-    padding-right: 80px;
+
+    /* width: 80%; */
+    /* padding-left: 80px;
+    padding-right: 80px; */
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 40px 500px 30px auto auto;
