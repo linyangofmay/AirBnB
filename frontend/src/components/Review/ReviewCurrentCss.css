@@ -52,19 +52,21 @@
   padding-bottom:30px;
   overflow-wrap:break-word;
   margin-bottom: 20px;
-  
 
 
-
-
+}
+.reviewcontent{
+  width:90%;
 }
 .deletebtn_container{
   margin-top:50px;
   margin-bottom: 10px;
+
 }
 .deletereview_btn{
   height: 40px;
-  width: 378px;
+  width: 404px;
+
   border: none;
   border-radius: 10px;
   background-color: #FF385C;

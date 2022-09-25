@@ -69,13 +69,13 @@ const SpotDetail = () => {
   //   AllImages.push(item);
   // }
   return (
-    <div className='outermost_div'>
-      <div className='container_div'>
-        <div className='header_div'>
+    <div className='spotdetailoutermost_div'>
+      <div className='sdcontainer_div'>
+        <div className='sdheader_div'>
 
-          <div className='headname'><h2>{spoty.name}</h2></div>
+          <div className='sdheadname'><h2>{spoty.name}</h2></div>
 
-          <div className='newsubheader_div'>
+          <div className='sdsubheader_div'>
             <div><i className="fas fa-solid fa-star"></i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
             <div>&nbsp; &nbsp; </div><span>·</span><div>&nbsp; &nbsp; </div>
             <div>{reviewArr.length} reviews</div>
@@ -85,7 +85,7 @@ const SpotDetail = () => {
 
         </div>
 
-        <div className='images_div' >
+        <div className='sdimages_div' >
 
           {/* {spoty?.images?.map((image, index) => {
 
@@ -98,27 +98,34 @@ const SpotDetail = () => {
             )
           })} */}
 
-            <div  id='image0'   className='oneimage_div'>
-              <img  id='image0' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            <div     className='sdimgleft_div'>
+              <img  className='image0' src={spoty?.imageurl} alt='image'  />
             </div>
-            <div  id='image1'   className='oneimage_div'>
-              <img id='image1'  src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+            <div className='sdimgright_div'>
+
+
+              <img className='image1'  src={spoty?.imageurl} alt='image'   />
+
+
+              <img  className='image2' src={spoty?.imageurl} alt='image'  />
+
             </div>
-            <div  id='image2'   className='oneimage_div'>
-              <img  id='image2' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
-            </div>
-            <div  id='image3'   className='oneimage_div'>
-              <img id='image3'  src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
-            </div>
-            <div  id='image4'   className='oneimage_div'>
-              <img id='image4' src={spoty?.imageurl} alt='image' className='spotdetailimage'  />
+
+            <div className='sdimgright_div'>
+
+                <img className='image3'  src={spoty?.imageurl} alt='image' />
+
+
+                <img className='image4' src={spoty?.imageurl} alt='image'  />
+
+
             </div>
 
         </div>
 
 
-       {/* <div className='hostanddescription'> */}
-        <div className='host_div'>
+
+        <div className='sdhost_div'>
           <div>Spot hosted by {spoty?.owners?.firstName}  </div>
           <div >
             {(sessionUser && Object.values(sessionUser).length > 0 && spotOwner !== userReview && !existingreview.length ) && <button className='addreview_btn'><NavLink className='addreview_btn' to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
@@ -131,14 +138,14 @@ const SpotDetail = () => {
         </div>
 
 
-        <div className='review_div'>
+        <div className='sdreview_div'>
           <div><i className="fas fa-solid fa-star">&nbsp; </i>{spoty.avgRating ? Number.parseFloat(spoty.avgRating).toFixed(2) : 0}</div>
 
           <div>&nbsp; &nbsp; </div><span>·</span><div>&nbsp; &nbsp; </div>
           <div>{reviewArr.length} reviews</div>
         </div>
 
-        <div className='reviewsub_div'>
+        <div className='sdreviewsub_div'>
 
             {reviewArr.map((review) => (
 
@@ -167,10 +174,10 @@ const SpotDetail = () => {
         </div>
 
 
-      {/* </div> */}
 
 
       </div>
+
     </div >
 
 
