@@ -35,8 +35,21 @@ When you edit the page will reload and you can see the errors in the console.
 
 
 Feature Directions:
+## HOME PAGE 
+![Screen Shot 2022-09-25 at 10 28 08 PM](https://user-images.githubusercontent.com/59943346/192206296-58bfb111-b2a8-4a4c-9d60-913fbb193680.png)
+
+
+
+
+
+
+
+
+
+
 Home Page Demo User:
 You will be able to test the features without sign up by cliking on the `Demo User` button
+## DEMO USER 
 
 ![Screen Shot 2022-09-25 at 11 08 51 PM](https://user-images.githubusercontent.com/59943346/192204967-6a9091d7-206f-47e0-856c-6cc029dba239.png)
 
@@ -44,6 +57,9 @@ You will be able to test the features without sign up by cliking on the `Demo Us
 
 
 
+
+
+## LEAVE A REVIEW 
 
 You will be able to leave a review by clicking on the `Leave a Review` button
 ![Screen Shot 2022-09-25 at 10 29 12 PM](https://user-images.githubusercontent.com/59943346/192205136-3a007253-4935-4f90-b15a-d2217c7f6f1a.png)
@@ -56,6 +72,22 @@ You will be able to leave a review by clicking on the `Leave a Review` button
 
 
 
+
+## DELETE A REVIEW 
+You will be able to delete a review by clicking on the `DELETE` button
+![Screen Shot 2022-09-25 at 11 13 36 PM](https://user-images.githubusercontent.com/59943346/192205624-5c83653b-10e5-41a4-bc9d-d744c141cd57.png)
+
+
+
+
+
+
+
+
+
+
+
+## CREATE, EDIT or DELETE A SPOT
 You will be able to create , edit or delete a spot by clicking on the `Create a New Spot` `EDIT` or `DELETE` button
 ![Screen Shot 2022-09-25 at 10 30 13 PM](https://user-images.githubusercontent.com/59943346/192205327-f77dabb6-f3a9-497b-8e66-2582a7c3538e.png)
 
@@ -70,7 +102,5 @@ You will be able to create , edit or delete a spot by clicking on the `Create a 
 
 
 
-You will be able to delete a review by clicking on the `DELETE` button
-![Screen Shot 2022-09-25 at 11 13 36 PM](https://user-images.githubusercontent.com/59943346/192205624-5c83653b-10e5-41a4-bc9d-d744c141cd57.png)
 
 
