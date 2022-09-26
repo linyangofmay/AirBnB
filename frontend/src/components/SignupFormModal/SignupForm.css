@@ -108,10 +108,7 @@
   border-radius: 15px;
 }
 .signup_btn:hover{
-  box-shadow: 0px 0px 5px rgb(180, 180, 180);
+  box-shadow: 0px 0px 5px 5px rgb(180, 180, 180);
   transition-duration:200ms;
   cursor:pointer;
 }
-
-
-
