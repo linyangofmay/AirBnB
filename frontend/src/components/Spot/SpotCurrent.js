@@ -62,7 +62,7 @@ const SpotCurrent = () => {
             <div className='myspotbtns_div'>
               <NavLink to={`/spots/${spot.id}/edit`}><button className='myspot_btn'>EDIT</button></NavLink>
 
-              <button className='myspot_btn' onClick={() => dispatch(removespot(spot?.id))}>DELETE</button>
+              <button className='myspot_btn' onClick={() => dispatch(removespot(spot.id))}>DELETE</button>
             </div>
 
           </div>
