@@ -98,7 +98,7 @@ function ReviewCreate() {
               name="stars"
               value={stars}
               onChange={(e) => setStars(e.target.value)}
-              placeholder='1'
+              placeholder='0'
               min='1'
               max='5'
               className='review_star_num'
