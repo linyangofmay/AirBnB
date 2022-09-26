@@ -63,20 +63,38 @@ function SpotCreate(){
     e.preventDefault()
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
    setErrors([]);
+   if(!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash'))  ){
+    alert ("image filed is required")
+    return;
+   } else if (price <= 0){
+    alert('price field must be more than 0')
+    return;
 
-       const newspot=await dispatch(createOneSpot(spotinfo)).catch(
-        async(res) =>{
-          const data=await res.json();
-          if(data && data.errors) setErrors(data.errors);
-        }
-       );
-      // if (newspot){
-      //  history.push(`/spots/${newspot.id}`)}
-      if(newspot){
-        history.push('/spots/current');
-      }
+   } else if (description.length>30 || description.length<3){
+    alert('description must be between 4 and 30 characters')
+    return;
+   } else dispatch(createOneSpot(spotinfo)).catch(
+    async(res)=>{
+      const data=await res.json();
+      if(data && data.errors) setErrors(data.errors);
+    }
+   )
+   return history.push('/spots/current');
+  }
 
-    };
+
+    //    const newspot=await dispatch(createOneSpot(spotinfo)).catch(
+    //     async(res) =>{
+    //       const data=await res.json();
+    //       if(data && data.errors) setErrors(data.errors);
+    //     }
+    //    );
+
+    //   if(newspot){
+    //     history.push('/spots/current');
+    //   }
+
+    // };
 
 
 
