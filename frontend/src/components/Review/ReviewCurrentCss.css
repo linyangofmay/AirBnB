@@ -27,9 +27,10 @@
   grid-template-columns: auto auto;
   grid-template-rows: auto;
   gap: 10px; */
-  width:80%;
-  padding-left:80px;
-  padding-right:80px;
+  width:84%;
+  /* padding-left:80px;
+  padding-right:80px; */
+  margin:auto;
   margin-top:10px;
   display:grid;
   grid-template-columns: repeat(2, 50%);
