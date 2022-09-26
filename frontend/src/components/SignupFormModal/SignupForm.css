@@ -57,10 +57,10 @@
 }
 .signup_error{
   display: flex;
-  text-align: start;
+  /* text-align: start; */
   justify-content: flex-start;
   align-items: flex-start;
-  color: tomato;
+  color: #ff385C;
   font-family:sans-serif;
   /* margin-left: -110px; */
 
