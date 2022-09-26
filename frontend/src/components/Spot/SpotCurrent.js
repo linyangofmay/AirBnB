@@ -10,7 +10,7 @@ const SpotCurrent = () => {
   const spotsObj = useSelector(state => state.spot)
 
   const spotsArr = Object.values(spotsObj)
-  //console.log('spotsArr----------------', spotsArr);
+  console.log('spotsArr----------------', spotsArr);
 
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const SpotCurrent = () => {
       <div className='myspotbody_div'>
 
         {spotsArr.map((spot) => (
-          <div key={spot.id} className='myspoteachspot_nav'>
+          <div key={spot?.id} className='myspoteachspot_nav'>
 
             <NavLink className='myspot_navlink' to={`/spots/${spot.id}`}>
 
@@ -45,7 +45,7 @@ const SpotCurrent = () => {
 
 
               <div className='myspot_rate_div'>
-                
+
                  <div style={{fontweight:'600'}}>{spot.city}, {spot.state}</div>
                 <div>
                 {spot.avgRating ? Number.parseFloat(spot.avgRating).toFixed(2) : 0} <i className="fas fa-solid fa-star"></i></div>
@@ -62,7 +62,7 @@ const SpotCurrent = () => {
             <div className='myspotbtns_div'>
               <NavLink to={`/spots/${spot.id}/edit`}><button className='myspot_btn'>EDIT</button></NavLink>
 
-              <button className='myspot_btn' onClick={() => dispatch(removespot(spot.id))}>DELETE</button>
+              <button className='myspot_btn' onClick={() => dispatch(removespot(spot?.id))}>DELETE</button>
             </div>
 
           </div>
