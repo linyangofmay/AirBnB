@@ -128,7 +128,7 @@ const SpotDetail = () => {
         <div className='sdhost_div'>
           <div>Spot hosted by {spoty?.owners?.firstName}  </div>
           <div >
-            {(sessionUser && Object.values(sessionUser).length > 0 && spotOwner !== userReview && !existingreview.length ) && <button className='addreview_btn'><NavLink className='addreview_btn' to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
+            {(sessionUser && Object.values(sessionUser).length > 0 && spotOwner !== userReview && !existingreview.length ) && <button className='addreview_btn'><NavLink className='addreview_btnlink' to={`/spots/${spotId}/reviews`}>Leave a Review</NavLink></button>}
           </div>
         </div>
 
