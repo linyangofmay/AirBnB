@@ -102,7 +102,7 @@ function SpotCreate(){
           type="text"
           name="name"
           value={name}
-          placeholder='name'
+          placeholder='name need to be more than 3 letters'
           onChange={(e)=>setName(e.target.value)}
           className='createspot_input'
           required
@@ -114,7 +114,7 @@ function SpotCreate(){
           type="text"
           name="description"
           value={description}
-          placeholder='description'
+          placeholder='description need to be more than 3 letters'
           required
           onChange={(e)=>setDescription(e.target.value)}
           className='createspot_input'
@@ -127,7 +127,7 @@ function SpotCreate(){
           type="text"
           name="address"
           value={address}
-          placeholder='address'
+          placeholder='address need to be more than 3 letters'
           onChange={(e)=>setAddress(e.target.value)}
           className='createspot_input'
           required
