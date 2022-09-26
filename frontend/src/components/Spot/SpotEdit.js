@@ -82,19 +82,23 @@ function SpotEdit(){
     e.preventDefault()
     setErrors([]);
     const spotinfo={name, description, address, city, state, country, lat, lng, price, imageurl};
-    const updatedspot = await dispatch(updatespot(spotId,spotinfo)).catch(async(res)=>{
-      const data = await res.json()
-      console.log('data----------------', data);
-      if(data && data.errors) setErrors(data.errors)
-    });
-    console.log('dispatchhelper')
-    if(updatedspot ){
-    //  history.push(`/spots/${dispatchhelper.id}`);
-      // history.push(`/`);
-    history.push('/spots/current');
+    if(!(/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageurl))&& !(imageurl.includes('unsplash'))  ){
+      alert ("image filed is required")
+      return;
+     } else if (price <= 0){
+      alert('price field must be more than 0')
+      return;
 
-    // history.push(`/spots`)
-  }
+     } else if (description.length>30 || description.length<3){
+      alert('description must be between 4 and 30 characters')
+      return;
+     } else dispatch(updatespot(spotId, spotinfo)).catch(async(res)=>{
+      const data=await res.json();
+      if(data && data.errors) setErrors(data.errors);
+     })
+     return history.push('/spots/current');
+
+
 }
    if(editspot){
 
