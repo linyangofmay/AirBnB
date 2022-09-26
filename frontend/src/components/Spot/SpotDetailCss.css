@@ -15,7 +15,8 @@ body {
   }
 
   .sdcontainer_div{
-    width:74.5%;
+    max-width:1140px;
+    width:75%;
     font-family:sans-serif;
     font-size:16px;
 
