@@ -79,7 +79,7 @@
 
 }
 .deletereview_btn:hover{
-  box-shadow: 5px 5px 5px 5px rgb(180, 180, 180);
+  box-shadow: 5px 5px 5px 5px rgb(240, 240, 240);
   transition-duration:200ms;
   cursor:pointer
 }
